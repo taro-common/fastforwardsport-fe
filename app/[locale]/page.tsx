@@ -1,9 +1,12 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
 export default function Home() {
+  const t = useTranslations("home");
+
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
 
@@ -260,10 +263,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              CORE <span className="text-accent-yellow">BUSINESS UNITS</span>
+              4 CORE <span className="text-accent-yellow">BUSINESS UNITS</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Building Thailand's comprehensive motorsport ecosystem
+              {t("building_thailand_s_comprehensive_motorsport_ecosystem")}
             </p>
           </div>
 
