@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "หน้าแรก",
+    "about": "เกี่ยวกับเรา",
+    "services": "บริการ",
+    "projects": "โครงการ",
+    "facilities": "สิ่งอำนวยความสะดวก",
+    "contact": "ติดต่อเรา",
+    "getInTouch": "ติดต่อเรา"
+  },
+  "common": {
+    "language": "ภาษา",
+    "thai": "ไทย",
+    "english": "English"
+  },
+  "home": {
+    "title": "Fast Forward Sport",
+    "subtitle": "ความเป็นเลิศด้านวิศวกรรมมอเตอร์สปอร์ต"
+  },
+  "footer": {
+    "rights": "สงวนลิขสิทธิ์."
+  }
+}

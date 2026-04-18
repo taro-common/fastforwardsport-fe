@@ -1,19 +1,38 @@
 "use client";
 
-import Link from "next/link";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const t = useTranslations("nav");
+  const tCommon = useTranslations("common");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/about", label: "ABOUT" },
-    { href: "/services", label: "SERVICES" },
-    { href: "/projects", label: "PROJECTS" },
-    { href: "/facilities", label: "FACILITIES" },
-    { href: "/contact", label: "CONTACT" },
+    { href: "/", label: t("home") },
+    { href: "/about", label: t("about") },
+    { href: "/services", label: t("services") },
+    { href: "/projects", label: t("projects") },
+    { href: "/facilities", label: t("facilities") },
+    { href: "/contact", label: t("contact") },
   ];
+
+  const languages = [
+    { code: "en", name: "English", flag: "🇬🇧" },
+    { code: "th", name: "ไทย", flag: "🇹🇭" },
+  ];
+
+  const currentLanguage = languages.find((lang) => lang.code === locale);
+
+  const handleLanguageChange = (newLocale: string) => {
+    router.replace(pathname, { locale: newLocale });
+    setIsLangOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-zinc-800">
@@ -47,8 +66,66 @@ export default function Navigation() {
               href="/contact"
               className="bg-accent-yellow text-black px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-accent-lime transition-colors duration-200"
             >
-              GET IN TOUCH
+              {t("getInTouch")}
             </Link>
+
+            {/* Language Switcher - Desktop */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center space-x-2 text-sm font-medium text-zinc-300 hover:text-accent-yellow transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-zinc-900"
+                aria-label="Toggle language"
+              >
+                <span className="text-xl">{currentLanguage?.flag}</span>
+                <span>{currentLanguage?.code.toUpperCase()}</span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${
+                    isLangOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Language Dropdown */}
+              {isLangOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-zinc-900 border border-zinc-800 rounded-lg shadow-lg py-1">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleLanguageChange(lang.code)}
+                      className={`w-full flex items-center space-x-3 px-4 py-2 text-sm hover:bg-zinc-800 transition-colors ${
+                        locale === lang.code
+                          ? "text-accent-yellow"
+                          : "text-zinc-300"
+                      }`}
+                    >
+                      <span className="text-xl">{lang.flag}</span>
+                      <span>{lang.name}</span>
+                      {locale === lang.code && (
+                        <svg
+                          className="w-4 h-4 ml-auto"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,8 +172,47 @@ export default function Navigation() {
               className="block mt-4 bg-accent-yellow text-black px-6 py-3 rounded-full font-semibold text-center hover:bg-accent-lime transition-colors duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
-              GET IN TOUCH
+              {t("getInTouch")}
             </Link>
+
+            {/* Language Switcher - Mobile */}
+            <div className="mt-4 pt-4 border-t border-zinc-800">
+              <div className="text-xs font-semibold text-zinc-500 px-3 mb-2">
+                {tCommon("language")}
+              </div>
+              <div className="space-y-1">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      handleLanguageChange(lang.code);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-base transition-colors ${
+                      locale === lang.code
+                        ? "bg-zinc-900 text-accent-yellow"
+                        : "text-zinc-300 hover:bg-zinc-900"
+                    }`}
+                  >
+                    <span className="text-xl">{lang.flag}</span>
+                    <span>{lang.name}</span>
+                    {locale === lang.code && (
+                      <svg
+                        className="w-5 h-5 ml-auto"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}

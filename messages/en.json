@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "home": "HOME",
+    "about": "ABOUT",
+    "services": "SERVICES",
+    "projects": "PROJECTS",
+    "facilities": "FACILITIES",
+    "contact": "CONTACT",
+    "getInTouch": "GET IN TOUCH"
+  },
+  "common": {
+    "language": "Language",
+    "thai": "ไทย",
+    "english": "English"
+  },
+  "home": {
+    "title": "Fast Forward Sport",
+    "subtitle": "Motorsport Engineering Excellence"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
