@@ -52,34 +52,69 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightboxImage, lightboxIndex]);
 
+  // const coreBusinessUnits = [
+  //   {
+  //     title: "RAAT Championship",
+  //     description:
+  //       "Professional rally team competing at the highest level in Thailand and Asia-Pacific region.",
+  //     icon: "🏆",
+  //     link: "/services#rally",
+  //   },
+  //   {
+  //     title: "Fast Forward Racing Academy",
+  //     description:
+  //       "Comprehensive driver development programs from grassroots to professional racing.",
+  //     icon: "🎓",
+  //     link: "/services#academy",
+  //   },
+  //   {
+  //     title: "Fast Forward Engineering",
+  //     description:
+  //       "Advanced motorsport engineering services, R&D, and performance optimization.",
+  //     icon: "⚙️",
+  //     link: "/services#engineering",
+  //   },
+  //   {
+  //     title: "Fast Forward Channel",
+  //     description:
+  //       "Digital content platform sharing motorsport stories, technical knowledge, and lifestyle.",
+  //     icon: "📺",
+  //     link: "/services#media",
+  //   },
+  // ];
+
   const coreBusinessUnits = [
     {
-      title: "RAAT Championship",
-      description:
-        "Professional rally team competing at the highest level in Thailand and Asia-Pacific region.",
-      icon: "🏆",
-      link: "/services#rally",
+      title: "MOTORSPORT",
+      headline: t("the_business_engine"),
+      description: t(
+        "championship_racing_team_product_testing_lab_brand_credibility_platform",
+      ),
+      icon: "🏁",
+      link: "/services/motorsport",
     },
     {
-      title: "Fast Forward Racing Academy",
-      description:
-        "Comprehensive driver development programs from grassroots to professional racing.",
-      icon: "🎓",
-      link: "/services#academy",
+      title: "FAST-S",
+      headline: t("motorsport_engineering_garage"),
+      description: t(
+        "professional_service_center_product_installation_customer_experience_hub",
+      ),
+      icon: "🛠️",
+      link: "/services/fast-s",
     },
     {
-      title: "Fast Forward Engineering",
-      description:
-        "Advanced motorsport engineering services, R&D, and performance optimization.",
+      title: "Engineering & R&D",
+      headline: t("collaborate_with_manufacturer"),
+      description: t("vehicle_development_data_analysis_technical_innovation"),
       icon: "⚙️",
-      link: "/services#engineering",
+      link: "/services/tcd",
     },
     {
-      title: "Fast Forward Channel",
-      description:
-        "Digital content platform sharing motorsport stories, technical knowledge, and lifestyle.",
-      icon: "📺",
-      link: "/services#media",
+      title: "DISTRIBUTOR",
+      headline: t("premium_products"),
+      description: t("official_distribution_of_powerbrake_sabelt_wurth_ff_sport_merchandise"),
+      icon: "📦",
+      link: "/services/distributor",
     },
   ];
 
@@ -280,9 +315,12 @@ export default function Home() {
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {unit.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent-yellow transition-colors">
+                <h3 className="text-sm font-bold text-white mb-3 group-hover:text-accent-yellow transition-colors">
                   {unit.title}
                 </h3>
+                <p className="text-xl text-zinc-300 font-bold mb-1">
+                  {unit.headline}
+                </p>
                 <p className="text-zinc-400">{unit.description}</p>
               </Link>
             ))}
