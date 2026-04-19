@@ -269,7 +269,7 @@ export default function AboutPage() {
 
           {/* Internal Culture Slogan */}
           <div className="mt-16 text-center">
-            <div className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-full">
+            <div className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-lg">
               <p className="text-3xl font-bold">
                 &ldquo;Let&apos;s go Forward&rdquo;
               </p>
@@ -327,7 +327,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
+            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
             GET IN TOUCH
           </Link>

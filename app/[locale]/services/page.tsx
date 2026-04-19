@@ -222,7 +222,7 @@ export default function ServicesPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
+            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
             REQUEST A QUOTE
           </Link>

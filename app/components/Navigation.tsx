@@ -64,7 +64,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="bg-accent-yellow text-black px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-accent-lime transition-colors duration-200"
+              className="bg-accent-yellow text-black px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-accent-lime transition-colors duration-200"
             >
               {t("getInTouch")}
             </Link>
@@ -169,7 +169,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="block mt-4 bg-accent-yellow text-black px-6 py-3 rounded-full font-semibold text-center hover:bg-accent-lime transition-colors duration-200"
+              className="block mt-4 bg-accent-yellow text-black px-6 py-3 rounded-lg font-semibold text-center hover:bg-accent-lime transition-colors duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
               {t("getInTouch")}

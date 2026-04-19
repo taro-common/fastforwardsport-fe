@@ -186,13 +186,24 @@ export default function Home() {
     },
   ];
 
+  // const partners = [
+  //   "Toyota Gazoo Racing Thailand",
+  //   "TCD Asia",
+  //   "Powerbrake",
+  //   "WÜRTH",
+  //   "Sabelt",
+  //   "Empire Motor Group",
+  // ];
+
   const partners = [
-    "Toyota Gazoo Racing Thailand",
-    "TCD Asia",
-    "Powerbrake",
-    "WÜRTH",
-    "Sabelt",
-    "Empire Motor Group",
+    {
+      name: "Toyota Gazoo Racing Thailand",
+      logo: "/partner/toyota.png",
+    },
+    {
+      name: "TCD Asia",
+      logo: "/partner/tcd.png",
+    },
   ];
 
   const newsArticles = [
@@ -284,7 +295,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/services"
-              className="bg-accent-yellow text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
+              className="bg-accent-yellow text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
             >
               EXPLORE OUR SERVICES
             </Link>
@@ -311,7 +322,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              4 CORE <span className="text-accent-yellow">BUSINESS UNITS</span>
+              CORE <span className="text-accent-yellow">BUSINESS UNITS</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
               {t("building_thailand_s_comprehensive_motorsport_ecosystem")}
@@ -476,7 +487,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/projects"
-              className="inline-block bg-accent-purple text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-600 transition-colors duration-200"
+              className="inline-block bg-accent-purple text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors duration-200"
             >
               VIEW ALL PROJECTS
             </Link>
@@ -500,14 +511,12 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {partners.map((partner, index) => (
-              <div
+              <img
                 key={index}
-                className="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30"
-              >
-                <p className="text-white text-center font-semibold text-sm">
-                  {partner}
-                </p>
-              </div>
+                src={partner.logo}
+                alt={partner.name}
+                className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30"
+              />
             ))}
           </div>
         </div>
@@ -556,7 +565,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link
               href="/projects"
-              className="inline-block bg-accent-yellow text-black px-8 py-3 rounded-full font-semibold hover:bg-accent-lime transition-colors duration-200"
+              className="inline-block bg-accent-yellow text-black px-8 py-3 rounded-lg font-semibold hover:bg-accent-lime transition-colors duration-200"
             >
               VIEW ALL STORIES
             </Link>
@@ -717,7 +726,7 @@ export default function Home() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
+            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
             GET IN TOUCH
           </Link>

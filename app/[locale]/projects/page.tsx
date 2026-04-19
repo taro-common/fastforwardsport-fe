@@ -1,3 +1,5 @@
+import { Link } from "@/i18n/routing";
+
 export default function ProjectsPage() {
   const projects = [
     {
@@ -237,12 +239,12 @@ export default function ProjectsPage() {
           <p className="text-xl text-zinc-300 mb-10">
             Let's discuss how we can help you achieve your motorsport goals
           </p>
-          <a
+          <Link
             href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
+            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
             GET IN TOUCH
-          </a>
+          </Link>
         </div>
       </section>
     </div>
