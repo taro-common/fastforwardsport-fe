@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
           <Image
-            src="/images/img9.jpg"
+            src="/images/img31.jpg"
             alt="Fast Forward Sport Team"
             fill
             className="object-cover"
@@ -135,9 +135,9 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden">
+            <div className="relative h-96 rounded-xl overflow-hidden">
               <Image
-                src="/images/img10.jpg"
+                src="/images/img31.jpg"
                 alt="Fast Forward Sport Racing"
                 fill
                 className="object-cover"

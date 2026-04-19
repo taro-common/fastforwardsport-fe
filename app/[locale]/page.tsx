@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
+import ProjectItem from "../components/ProjectItem";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -293,6 +294,44 @@ export default function Home() {
     "col-span-2 row-span-1 lg:col-span-1 lg:row-span-1",
   ];
 
+  const services = [
+    {
+      tag: "MOTORSPORT",
+      title: "The Business Engine",
+      date: "2024-2025",
+      description:
+        "Championship racing team, product testing lab, brand credibility platform",
+      image: "/images/img21.jpg",
+      color: "bg-accent-yellow",
+    },
+    {
+      tag: "FAST-S",
+      title: "Motorsport Engineering Garage",
+      date: "2024-2025",
+      description:
+        "Professional service center, product installation, customer experience hub",
+      image: "/images/img21.jpg",
+      color: "bg-accent-yellow",
+    },
+    {
+      tag: "Engineering & R&D",
+      title: "Collaborate with Manufacturer",
+      date: "2024-2025",
+      description: "Vehicle development, data analysis, technical innovation",
+      image: "/images/img21.jpg",
+      color: "bg-accent-yellow",
+    },
+    {
+      tag: "DISTRIBUTOR",
+      title: "Premium Products",
+      date: "2024-2025",
+      description:
+        "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise",
+      image: "/images/img21.jpg",
+      color: "bg-accent-yellow",
+    },
+  ];
+
   return (
     <div className="bg-black">
       {/* Hero Section */}
@@ -402,7 +441,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {coreBusinessUnits.map((unit, index) => (
               <Link
                 key={index}
@@ -420,6 +459,11 @@ export default function Home() {
                 </p>
                 <p className="text-zinc-400">{unit.description}</p>
               </Link>
+            ))}
+          </div> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
+            {services.map((unit, index) => (
+              <ProjectItem key={index} project={unit} />
             ))}
           </div>
         </div>
