@@ -186,15 +186,6 @@ export default function Home() {
     },
   ];
 
-  // const partners = [
-  //   "Toyota Gazoo Racing Thailand",
-  //   "TCD Asia",
-  //   "Powerbrake",
-  //   "WÜRTH",
-  //   "Sabelt",
-  //   "Empire Motor Group",
-  // ];
-
   const partners = [
     {
       name: "Toyota Gazoo Racing Thailand",
@@ -299,7 +290,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="text-accent-yellow">EXPERT TECHNOLOGY</span>
             <br />
@@ -308,10 +299,10 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl mx-auto">
             From Championship Racing to Engineering Innovation
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Link
               href="/services"
-              className="bg-accent-yellow text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
+              className="bg-accent-yellow text-black text-center px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
             >
               EXPLORE OUR SERVICES
             </Link>
@@ -333,7 +324,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 Core Business Units Section */}
+      {/* Gallery Section */}
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              OUR <span className="text-accent-yellow">GALLERY</span>
+            </h2>
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+              Behind the scenes of championship-winning performance
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer"
+                onClick={() => openLightbox(image.src)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-center">
+                    <svg
+                      className="w-12 h-12 text-white mx-auto mb-2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                    </svg>
+                    <span className="text-white text-sm font-semibold">
+                      {image.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="absolute top-3 left-3 bg-accent-yellow text-black text-xs font-bold px-3 py-1 rounded-full">
+                  {image.category}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Business Units Section */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -585,57 +627,6 @@ export default function Home() {
             >
               VIEW ALL STORIES
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              OUR <span className="text-accent-yellow">GALLERY</span>
-            </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Behind the scenes of championship-winning performance
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {galleryImages.map((image, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer"
-                onClick={() => openLightbox(image.src)}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center">
-                    <svg
-                      className="w-12 h-12 text-white mx-auto mb-2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                    </svg>
-                    <span className="text-white text-sm font-semibold">
-                      {image.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="absolute top-3 left-3 bg-accent-yellow text-black text-xs font-bold px-3 py-1 rounded-full">
-                  {image.category}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

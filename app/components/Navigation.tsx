@@ -29,6 +29,14 @@ export default function Navigation() {
 
   const currentLanguage = languages.find((lang) => lang.code === locale);
 
+  const isActivePath = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   const handleLanguageChange = (newLocale: string) => {
     router.replace(pathname, { locale: newLocale });
     setIsLangOpen(false);
@@ -57,7 +65,12 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-zinc-300 hover:text-accent-yellow transition-colors duration-200"
+                aria-current={isActivePath(link.href) ? "page" : undefined}
+                className={`text-sm font-medium transition-colors duration-200 pb-1 ${
+                  isActivePath(link.href)
+                    ? "text-accent-yellow border-b border-accent-yellow"
+                    : "text-zinc-300 hover:text-accent-yellow"
+                }`}
               >
                 {link.label}
               </Link>
@@ -161,7 +174,12 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block px-3 py-3 text-base font-medium text-zinc-300 hover:text-accent-yellow hover:bg-zinc-900 rounded-lg transition-colors duration-200"
+                aria-current={isActivePath(link.href) ? "page" : undefined}
+                className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
+                  isActivePath(link.href)
+                    ? "bg-zinc-900 text-accent-yellow"
+                    : "text-zinc-300 hover:text-accent-yellow hover:bg-zinc-900"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
