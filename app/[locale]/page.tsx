@@ -275,6 +275,22 @@ export default function Home() {
       alt: "Technical Development",
       category: "Engineering",
     },
+    {
+      src: "/images/img17.jpg",
+      alt: "RAAT Championship Racing",
+      category: "Motorsport",
+    },
+  ];
+
+  const galleryLayoutClasses = [
+    "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+    "col-span-1 row-span-1",
+    "col-span-2 row-span-1 lg:col-span-1 lg:row-span-1",
   ];
 
   return (
@@ -336,11 +352,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[180px]">
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer"
+                className={`group relative overflow-hidden cursor-pointer min-h-45 ${
+                  galleryLayoutClasses[index] ?? "col-span-1 row-span-1"
+                }`}
                 onClick={() => openLightbox(image.src)}
               >
                 <img
@@ -365,9 +383,6 @@ export default function Home() {
                       {image.category}
                     </span>
                   </div>
-                </div>
-                <div className="absolute top-3 left-3 bg-accent-yellow text-black text-xs font-bold px-3 py-1 rounded-full">
-                  {image.category}
                 </div>
               </div>
             ))}

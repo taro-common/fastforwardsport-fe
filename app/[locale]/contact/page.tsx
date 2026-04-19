@@ -49,7 +49,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
           <img
-            src="/images/img26.jpg"
+            src="/images/img2.jpg"
             alt="Contact"
             className="w-full h-full object-cover"
           />
