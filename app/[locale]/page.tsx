@@ -204,6 +204,22 @@ export default function Home() {
       name: "TCD Asia",
       logo: "/partner/tcd.png",
     },
+    {
+      name: "Powerbrake",
+      logo: "/partner/powerbrake.png",
+    },
+    {
+      name: "WÜRTH",
+      logo: "/partner/wurth.png",
+    },
+    {
+      name: "Sabelt",
+      logo: "/partner/sabelt.jpg",
+    },
+    {
+      name: "Empire Motor Group",
+      logo: "/partner/emc.jpg",
+    },
   ];
 
   const newsArticles = [

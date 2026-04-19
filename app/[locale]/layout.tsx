@@ -6,6 +6,7 @@ import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import PageTransition from "../components/PageTransition";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -53,7 +54,9 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={messages}>
           <Navigation />
-          <main className="flex-1 pt-20">{children}</main>
+          <main className="flex-1 pt-20">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </NextIntlClientProvider>
       </body>

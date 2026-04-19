@@ -399,13 +399,13 @@ export default function FacilitiesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105 text-center"
+              className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105 text-center"
             >
               SCHEDULE FACILITY TOUR
             </Link>
             <Link
               href="/contact"
-              className="inline-block bg-transparent border-2 border-accent-yellow text-accent-yellow px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-yellow hover:text-black transition-all duration-200 transform hover:scale-105 text-center"
+              className="inline-block bg-transparent border-2 border-accent-yellow text-accent-yellow px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-yellow hover:text-black transition-all duration-200 transform hover:scale-105 text-center"
             >
               INQUIRE ABOUT CAPACITY
             </Link>
