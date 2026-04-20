@@ -3,7 +3,7 @@
     "home": "หน้าแรก",
     "about": "เกี่ยวกับเรา",
     "services": "บริการ",
-    "projects": "โครงการ",
+    "projects": "ผลงาน",
     "facilities": "สิ่งอำนวยความสะดวก",
     "contact": "ติดต่อเรา",
     "getInTouch": "ติดต่อเรา"
@@ -15,18 +15,706 @@
   },
   "home": {
     "title": "Fast Forward Sport",
-    "subtitle": "ความเป็นเลิศด้านวิศวกรรมมอเตอร์สปอร์ต",
-    "building_thailand_s_comprehensive_motorsport_ecosystem": "สร้างระบบนิเวศมอเตอร์สปอร์ตที่ครอบคลุมของประเทศไทย",
-    "the_business_engine": "ขุมพลังแห่งธุรกิจ",
-    "championship_racing_team_product_testing_lab_brand_credibility_platform": "ทีมแข่งระดับแชมเปียนชิป ศูนย์ทดสอบผลิตภัณฑ์ และแพลตฟอร์มเสริมความน่าเชื่อถือของแบรนด์",
-    "motorsport_engineering_garage": "ศูนย์บริการวิศวกรรมรถแข่ง",
-    "professional_service_center_product_installation_customer_experience_hub": "ศูนย์บริการมืออาชีพ ติดตั้งผลิตภัณฑ์ และศูนย์ประสบการณ์ลูกค้า",
-    "collaborate_with_manufacturer": "ร่วมมือกับผู้ผลิต",
-    "vehicle_development_data_analysis_technical_innovation": "พัฒนารถยนต์ วิเคราะห์ข้อมูล และนวัตกรรมทางเทคนิค",
-    "premium_products": "ผลิตภัณฑ์พรีเมียม",
-    "official_distribution_of_powerbrake_sabelt_wurth_ff_sport_merchandise": "ตัวแทนจำหน่ายอย่างเป็นทางการของ Powerbrake, Sabelt, WURTH และสินค้าของ FF SPORT"
+    "subtitle": "ความเป็นเลิศด้านวิศวกรรม Motorsport",
+    "hero": {
+      "backgroundAlt": "รถแข่ง RAAT Championship",
+      "line1": "EXPERT TECHNOLOGY",
+      "line2": "FOR LIFE",
+      "description": "จาก Championship Racing สู่ Engineering Innovation",
+      "cta": "ดูบริการของเรา"
+    },
+    "gallery": {
+      "description": "เบื้องหลังผลงานระดับแชมเปียนชิป",
+      "zoomLabel": "ดูภาพ",
+      "imageCount": "{current} จาก {total}",
+      "images": [
+        { "alt": "การแข่งขัน Rally ระดับแชมเปียนชิป", "category": "Rally" },
+        { "alt": "งานพัฒนาเครื่องยนต์", "category": "Engineering" },
+        { "alt": "การแข่งขัน Circuit Racing", "category": "Racing" },
+        { "alt": "การประกอบรถแข่ง", "category": "Workshop" },
+        { "alt": "พื้นที่ภายใน Workshop", "category": "Facilities" },
+        { "alt": "การเตรียมรถ Rally", "category": "Rally" },
+        { "alt": "สมรรถนะบนสนามแข่ง", "category": "Racing" },
+        { "alt": "งานพัฒนาเชิงเทคนิค", "category": "Engineering" },
+        { "alt": "รถแข่ง RAAT Championship", "category": "Motorsport" }
+      ]
+    },
+    "coreBusiness": {
+      "description": "สร้าง Motorsport ecosystem ที่ครบวงจรของประเทศไทย"
+    },
+    "achievementsSection": {
+      "description": "ชัยชนะระดับแชมเปียนชิปและการยอมรับในระดับนานาชาติ"
+    },
+    "achievements": [
+      {
+        "title": "แชมป์ Thailand Rally Championship 2024 และ 2025",
+        "description": "ชนะเลิศ Overall และ Royal Cup",
+        "icon": "🏆"
+      },
+      {
+        "title": "แชมป์ TRRC 2025 Round 1",
+        "description": "Thailand Regional Rally Championship",
+        "icon": "🥇"
+      },
+      {
+        "title": "XCR Sprint Cup Hokkaido 2025",
+        "description": "จบการแข่งขันบนโพเดียม",
+        "icon": "🏅"
+      },
+      {
+        "title": "Asia Cross Country Rally (AXCR)",
+        "description": "คว้าโพเดียมหลายรายการ",
+        "icon": "🌏"
+      },
+      {
+        "title": "Rally Hokkaido Japan",
+        "description": "ได้รับการยอมรับระดับนานาชาติ",
+        "icon": "🇯🇵"
+      }
+    ],
+    "featuredProjectsSection": {
+      "description": "โปรเจกต์ล่าสุดและผลงานด้านวิศวกรรมที่โดดเด่น",
+      "viewAll": "ดูผลงานทั้งหมด"
+    },
+    "featuredProjects": [
+      {
+        "title": "รถแข่ง Thailand Rally Championship 2024",
+        "category": "CHAMPIONSHIP",
+        "image": "/images/img1.jpg",
+        "description": "สร้างรถ Rally แบบครบวงจรสำหรับแคมเปญแชมป์รายการ"
+      },
+      {
+        "title": "โครงการพัฒนาเครื่องยนต์ 4G63",
+        "category": "ENGINEERING",
+        "image": "/images/img2.jpg",
+        "description": "พัฒนาและเพิ่มประสิทธิภาพเครื่องยนต์สมรรถนะสูง"
+      },
+      {
+        "title": "การสนับสนุน Asia Pacific Circuit Series",
+        "category": "RACING",
+        "image": "/images/img3.jpg",
+        "description": "Race engineering และ technical support ระดับมืออาชีพ"
+      },
+      {
+        "title": "ผู้ผ่านโปรแกรม Rally Academy 2024",
+        "category": "ACADEMY",
+        "image": "/images/img4.jpg",
+        "description": "นักขับที่ผ่านการฝึกและต่อยอดสู่การแข่งขันระดับแชมเปียนชิป"
+      }
+    ],
+    "partnersSection": {
+      "description": "ความร่วมมือเชิงกลยุทธ์กับผู้นำในอุตสาหกรรมเพื่อขับเคลื่อนนวัตกรรมและการเติบโต"
+    },
+    "newsSection": {
+      "description": "เรื่องราวล่าสุด ความรู้เชิงเทคนิค และไลฟ์สไตล์ Motorsport",
+      "viewAll": "ดูเรื่องราวทั้งหมด"
+    },
+    "cta": {
+      "description": "ร่วมสร้างอนาคตของ Motorsport ไทยไปกับเรา",
+      "button": "ติดต่อเรา"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "เกี่ยวกับ",
+      "highlight": "เรา",
+      "description": "สร้าง Motorsport ecosystem ของประเทศไทยด้วยนวัตกรรมและความเป็นเลิศ"
+    },
+    "overview": {
+      "title": "เรา",
+      "highlight": "คือใคร",
+      "paragraphs": [
+        "Fast Forward Sport คือบริษัทวิศวกรรม Motorsport ชั้นนำของประเทศไทย ที่เปลี่ยนการแข่งขันให้กลายเป็น Business ecosystem ที่ยั่งยืน",
+        "เราผสานผลงานระดับแชมเปียนชิปเข้ากับนวัตกรรมด้านวิศวกรรม เพื่อสร้างคุณค่าให้กับลูกค้า พันธมิตร และชุมชน Motorsport"
+      ],
+      "quote": "เราไม่ได้แค่แข่ง แต่เราพัฒนาคน เทคโนโลยี และวัฒนธรรม Motorsport",
+      "signature": "Let's go Forward"
+    },
+    "vision": {
+      "title": "วิสัยทัศน์",
+      "highlight": "ของเรา",
+      "statement": "Expert Technology for Life",
+      "description": "ก้าวสู่การเป็นผู้นำด้านนวัตกรรมเทคโนโลยียานยนต์และ Motorsport ขับเคลื่อนการเติบโตอย่างยั่งยืน พัฒนาบุคลากรศักยภาพสูง และสร้างความแตกต่างที่ชัดเจนให้กับอุตสาหกรรมยานยนต์ไทยและตลาดโลก"
+    },
+    "mission": {
+      "title": "พันธกิจ",
+      "highlight": "หลัก",
+      "items": [
+        {
+          "title": "การพัฒนา Motorsport Ecosystem",
+          "description": "สร้างระบบนิเวศที่ครบวงจรผ่านกิจกรรมและการแข่งขันทั้งในประเทศและต่างประเทศ",
+          "icon": "🏁"
+        },
+        {
+          "title": "ผู้นำด้าน Technology & Innovation",
+          "description": "พัฒนา R&D center ด้านยานยนต์และ Motorsport ที่โดดเด่นของประเทศไทย",
+          "icon": "⚙️"
+        },
+        {
+          "title": "การพัฒนาทรัพยากรบุคคล",
+          "description": "สร้างบุคลากรศักยภาพสูงผ่านการเรียนรู้และนวัตกรรมอย่างต่อเนื่อง",
+          "icon": "👥"
+        },
+        {
+          "title": "การขยายธุรกิจและรายได้",
+          "description": "เพิ่มความหลากหลายของรายได้ผ่านผลิตภัณฑ์แบรนด์และโซลูชันใหม่ ๆ",
+          "icon": "📈"
+        },
+        {
+          "title": "ความมุ่งมั่นด้านความยั่งยืน",
+          "description": "นำเทคโนโลยีที่เป็นมิตรต่อสิ่งแวดล้อมมาใช้ในการดำเนินงาน",
+          "icon": "🌱"
+        },
+        {
+          "title": "การสื่อสารและการสร้างความสัมพันธ์",
+          "description": "สื่อสารอย่างโปร่งใสและสร้างแรงบันดาลใจกับทุกภาคส่วน",
+          "icon": "🤝"
+        }
+      ]
+    },
+    "milestonesSection": {
+      "title": "ผลงานและ",
+      "highlight": "หมุดหมายสำคัญ",
+      "description": "ชัยชนะระดับแชมเปียนชิปและการยอมรับในระดับนานาชาติ"
+    },
+    "milestones": [
+      {
+        "year": "2024",
+        "achievements": [
+          "แชมป์ RAAT Thailand Rally Championship Overall (ครบทั้ง 4 สนาม)",
+          "AXCR อันดับ 5 รุ่น T1D, อันดับ 10 Overall Category, อันดับ 23 Overall",
+          "เข้าร่วมการแข่งขันระดับนานาชาติ (Rally Hokkaido, Japan)"
+        ]
+      },
+      {
+        "year": "2025",
+        "achievements": [
+          "แชมป์ RAAT Thailand Rally Championship 2025",
+          "แชมป์ TRRC 2025 Round 1",
+          "ขึ้นโพเดียม XCR Sprint Cup Hokkaido"
+        ]
+      }
+    ],
+    "valuesSection": {
+      "title": "แนวทางการ",
+      "highlight": "ทำงาน",
+      "description": "คุณค่าที่เป็นรากฐานของทุกสิ่งที่เราทำ",
+      "slogan": "Let's go Forward"
+    },
+    "values": [
+      {
+        "title": "Teamwork และความสำเร็จร่วมกัน",
+        "description": "ทำงานแบบร่วมมือกันเพื่อบรรลุเป้าหมาย",
+        "icon": "🤝"
+      },
+      {
+        "title": "การพัฒนาและการเรียนรู้อย่างต่อเนื่อง",
+        "description": "มุ่งมั่นสู่การพัฒนาและนวัตกรรมอย่างสม่ำเสมอ",
+        "icon": "📚"
+      },
+      {
+        "title": "ความซื่อสัตย์และโปร่งใส",
+        "description": "สื่อสารอย่างตรงไปตรงมากับทุกภาคส่วน",
+        "icon": "💎"
+      },
+      {
+        "title": "ความอ่อนน้อมและให้เกียรติ",
+        "description": "ให้คุณค่ากับมุมมองและความเชี่ยวชาญที่หลากหลาย",
+        "icon": "🙏"
+      }
+    ],
+    "leadershipSection": {
+      "title": "ทีม",
+      "highlight": "ผู้นำของเรา",
+      "description": "ผู้เชี่ยวชาญที่ขับเคลื่อนนวัตกรรมและความเป็นเลิศ",
+      "members": [
+        {
+          "name": "Leadership Member 1",
+          "position": "Position Title",
+          "bio": "รายละเอียดประสบการณ์และความเชี่ยวชาญโดยย่อ"
+        },
+        {
+          "name": "Leadership Member 2",
+          "position": "Position Title",
+          "bio": "รายละเอียดประสบการณ์และความเชี่ยวชาญโดยย่อ"
+        },
+        {
+          "name": "Leadership Member 3",
+          "position": "Position Title",
+          "bio": "รายละเอียดประสบการณ์และความเชี่ยวชาญโดยย่อ"
+        }
+      ]
+    },
+    "cta": {
+      "title": "มาร่วมกัน",
+      "highlight": "สร้างอนาคต",
+      "description": "เป็นส่วนหนึ่งของการปฏิวัติวงการ Motorsport ไทย",
+      "button": "ติดต่อเรา"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "บริการ",
+      "highlight": "ของเรา",
+      "description": "โซลูชันด้านวิศวกรรม Motorsport แบบครบวงจรเพื่อความสำเร็จในการแข่งขัน"
+    },
+    "items": [
+      {
+        "category": "RALLY",
+        "title": "การเตรียมรถและการสนับสนุน Rally",
+        "description": "บริการเตรียมรถ Rally แบบครบวงจร ตั้งแต่การสร้างรถไปจนถึงการสนับสนุนการแข่งขันระดับแชมเปียนชิป",
+        "features": [
+          "สร้างและดัดแปลงรถ Rally แบบครบคัน",
+          "FIA homologation และ technical inspection",
+          "เตรียมความพร้อมและเซอร์วิสก่อนการแข่งขัน",
+          "Track-side technical support",
+          "บริการ recce และ pace note",
+          "งานระบบกลไกและไฟฟ้า"
+        ],
+        "color": "accent-yellow"
+      },
+      {
+        "category": "ENGINE",
+        "title": "การพัฒนาและ Tuning เครื่องยนต์",
+        "description": "สร้างเครื่องยนต์สมรรถนะสูง ทดสอบ Dyno และ calibration เพื่อพลังและความทนทานสูงสุด",
+        "features": [
+          "สร้างและโอเวอร์ฮอลเครื่องยนต์ตามสเปก",
+          "ระบบ Turbocharger และ Supercharger",
+          "Engine mapping และ ECU calibration",
+          "Dyno testing และ development",
+          "อัปเกรดและดัดแปลงสมรรถนะ",
+          "ทดสอบและยืนยันความทนทาน"
+        ],
+        "color": "accent-purple"
+      },
+      {
+        "category": "RACING",
+        "title": "การสนับสนุน Circuit Racing",
+        "description": "บริการ Race engineering และ technical support สำหรับการแข่งขัน Circuit Racing ทุกระดับ",
+        "features": [
+          "เซ็ตอัปและเพิ่มประสิทธิภาพรถแข่ง",
+          "การวิเคราะห์ข้อมูลและ telemetry",
+          "Track-side engineering support",
+          "ตั้งค่า geometry และ setup ช่วงล่าง",
+          "พัฒนาด้าน aerodynamic",
+          "สนับสนุนเทคนิคสำหรับการแข่งขันชิงแชมป์"
+        ],
+        "color": "accent-lime"
+      },
+      {
+        "category": "ACADEMY",
+        "title": "พัฒนาทักษะนักขับ",
+        "description": "โปรแกรมโค้ชนักขับและพัฒนาศักยภาพอย่างมืออาชีพ เพื่อเร่งเส้นทางสู่การเป็นนักแข่ง",
+        "features": [
+          "โค้ชแบบตัวต่อตัว",
+          "สอนขับใน Track day",
+          "พัฒนา race craft",
+          "ฝึกวิเคราะห์ข้อมูลการขับขี่",
+          "โปรแกรมเสริมสมรรถภาพร่างกาย",
+          "โค้ชด้านการเตรียมความพร้อมทางจิตใจ"
+        ],
+        "color": "accent-yellow"
+      },
+      {
+        "category": "SUPPORT",
+        "title": "ที่ปรึกษาด้านเทคนิค",
+        "description": "ให้คำปรึกษาด้านเทคนิคอย่างเชี่ยวชาญในทุกมิติของวิศวกรรม Motorsport",
+        "features": [
+          "ที่ปรึกษาด้านข้อกำหนดทางเทคนิค",
+          "วางแผนโปรเจกต์และงบประมาณ",
+          "คัดเลือกและกำหนดสเปกชิ้นส่วน",
+          "ติดตั้งอุปกรณ์ความปลอดภัย",
+          "สนับสนุนด้าน homologation ของรถ",
+          "โปรแกรมอบรมด้านเทคนิค"
+        ],
+        "color": "accent-purple"
+      },
+      {
+        "category": "FABRICATION",
+        "title": "งาน Fabrication ตามสั่ง",
+        "description": "ความสามารถด้าน Fabrication ภายในองค์กรสำหรับชิ้นส่วนเฉพาะทางและอุปกรณ์ Motorsport",
+        "features": [
+          "ออกแบบและผลิต roll cage",
+          "ระบบไอเสียตามสั่ง",
+          "งานระบบเชื้อเพลิง",
+          "เชื่อมอะลูมิเนียมและเหล็ก",
+          "บริการ CNC machining",
+          "ผลิตชิ้นส่วน composite"
+        ],
+        "color": "accent-lime"
+      }
+    ],
+    "process": {
+      "title": "ขั้นตอน",
+      "highlight": "การทำงาน",
+      "steps": [
+        {
+          "number": "1",
+          "title": "CONSULTATION",
+          "description": "พูดคุยเบื้องต้นเพื่อเข้าใจเป้าหมายและความต้องการของคุณ"
+        },
+        {
+          "number": "2",
+          "title": "PLANNING",
+          "description": "วางแผนโปรเจกต์และพัฒนารายละเอียดสเปกอย่างชัดเจน"
+        },
+        {
+          "number": "3",
+          "title": "EXECUTION",
+          "description": "ดำเนินงานอย่างมืออาชีพ พร้อมอัปเดตความคืบหน้าอย่างสม่ำเสมอ"
+        },
+        {
+          "number": "4",
+          "title": "SUPPORT",
+          "description": "ดูแลต่อเนื่องด้านเทคนิคและเพิ่มประสิทธิภาพการใช้งาน"
+        }
+      ]
+    },
+    "cta": {
+      "title": "พร้อมเริ่มต้นหรือยัง?",
+      "description": "ติดต่อเราเพื่อพูดคุยเกี่ยวกับความต้องการด้านวิศวกรรม Motorsport ของคุณ",
+      "button": "ขอใบเสนอราคา"
+    }
+  },
+  "projects": {
+    "hero": {
+      "title": "ผลงาน",
+      "highlight": "ของเรา",
+      "description": "รวมผลงานด้านวิศวกรรมล่าสุดและโซลูชันที่พาไปสู่ชัยชนะ"
+    },
+    "filters": {
+      "all": "ผลงานทั้งหมด",
+      "rally": "RALLY",
+      "engine": "ENGINE",
+      "racing": "RACING",
+      "academy": "ACADEMY"
+    },
+    "items": [
+      {
+        "tag": "RALLY",
+        "title": "WRC Rally1 Hybrid Development",
+        "date": "2025",
+        "description": "สนับสนุนด้านเทคนิคครบวงจรสำหรับโปรแกรม Rally1 Hybrid ทั้งการพัฒนา powertrain, vehicle dynamics และ event support",
+        "image": "/images/img18.jpg",
+        "color": "bg-accent-yellow"
+      },
+      {
+        "tag": "ENGINE",
+        "title": "Custom Turbo 2.5L Build",
+        "date": "2025",
+        "description": "สร้างเครื่องยนต์ใหม่ทั้งระบบพร้อม custom turbocharger ให้กำลัง 650bhp พร้อมความทนทานสูง",
+        "image": "/images/img19.jpg",
+        "color": "bg-accent-purple"
+      },
+      {
+        "tag": "RACING",
+        "title": "GT3 Championship Campaign",
+        "date": "2024",
+        "description": "สนับสนุน Race engineering ตลอดฤดูกาล ทั้งการพัฒนา setup, data analysis และ track-side support",
+        "image": "/images/img20.jpg",
+        "color": "bg-accent-lime"
+      },
+      {
+        "tag": "ACADEMY",
+        "title": "Junior Driver Development",
+        "date": "2024-2025",
+        "description": "โปรแกรมพัฒนานักขับแบบครบวงจร ตั้งแต่ Karting ไปจนถึง Single-seater",
+        "image": "/images/img21.jpg",
+        "color": "bg-accent-yellow"
+      },
+      {
+        "tag": "RALLY",
+        "title": "R5 Rally Car Development",
+        "date": "2024",
+        "description": "สร้างรถ R5 Rally แบบครบวงจร ทั้งการพัฒนาช่วงล่าง ปรับจูนเครื่องยนต์ และ homologation",
+        "image": "/images/img22.jpg",
+        "color": "bg-accent-purple"
+      },
+      {
+        "tag": "SUPPORT",
+        "title": "Historic Rally Restoration",
+        "date": "2024",
+        "description": "บูรณะและปรับปรุงรถ Group B Rally ให้ตรงตามมาตรฐาน FIA Historic specification",
+        "image": "/images/img23.jpg",
+        "color": "bg-accent-lime"
+      }
+    ],
+    "stats": {
+      "title": "สถิติ",
+      "highlight": "ผลงาน",
+      "items": [
+        { "value": "200+", "label": "โปรเจกต์ที่ส่งมอบแล้ว" },
+        { "value": "50+", "label": "ชัยชนะระดับแชมเปียนชิป" },
+        { "value": "98%", "label": "อัตราความสำเร็จ" },
+        { "value": "15", "label": "ประเทศที่ให้บริการ" }
+      ]
+    },
+    "cta": {
+      "title": "เริ่ม",
+      "highlight": "โปรเจกต์ของคุณวันนี้",
+      "description": "มาคุยกันว่าเราจะช่วยให้คุณไปถึงเป้าหมายในโลก Motorsport ได้อย่างไร",
+      "button": "ติดต่อเรา"
+    }
+  },
+  "facilities": {
+    "hero": {
+      "title": "สิ่งอำนวยความสะดวก",
+      "highlight": "ของเรา",
+      "description": "โครงสร้างพื้นฐานและศักยภาพทางเทคนิคระดับโลกเพื่อผลงานระดับแชมเปียนชิป"
+    },
+    "workshop": {
+      "title": "WORKSHOP",
+      "highlight": "GALLERY",
+      "description": "พื้นที่ทำงานที่ครบครันสำหรับงานวิศวกรรม Motorsport ระดับมืออาชีพ",
+      "items": [
+        {
+          "title": "พื้นที่ Workshop หลัก",
+          "description": "พื้นที่ทำงานควบคุมอุณหภูมิขนาด 8,000 ตารางฟุต พร้อมอุปกรณ์ระดับมืออาชีพ",
+          "image": "/images/img11.jpg",
+          "category": "Workshop Space"
+        },
+        {
+          "title": "ระบบยกรถ Hydraulic",
+          "description": "แท่นตั้งศูนย์แบบ 4 เสาและอุปกรณ์ยกระดับมืออาชีพ",
+          "image": "/images/img12.jpg",
+          "category": "Equipment"
+        },
+        {
+          "title": "ห้อง Engine Dyno",
+          "description": "Rolling road 1000bhp พร้อมระบบเก็บข้อมูลเต็มรูปแบบ",
+          "image": "/images/img13.jpg",
+          "category": "Testing"
+        },
+        {
+          "title": "พื้นที่ Fabrication",
+          "description": "สถานีเชื่อม TIG/MIG และเครื่องมือสำหรับงาน Fabrication ที่แม่นยำ",
+          "image": "/images/img14.jpg",
+          "category": "Fabrication"
+        },
+        {
+          "title": "การสร้างรถ Rally",
+          "description": "รถแข่งระดับแชมเปียนชิปที่อยู่ระหว่างการพัฒนา",
+          "image": "/images/img15.jpg",
+          "category": "Work in Progress"
+        },
+        {
+          "title": "การเตรียมรถแข่ง",
+          "description": "การเตรียมความพร้อมและตั้งค่าทางเทคนิคก่อนลงสนาม",
+          "image": "/images/img16.jpg",
+          "category": "Work in Progress"
+        }
+      ]
+    },
+    "equipmentSection": {
+      "title": "อุปกรณ์และ",
+      "highlight": "เครื่องมือ",
+      "description": "อุปกรณ์เฉพาะทางและเครื่องมือมาตรฐานสำหรับงานวิศวกรรม Motorsport ที่แม่นยำ"
+    },
+    "equipment": [
+      {
+        "category": "Diagnostic & Tuning",
+        "items": [
+          "Bosch Motorsport ECU Programming Suite",
+          "Cosworth Data Acquisition Systems",
+          "Professional Engine Dynamometer (1000bhp)",
+          "Emissions Analysis Equipment",
+          "Advanced Telemetry Systems"
+        ],
+        "icon": "⚙️"
+      },
+      {
+        "category": "Fabrication & Machining",
+        "items": [
+          "TIG/MIG Welding Stations (FIA Approved)",
+          "CNC Milling and Turning Centers",
+          "Laser Cutting Services",
+          "Composite Workshop Facilities",
+          "CAD/CAM Design Suite"
+        ],
+        "icon": "🔧"
+      },
+      {
+        "category": "Chassis & Suspension",
+        "items": [
+          "4-Post Alignment Rigs",
+          "Corner Weight Scales (ความละเอียด 0.1kg)",
+          "เครื่องมือวัด Suspension Geometry",
+          "Wheel Alignment Systems",
+          "Brake Dynamometer Testing"
+        ],
+        "icon": "🏎️"
+      },
+      {
+        "category": "Quality & Safety",
+        "items": [
+          "Workshop มาตรฐาน ISO 9001",
+          "มาตรฐานการเชื่อมที่ FIA รับรอง",
+          "อุปกรณ์ตรวจสอบระดับมืออาชีพ",
+          "3D Scanning and Modeling",
+          "ระบบสอบเทียบเครื่องมือแบบครบวงจร"
+        ],
+        "icon": "✓"
+      }
+    ],
+    "certificationsSection": {
+      "title": "การรับรองและ",
+      "highlight": "มาตรฐาน"
+    },
+    "certifications": [
+      "ISO 9001:2015 Quality Management",
+      "FIA Approved Welding & Fabrication",
+      "Motorsport UK Licensed Workshop",
+      "Environmental Management Certified"
+    ],
+    "capacitySection": {
+      "title": "ขีดความสามารถและ",
+      "highlight": "ความพร้อมให้บริการ",
+      "description": "ข้อมูลกำลังการรองรับของ Workshop และระยะเวลาการส่งมอบบริการ"
+    },
+    "capacityInfo": [
+      {
+        "title": "กำลังการรองรับของ Workshop",
+        "description": "จำนวนรถและโปรเจกต์ที่สามารถดำเนินงานพร้อมกันได้",
+        "details": [
+          "รองรับรถ Rally/Race car build ได้ 12 คันพร้อมกัน",
+          "รองรับโปรเจกต์พัฒนาเครื่องยนต์ 6 โปรเจกต์",
+          "มีพื้นที่ R&D และ Testing 4 เบย์",
+          "มีพื้นที่จัดเก็บรถมากกว่า 20 คัน"
+        ],
+        "icon": "🏭"
+      },
+      {
+        "title": "ระยะเวลาการให้บริการ",
+        "description": "ตัวอย่างไทม์ไลน์ของโปรเจกต์และกำหนดส่งมอบ",
+        "details": [
+          "เตรียมรถก่อนแข่ง: 3-5 วัน",
+          "โอเวอร์ฮอลเครื่องยนต์: 2-3 สัปดาห์",
+          "สร้างรถครบคัน: 8-12 สัปดาห์",
+          "งาน Fabrication: 1-4 สัปดาห์"
+        ],
+        "icon": "⏱️"
+      },
+      {
+        "title": "ตารางการจอง",
+        "description": "สถานะกำลังการผลิตและการนัดหมายปัจจุบัน",
+        "details": [
+          "เปิดรับโปรเจกต์สำหรับ Q2 2026",
+          "มีบริการเร่งด่วน",
+          "ยังมีคิวสำหรับการเตรียมรถก่อนฤดูกาล",
+          "ติดต่อเพื่อเช็กคิวว่างทันที"
+        ],
+        "icon": "📅"
+      }
+    ],
+    "bookingCalendar": {
+      "title": "ปฏิทิน",
+      "highlight": "การจอง",
+      "periods": [
+        {
+          "quarter": "Q2 2026",
+          "months": "เมษายน - มิถุนายน",
+          "status": "เหลือคิวจำกัด",
+          "booked": "ถูกจองแล้ว 75%",
+          "color": "bg-accent-lime",
+          "width": "w-full",
+          "textColor": "text-accent-lime"
+        },
+        {
+          "quarter": "Q3 2026",
+          "months": "กรกฎาคม - กันยายน",
+          "status": "มีคิวว่างค่อนข้างดี",
+          "booked": "ถูกจองแล้ว 50%",
+          "color": "bg-accent-yellow",
+          "width": "w-1/2",
+          "textColor": "text-accent-yellow"
+        },
+        {
+          "quarter": "Q4 2026",
+          "months": "ตุลาคม - ธันวาคม",
+          "status": "มีคิวว่างมาก",
+          "booked": "ถูกจองแล้ว 25%",
+          "color": "bg-accent-purple",
+          "width": "w-1/4",
+          "textColor": "text-accent-purple"
+        }
+      ]
+    },
+    "cta": {
+      "title": "สัมผัส",
+      "highlight": "สิ่งอำนวยความสะดวกของเรา",
+      "description": "นัดหมายเพื่อเยี่ยมชมสถานที่หรือสอบถามขีดความสามารถของ Workshop ได้เลย",
+      "primaryButton": "นัดหมายเยี่ยมชมสถานที่",
+      "secondaryButton": "สอบถามกำลังการรองรับ"
+    },
+    "contactInfo": {
+      "phoneLabel": "โทรศัพท์",
+      "emailLabel": "อีเมล",
+      "hoursLabel": "เวลาทำการ",
+      "hoursValue": "จันทร์-ศุกร์: 8:00 - 18:00 น."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "ติดต่อ",
+      "highlight": "เรา",
+      "description": "พร้อมเริ่มโปรเจกต์ Motorsport ของคุณแล้วหรือยัง? ติดต่อเราเพื่อพูดคุยความต้องการของคุณได้เลย"
+    },
+    "infoTitle": "ข้อมูล",
+    "infoHighlight": "การติดต่อ",
+    "labels": {
+      "email": "อีเมล",
+      "phone": "โทรศัพท์",
+      "address": "ที่อยู่",
+      "businessHours": "เวลาทำการ",
+      "followUs": "ติดตามเรา"
+    },
+    "address": [
+      "123 Motorsport Drive",
+      "Racing City, RC 12345",
+      "United States"
+    ],
+    "businessHours": [
+      "วันจันทร์ - ศุกร์: 8:00 - 18:00 น.",
+      "วันเสาร์: นัดหมายล่วงหน้า",
+      "วันอาทิตย์: ปิดทำการ"
+    ],
+    "form": {
+      "title": "ส่งข้อความถึงเรา",
+      "successTitle": "ขอบคุณครับ!",
+      "successDescription": "ส่งข้อความเรียบร้อยแล้ว เราจะติดต่อกลับหาคุณโดยเร็วที่สุด",
+      "name": "ชื่อ *",
+      "email": "อีเมล *",
+      "phone": "โทรศัพท์",
+      "service": "บริการที่สนใจ",
+      "message": "ข้อความ *",
+      "selectService": "เลือกบริการ",
+      "submit": "ส่งข้อความ",
+      "submitting": "กำลังส่ง...",
+      "options": {
+        "rally": "Rally Preparation",
+        "engine": "Engine Development",
+        "racing": "Circuit Racing Support",
+        "academy": "Driver Academy",
+        "consultancy": "Technical Consultancy",
+        "fabrication": "Custom Fabrication",
+        "other": "อื่น ๆ"
+      }
+    },
+    "mapLocation": "ตำแหน่งแผนที่"
   },
   "footer": {
-    "rights": "สงวนลิขสิทธิ์."
+    "description": "บริการวิศวกรรม Motorsport และ Racing support ระดับมืออาชีพ ส่งมอบความเป็นเลิศด้าน Rally, Circuit Racing และโซลูชันทางเทคนิค",
+    "quickLinks": "ลิงก์ด่วน",
+    "aboutUs": "เกี่ยวกับเรา",
+    "services": "บริการ",
+    "projects": "ผลงาน",
+    "facilities": "สิ่งอำนวยความสะดวก",
+    "contact": "ติดต่อ",
+    "contactForm": "ฟอร์มติดต่อ →",
+    "emailLabel": "อีเมล",
+    "phoneLabel": "โทรศัพท์",
+    "rights": "สงวนลิขสิทธิ์",
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "termsOfService": "ข้อกำหนดการใช้งาน"
   }
 }

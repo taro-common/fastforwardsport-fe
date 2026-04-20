@@ -1,86 +1,17 @@
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-export default function AboutPage() {
-  const missionPillars = [
-    {
-      title: "Motorsport Ecosystem Development",
-      description:
-        "Establish comprehensive ecosystem through national and international events",
-      icon: "🏁",
-    },
-    {
-      title: "Technology & Innovation Leadership",
-      description:
-        "Develop Thailand's premier R&D center for automotive and motorsport innovations",
-      icon: "⚙️",
-    },
-    {
-      title: "Human Resource Development",
-      description:
-        "Cultivate high-potential talent through continuous learning and innovation",
-      icon: "👥",
-    },
-    {
-      title: "Business Expansion & Revenue Growth",
-      description:
-        "Diversify revenue through branded products and innovative solutions",
-      icon: "📈",
-    },
-    {
-      title: "Sustainability Commitment",
-      description: "Implement eco-friendly technologies across operations",
-      icon: "🌱",
-    },
-    {
-      title: "Communication & Relationship Building",
-      description:
-        "Foster transparent, inspiring communication with stakeholders",
-      icon: "🤝",
-    },
-  ];
+type AboutItem = { title: string; description: string; icon: string };
+type Milestone = { year: string; achievements: string[] };
+type Leader = { name: string; position: string; bio: string };
 
-  const milestones = [
-    {
-      year: "2024",
-      achievements: [
-        "RAAT Thailand Rally Championship Overall Champion (All 4 Rounds)",
-        "AXCR 5th in T1D Class, 10th Overall Category, 23rd Overall",
-        "International participation (Rally Hokkaido, Japan)",
-      ],
-    },
-    {
-      year: "2025",
-      achievements: [
-        "RAAT Thailand Rally Championship 2025 Champion",
-        "TRRC 2025 Round 1 Champion",
-        "XCR Sprint Cup Hokkaido Podium",
-      ],
-    },
-  ];
-
-  const values = [
-    {
-      title: "Teamwork & Shared Success",
-      description: "Collaborative approach to achieving goals",
-      icon: "🤝",
-    },
-    {
-      title: "Continuous Development & Learning",
-      description: "Commitment to improvement and innovation",
-      icon: "📚",
-    },
-    {
-      title: "Honesty & Transparency",
-      description: "Open communication with all stakeholders",
-      icon: "💎",
-    },
-    {
-      title: "Humility & Respect",
-      description: "Valuing diverse perspectives and expertise",
-      icon: "🙏",
-    },
-  ];
+export default async function AboutPage() {
+  const t = await getTranslations("about");
+  const missionPillars = t.raw("mission.items") as AboutItem[];
+  const milestones = t.raw("milestones") as Milestone[];
+  const values = t.raw("values") as AboutItem[];
+  const leaders = t.raw("leadershipSection.members") as Leader[];
 
   return (
     <div className="bg-black">
@@ -98,11 +29,11 @@ export default function AboutPage() {
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            ABOUT <span className="text-accent-yellow">US</span>
+            {t("hero.title")}{" "}
+            <span className="text-accent-yellow">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
-            Building Thailand&apos;s motorsport ecosystem through innovation and
-            excellence
+            {t("hero.description")}
           </p>
         </div>
       </section>
@@ -113,25 +44,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
-                WHO WE <span className="text-accent-yellow">ARE</span>
+                {t("overview.title")}{" "}
+                <span className="text-accent-yellow">
+                  {t("overview.highlight")}
+                </span>
               </h2>
-              <p className="text-zinc-400 text-lg mb-4">
-                Fast Forward Sport is Thailand&apos;s leading motorsport
-                engineering company, transforming competitive racing into a
-                sustainable business ecosystem.
-              </p>
-              <p className="text-zinc-400 text-lg mb-4">
-                We combine championship-winning performance with innovative
-                engineering to create value for customers, partners, and the
-                motorsport community.
-              </p>
+              {(t.raw("overview.paragraphs") as string[]).map((paragraph) => (
+                <p key={paragraph} className="text-zinc-400 text-lg mb-4">
+                  {paragraph}
+                </p>
+              ))}
               <div className="bg-zinc-900 border-l-4 border-accent-yellow p-6 rounded-r-xl mt-8">
                 <p className="text-white text-xl font-semibold mb-2">
-                  &ldquo;We don&apos;t just race — we develop people,
-                  technology, and motorsport culture.&rdquo;
+                  &ldquo;{t("overview.quote")}&rdquo;
                 </p>
                 <p className="text-accent-yellow font-bold mt-4">
-                  Let&apos;s go Forward
+                  {t("overview.signature")}
                 </p>
               </div>
             </div>
@@ -153,17 +81,17 @@ export default function AboutPage() {
           {/* Vision */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              OUR <span className="text-accent-yellow">VISION</span>
+              {t("vision.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("vision.highlight")}
+              </span>
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-3xl font-bold text-accent-yellow mb-4">
-                &ldquo;Expert Technology for Life&rdquo;
+                &ldquo;{t("vision.statement")}&rdquo;
               </p>
               <p className="text-zinc-300 text-xl leading-relaxed">
-                To become the leading innovator in automotive and motorsport
-                technology, driving sustainable advancement, developing
-                high-potential personnel, and creating impactful differentiation
-                in Thailand&apos;s automotive industry and the global market.
+                {t("vision.description")}
               </p>
             </div>
           </div>
@@ -171,7 +99,10 @@ export default function AboutPage() {
           {/* Mission Pillars */}
           <div className="mt-16">
             <h3 className="text-3xl font-bold text-white mb-12 text-center">
-              MISSION <span className="text-accent-yellow">PILLARS</span>
+              {t("mission.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("mission.highlight")}
+              </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {missionPillars.map((pillar, index) => (
@@ -196,11 +127,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              TRACK RECORD &{" "}
-              <span className="text-accent-yellow">MILESTONES</span>
+              {t("milestonesSection.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("milestonesSection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Championship victories and international recognition
+              {t("milestonesSection.description")}
             </p>
           </div>
 
@@ -245,10 +178,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              HOW WE <span className="text-accent-yellow">WORK</span>
+              {t("valuesSection.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("valuesSection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              The values that guide everything we do
+              {t("valuesSection.description")}
             </p>
           </div>
 
@@ -271,7 +207,7 @@ export default function AboutPage() {
           <div className="mt-16 text-center">
             <div className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-lg">
               <p className="text-3xl font-bold">
-                &ldquo;Let&apos;s go Forward&rdquo;
+                &ldquo;{t("valuesSection.slogan")}&rdquo;
               </p>
             </div>
           </div>
@@ -283,31 +219,31 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              MEET OUR <span className="text-accent-yellow">LEADERSHIP</span>
+              {t("leadershipSection.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("leadershipSection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Experienced professionals driving innovation and excellence
+              {t("leadershipSection.description")}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Leadership team cards - placeholder for actual team members */}
-            {[1, 2, 3].map((item) => (
+            {leaders.map((leader) => (
               <div
-                key={item}
+                key={leader.name}
                 className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
               >
                 <div className="h-64 bg-linear-to-br from-accent-yellow to-accent-purple"></div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">
-                    Leadership Member {item}
+                    {leader.name}
                   </h3>
                   <p className="text-accent-yellow font-semibold mb-3">
-                    Position Title
+                    {leader.position}
                   </p>
-                  <p className="text-zinc-400 text-sm">
-                    Brief bio and expertise description
-                  </p>
+                  <p className="text-zinc-400 text-sm">{leader.bio}</p>
                 </div>
               </div>
             ))}
@@ -319,17 +255,15 @@ export default function AboutPage() {
       <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            JOIN US IN{" "}
-            <span className="text-accent-yellow">SHAPING THE FUTURE</span>
+            {t("cta.title")}{" "}
+            <span className="text-accent-yellow">{t("cta.highlight")}</span>
           </h2>
-          <p className="text-xl text-zinc-300 mb-10">
-            Be part of Thailand&apos;s motorsport revolution
-          </p>
+          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
           <Link
             href="/contact"
             className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
-            GET IN TOUCH
+            {t("cta.button")}
           </Link>
         </div>
       </section>

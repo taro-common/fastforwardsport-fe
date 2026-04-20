@@ -16,17 +16,705 @@
   "home": {
     "title": "Fast Forward Sport",
     "subtitle": "Motorsport Engineering Excellence",
-    "building_thailand_s_comprehensive_motorsport_ecosystem": "Building Thailand's comprehensive motorsport ecosystem",
-    "the_business_engine": "The Business Engine",
-    "championship_racing_team_product_testing_lab_brand_credibility_platform": "Championship racing team, product testing lab, brand credibility platform",
-    "motorsport_engineering_garage": "Motorsport engineering garage",
-    "professional_service_center_product_installation_customer_experience_hub": "Professional service center, product installation, customer experience hub",
-    "collaborate_with_manufacturer": "Collaborate with Manufacturer",
-    "vehicle_development_data_analysis_technical_innovation": "Vehicle development, data analysis, technical innovation",
-    "premium_products": "Premium Products",
-    "official_distribution_of_powerbrake_sabelt_wurth_ff_sport_merchandise": "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise"
+    "hero": {
+      "backgroundAlt": "RAAT Championship Racing",
+      "line1": "EXPERT TECHNOLOGY",
+      "line2": "FOR LIFE",
+      "description": "From Championship Racing to Engineering Innovation",
+      "cta": "EXPLORE OUR SERVICES"
+    },
+    "gallery": {
+      "description": "Behind the scenes of championship-winning performance",
+      "zoomLabel": "View image",
+      "imageCount": "{current} of {total}",
+      "images": [
+        { "alt": "Rally Championship Racing", "category": "Rally" },
+        { "alt": "Engine Development", "category": "Engineering" },
+        { "alt": "Circuit Racing", "category": "Racing" },
+        { "alt": "Race Car Build", "category": "Workshop" },
+        { "alt": "Workshop Floor", "category": "Facilities" },
+        { "alt": "Rally Car Preparation", "category": "Rally" },
+        { "alt": "Track Performance", "category": "Racing" },
+        { "alt": "Technical Development", "category": "Engineering" },
+        { "alt": "RAAT Championship Racing", "category": "Motorsport" }
+      ]
+    },
+    "coreBusiness": {
+      "description": "Building Thailand's comprehensive motorsport ecosystem"
+    },
+    "achievementsSection": {
+      "description": "Championship victories and international recognition"
+    },
+    "achievements": [
+      {
+        "title": "Thailand Rally Championship 2024 & 2025 Champion",
+        "description": "Overall & Royal Cup Winner",
+        "icon": "🏆"
+      },
+      {
+        "title": "TRRC 2025 Round 1 Champion",
+        "description": "Thailand Regional Rally Championship",
+        "icon": "🥇"
+      },
+      {
+        "title": "XCR Sprint Cup Hokkaido 2025",
+        "description": "Podium Finish",
+        "icon": "🏅"
+      },
+      {
+        "title": "Asia Cross Country Rally (AXCR)",
+        "description": "Multiple Podiums",
+        "icon": "🌏"
+      },
+      {
+        "title": "Rally Hokkaido Japan",
+        "description": "International Recognition",
+        "icon": "🇯🇵"
+      }
+    ],
+    "featuredProjectsSection": {
+      "description": "Latest builds and engineering achievements",
+      "viewAll": "VIEW ALL PROJECTS"
+    },
+    "featuredProjects": [
+      {
+        "title": "Thailand Rally Championship 2024 Build",
+        "category": "CHAMPIONSHIP",
+        "image": "/images/img1.jpg",
+        "description": "Complete rally car build for championship-winning campaign"
+      },
+      {
+        "title": "4G63 Engine Development Program",
+        "category": "ENGINEERING",
+        "image": "/images/img2.jpg",
+        "description": "High-performance engine development and optimization"
+      },
+      {
+        "title": "Asia Pacific Circuit Series Support",
+        "category": "RACING",
+        "image": "/images/img3.jpg",
+        "description": "Professional race engineering and technical support"
+      },
+      {
+        "title": "Rally Academy Graduates 2024",
+        "category": "ACADEMY",
+        "image": "/images/img4.jpg",
+        "description": "Successfully trained drivers progressing to championships"
+      }
+    ],
+    "partnersSection": {
+      "description": "Strategic partnerships with industry leaders driving innovation and growth"
+    },
+    "newsSection": {
+      "description": "Latest stories, technical insights, and motorsport lifestyle",
+      "viewAll": "VIEW ALL STORIES"
+    },
+    "cta": {
+      "description": "Join us in building Thailand's motorsport future",
+      "button": "GET IN TOUCH"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "ABOUT",
+      "highlight": "US",
+      "description": "Building Thailand's motorsport ecosystem through innovation and excellence"
+    },
+    "overview": {
+      "title": "WHO WE",
+      "highlight": "ARE",
+      "paragraphs": [
+        "Fast Forward Sport is Thailand's leading motorsport engineering company, transforming competitive racing into a sustainable business ecosystem.",
+        "We combine championship-winning performance with innovative engineering to create value for customers, partners, and the motorsport community."
+      ],
+      "quote": "We don't just race — we develop people, technology, and motorsport culture.",
+      "signature": "Let's go Forward"
+    },
+    "vision": {
+      "title": "OUR",
+      "highlight": "VISION",
+      "statement": "Expert Technology for Life",
+      "description": "To become the leading innovator in automotive and motorsport technology, driving sustainable advancement, developing high-potential personnel, and creating impactful differentiation in Thailand's automotive industry and the global market."
+    },
+    "mission": {
+      "title": "MISSION",
+      "highlight": "PILLARS",
+      "items": [
+        {
+          "title": "Motorsport Ecosystem Development",
+          "description": "Establish a comprehensive ecosystem through national and international events",
+          "icon": "🏁"
+        },
+        {
+          "title": "Technology & Innovation Leadership",
+          "description": "Develop Thailand's premier R&D center for automotive and motorsport innovation",
+          "icon": "⚙️"
+        },
+        {
+          "title": "Human Resource Development",
+          "description": "Cultivate high-potential talent through continuous learning and innovation",
+          "icon": "👥"
+        },
+        {
+          "title": "Business Expansion & Revenue Growth",
+          "description": "Diversify revenue through branded products and innovative solutions",
+          "icon": "📈"
+        },
+        {
+          "title": "Sustainability Commitment",
+          "description": "Implement eco-friendly technologies across operations",
+          "icon": "🌱"
+        },
+        {
+          "title": "Communication & Relationship Building",
+          "description": "Foster transparent, inspiring communication with stakeholders",
+          "icon": "🤝"
+        }
+      ]
+    },
+    "milestonesSection": {
+      "title": "TRACK RECORD &",
+      "highlight": "MILESTONES",
+      "description": "Championship victories and international recognition"
+    },
+    "milestones": [
+      {
+        "year": "2024",
+        "achievements": [
+          "RAAT Thailand Rally Championship Overall Champion (All 4 Rounds)",
+          "AXCR 5th in T1D Class, 10th Overall Category, 23rd Overall",
+          "International participation (Rally Hokkaido, Japan)"
+        ]
+      },
+      {
+        "year": "2025",
+        "achievements": [
+          "RAAT Thailand Rally Championship 2025 Champion",
+          "TRRC 2025 Round 1 Champion",
+          "XCR Sprint Cup Hokkaido Podium"
+        ]
+      }
+    ],
+    "valuesSection": {
+      "title": "HOW WE",
+      "highlight": "WORK",
+      "description": "The values that guide everything we do",
+      "slogan": "Let's go Forward"
+    },
+    "values": [
+      {
+        "title": "Teamwork & Shared Success",
+        "description": "Collaborative approach to achieving goals",
+        "icon": "🤝"
+      },
+      {
+        "title": "Continuous Development & Learning",
+        "description": "Commitment to improvement and innovation",
+        "icon": "📚"
+      },
+      {
+        "title": "Honesty & Transparency",
+        "description": "Open communication with all stakeholders",
+        "icon": "💎"
+      },
+      {
+        "title": "Humility & Respect",
+        "description": "Valuing diverse perspectives and expertise",
+        "icon": "🙏"
+      }
+    ],
+    "leadershipSection": {
+      "title": "MEET OUR",
+      "highlight": "LEADERSHIP",
+      "description": "Experienced professionals driving innovation and excellence",
+      "members": [
+        {
+          "name": "Leadership Member 1",
+          "position": "Position Title",
+          "bio": "Brief bio and expertise description"
+        },
+        {
+          "name": "Leadership Member 2",
+          "position": "Position Title",
+          "bio": "Brief bio and expertise description"
+        },
+        {
+          "name": "Leadership Member 3",
+          "position": "Position Title",
+          "bio": "Brief bio and expertise description"
+        }
+      ]
+    },
+    "cta": {
+      "title": "JOIN US IN",
+      "highlight": "SHAPING THE FUTURE",
+      "description": "Be part of Thailand's motorsport revolution",
+      "button": "GET IN TOUCH"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "OUR",
+      "highlight": "SERVICES",
+      "description": "Comprehensive motorsport engineering solutions for competitive racing success"
+    },
+    "items": [
+      {
+        "category": "RALLY",
+        "title": "Rally Preparation & Support",
+        "description": "Complete Rally car preparation services from initial build through to championship-level competition support.",
+        "features": [
+          "Full Rally car builds and conversions",
+          "FIA homologation and technical inspection",
+          "Event preparation and servicing",
+          "Track-side technical support",
+          "Recce and pace note services",
+          "Mechanical and electrical systems"
+        ],
+        "color": "accent-yellow"
+      },
+      {
+        "category": "ENGINE",
+        "title": "Engine Development & Tuning",
+        "description": "High-performance engine builds, dyno testing, and calibration services for maximum power and reliability.",
+        "features": [
+          "Custom engine builds and rebuilds",
+          "Turbocharger and supercharger systems",
+          "Engine mapping and ECU calibration",
+          "Dyno testing and development",
+          "Performance upgrades and modifications",
+          "Reliability testing and validation"
+        ],
+        "color": "accent-purple"
+      },
+      {
+        "category": "RACING",
+        "title": "Circuit Racing Support",
+        "description": "Professional race engineering and technical support for all levels of Circuit Racing competition.",
+        "features": [
+          "Race car setup and optimization",
+          "Data analysis and telemetry",
+          "Track-side engineering support",
+          "Suspension geometry and setup",
+          "Aerodynamic development",
+          "Championship technical support"
+        ],
+        "color": "accent-lime"
+      },
+      {
+        "category": "ACADEMY",
+        "title": "Driver Development",
+        "description": "Professional driver coaching and development programs designed to accelerate your racing career.",
+        "features": [
+          "One-on-one driver coaching",
+          "Track day instruction",
+          "Race craft development",
+          "Data analysis training",
+          "Physical fitness programs",
+          "Mental preparation coaching"
+        ],
+        "color": "accent-yellow"
+      },
+      {
+        "category": "SUPPORT",
+        "title": "Technical Consultancy",
+        "description": "Expert technical advice and consultancy services for all aspects of motorsport engineering.",
+        "features": [
+          "Technical regulations compliance",
+          "Project planning and budgeting",
+          "Component selection and specification",
+          "Safety equipment installation",
+          "Vehicle homologation support",
+          "Technical training programs"
+        ],
+        "color": "accent-purple"
+      },
+      {
+        "category": "FABRICATION",
+        "title": "Custom Fabrication",
+        "description": "In-house fabrication capabilities for custom components and specialist motorsport equipment.",
+        "features": [
+          "Roll cage design and fabrication",
+          "Custom exhaust systems",
+          "Fuel system fabrication",
+          "Aluminum and steel welding",
+          "CNC machining services",
+          "Composite component manufacture"
+        ],
+        "color": "accent-lime"
+      }
+    ],
+    "process": {
+      "title": "OUR",
+      "highlight": "PROCESS",
+      "steps": [
+        {
+          "number": "1",
+          "title": "CONSULTATION",
+          "description": "Initial discussion to understand your goals and requirements"
+        },
+        {
+          "number": "2",
+          "title": "PLANNING",
+          "description": "Detailed project planning and specification development"
+        },
+        {
+          "number": "3",
+          "title": "EXECUTION",
+          "description": "Professional implementation with regular progress updates"
+        },
+        {
+          "number": "4",
+          "title": "SUPPORT",
+          "description": "Ongoing technical support and performance optimization"
+        }
+      ]
+    },
+    "cta": {
+      "title": "READY TO GET STARTED?",
+      "description": "Contact us today to discuss your motorsport engineering needs",
+      "button": "REQUEST A QUOTE"
+    }
+  },
+  "projects": {
+    "hero": {
+      "title": "OUR",
+      "highlight": "PROJECTS",
+      "description": "Showcasing our latest engineering achievements and race-winning solutions"
+    },
+    "filters": {
+      "all": "ALL PROJECTS",
+      "rally": "RALLY",
+      "engine": "ENGINE",
+      "racing": "RACING",
+      "academy": "ACADEMY"
+    },
+    "items": [
+      {
+        "tag": "RALLY",
+        "title": "WRC Rally1 Hybrid Development",
+        "date": "2025",
+        "description": "Complete technical support for the Rally1 hybrid program including powertrain development, vehicle dynamics, and event support.",
+        "image": "/images/img18.jpg",
+        "color": "bg-accent-yellow"
+      },
+      {
+        "tag": "ENGINE",
+        "title": "Custom Turbo 2.5L Build",
+        "date": "2025",
+        "description": "Ground-up engine build with a custom turbocharger system, achieving 650bhp with exceptional reliability.",
+        "image": "/images/img19.jpg",
+        "color": "bg-accent-purple"
+      },
+      {
+        "tag": "RACING",
+        "title": "GT3 Championship Campaign",
+        "date": "2024",
+        "description": "Full-season race engineering support including setup development, data analysis, and track-side support.",
+        "image": "/images/img20.jpg",
+        "color": "bg-accent-lime"
+      },
+      {
+        "tag": "ACADEMY",
+        "title": "Junior Driver Development",
+        "date": "2024-2025",
+        "description": "Comprehensive driver development program from karting through to single-seaters.",
+        "image": "/images/img21.jpg",
+        "color": "bg-accent-yellow"
+      },
+      {
+        "tag": "RALLY",
+        "title": "R5 Rally Car Development",
+        "date": "2024",
+        "description": "Complete R5 Rally car build including suspension development, engine optimization, and homologation.",
+        "image": "/images/img22.jpg",
+        "color": "bg-accent-purple"
+      },
+      {
+        "tag": "SUPPORT",
+        "title": "Historic Rally Restoration",
+        "date": "2024",
+        "description": "Full restoration and modernization of a Group B Rally car to FIA Historic specification.",
+        "image": "/images/img23.jpg",
+        "color": "bg-accent-lime"
+      }
+    ],
+    "stats": {
+      "title": "PROJECT",
+      "highlight": "STATISTICS",
+      "items": [
+        { "value": "200+", "label": "Projects Completed" },
+        { "value": "50+", "label": "Championship Wins" },
+        { "value": "98%", "label": "Success Rate" },
+        { "value": "15", "label": "Countries Served" }
+      ]
+    },
+    "cta": {
+      "title": "START YOUR",
+      "highlight": "PROJECT TODAY",
+      "description": "Let's discuss how we can help you achieve your motorsport goals",
+      "button": "GET IN TOUCH"
+    }
+  },
+  "facilities": {
+    "hero": {
+      "title": "OUR",
+      "highlight": "FACILITIES",
+      "description": "World-class infrastructure and technical capability for championship-winning performance"
+    },
+    "workshop": {
+      "title": "WORKSHOP",
+      "highlight": "GALLERY",
+      "description": "State-of-the-art facilities equipped for professional motorsport engineering",
+      "items": [
+        {
+          "title": "Main Workshop Floor",
+          "description": "8,000 sq ft climate-controlled workspace with professional equipment",
+          "image": "/images/img11.jpg",
+          "category": "Workshop Space"
+        },
+        {
+          "title": "Hydraulic Lifting Systems",
+          "description": "4-post alignment rigs and professional lifting equipment",
+          "image": "/images/img12.jpg",
+          "category": "Equipment"
+        },
+        {
+          "title": "Engine Dyno Cell",
+          "description": "1000bhp rolling road with full data acquisition systems",
+          "image": "/images/img13.jpg",
+          "category": "Testing"
+        },
+        {
+          "title": "Fabrication Bay",
+          "description": "TIG/MIG welding stations and precision fabrication tools",
+          "image": "/images/img14.jpg",
+          "category": "Fabrication"
+        },
+        {
+          "title": "Rally Car Build",
+          "description": "Championship-winning cars under construction",
+          "image": "/images/img15.jpg",
+          "category": "Work in Progress"
+        },
+        {
+          "title": "Race Car Preparation",
+          "description": "Pre-event technical preparation and setup",
+          "image": "/images/img16.jpg",
+          "category": "Work in Progress"
+        }
+      ]
+    },
+    "equipmentSection": {
+      "title": "EQUIPMENT &",
+      "highlight": "TOOLS",
+      "description": "Specialized equipment and certified tools for precision motorsport engineering"
+    },
+    "equipment": [
+      {
+        "category": "Diagnostic & Tuning",
+        "items": [
+          "Bosch Motorsport ECU Programming Suite",
+          "Cosworth Data Acquisition Systems",
+          "Professional Engine Dynamometer (1000bhp)",
+          "Emissions Analysis Equipment",
+          "Advanced Telemetry Systems"
+        ],
+        "icon": "⚙️"
+      },
+      {
+        "category": "Fabrication & Machining",
+        "items": [
+          "TIG/MIG Welding Stations (FIA Approved)",
+          "CNC Milling and Turning Centers",
+          "Laser Cutting Services",
+          "Composite Workshop Facilities",
+          "CAD/CAM Design Suite"
+        ],
+        "icon": "🔧"
+      },
+      {
+        "category": "Chassis & Suspension",
+        "items": [
+          "4-Post Alignment Rigs",
+          "Corner Weight Scales (0.1kg accuracy)",
+          "Suspension Geometry Measurement",
+          "Wheel Alignment Systems",
+          "Brake Dynamometer Testing"
+        ],
+        "icon": "🏎️"
+      },
+      {
+        "category": "Quality & Safety",
+        "items": [
+          "ISO 9001 Certified Workshop",
+          "FIA Approved Welding Standards",
+          "Professional Inspection Equipment",
+          "3D Scanning and Modeling",
+          "Comprehensive Tool Calibration"
+        ],
+        "icon": "✓"
+      }
+    ],
+    "certificationsSection": {
+      "title": "CERTIFICATIONS &",
+      "highlight": "STANDARDS"
+    },
+    "certifications": [
+      "ISO 9001:2015 Quality Management",
+      "FIA Approved Welding & Fabrication",
+      "Motorsport UK Licensed Workshop",
+      "Environmental Management Certified"
+    ],
+    "capacitySection": {
+      "title": "CAPACITY &",
+      "highlight": "AVAILABILITY",
+      "description": "Workshop capacity and service delivery information"
+    },
+    "capacityInfo": [
+      {
+        "title": "Workshop Capacity",
+        "description": "Simultaneous vehicle capacity and project handling",
+        "details": [
+          "12 Rally/Race car build slots",
+          "6 Engine development projects",
+          "4 R&D and testing bays",
+          "Dedicated storage for 20+ vehicles"
+        ],
+        "icon": "🏭"
+      },
+      {
+        "title": "Service Turnaround",
+        "description": "Typical project timelines and delivery schedules",
+        "details": [
+          "Pre-race preparation: 3-5 days",
+          "Engine rebuild: 2-3 weeks",
+          "Complete build: 8-12 weeks",
+          "Fabrication work: 1-4 weeks"
+        ],
+        "icon": "⏱️"
+      },
+      {
+        "title": "Booking Availability",
+        "description": "Current capacity and scheduling information",
+        "details": [
+          "Accepting projects for Q2 2026",
+          "Rush service available",
+          "Pre-season preparation slots open",
+          "Contact for immediate availability"
+        ],
+        "icon": "📅"
+      }
+    ],
+    "bookingCalendar": {
+      "title": "BOOKING",
+      "highlight": "CALENDAR",
+      "periods": [
+        {
+          "quarter": "Q2 2026",
+          "months": "April - June",
+          "status": "Limited slots available",
+          "booked": "75% Booked",
+          "color": "bg-accent-lime",
+          "width": "w-full",
+          "textColor": "text-accent-lime"
+        },
+        {
+          "quarter": "Q3 2026",
+          "months": "July - Sept",
+          "status": "Good availability",
+          "booked": "50% Booked",
+          "color": "bg-accent-yellow",
+          "width": "w-1/2",
+          "textColor": "text-accent-yellow"
+        },
+        {
+          "quarter": "Q4 2026",
+          "months": "Oct - Dec",
+          "status": "Wide availability",
+          "booked": "25% Booked",
+          "color": "bg-accent-purple",
+          "width": "w-1/4",
+          "textColor": "text-accent-purple"
+        }
+      ]
+    },
+    "cta": {
+      "title": "EXPERIENCE OUR",
+      "highlight": "FACILITIES",
+      "description": "Schedule a facility tour or inquire about workshop capacity and availability",
+      "primaryButton": "SCHEDULE FACILITY TOUR",
+      "secondaryButton": "INQUIRE ABOUT CAPACITY"
+    },
+    "contactInfo": {
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "hoursLabel": "Hours",
+      "hoursValue": "Mon-Fri: 8:00 AM - 6:00 PM"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "GET IN",
+      "highlight": "TOUCH",
+      "description": "Ready to start your motorsport project? Contact us today to discuss your requirements"
+    },
+    "infoTitle": "CONTACT",
+    "infoHighlight": "INFORMATION",
+    "labels": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "businessHours": "Business Hours",
+      "followUs": "Follow Us"
+    },
+    "address": [
+      "123 Motorsport Drive",
+      "Racing City, RC 12345",
+      "United States"
+    ],
+    "businessHours": [
+      "Monday - Friday: 8:00 AM - 6:00 PM",
+      "Saturday: By appointment",
+      "Sunday: Closed"
+    ],
+    "form": {
+      "title": "Send us a Message",
+      "successTitle": "Thank You!",
+      "successDescription": "Your message has been sent successfully. We'll get back to you soon.",
+      "name": "Name *",
+      "email": "Email *",
+      "phone": "Phone",
+      "service": "Service Interested In",
+      "message": "Message *",
+      "selectService": "Select a service",
+      "submit": "SEND MESSAGE",
+      "submitting": "SENDING...",
+      "options": {
+        "rally": "Rally Preparation",
+        "engine": "Engine Development",
+        "racing": "Circuit Racing Support",
+        "academy": "Driver Academy",
+        "consultancy": "Technical Consultancy",
+        "fabrication": "Custom Fabrication",
+        "other": "Other"
+      }
+    },
+    "mapLocation": "Map Location"
   },
   "footer": {
-    "rights": "All rights reserved."
+    "description": "Professional motorsport engineering and racing support services. Delivering excellence in Rally, Circuit Racing, and technical solutions.",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "projects": "Projects",
+    "facilities": "Facilities",
+    "contact": "Contact",
+    "contactForm": "Contact Form →",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
   }
 }

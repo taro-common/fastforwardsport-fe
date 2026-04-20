@@ -1,8 +1,12 @@
+"use client";
+
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
 
   return (
     <footer className="bg-black border-t border-zinc-800">
@@ -19,23 +23,19 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
             </div>
-            <p className="text-zinc-400 mb-4 max-w-md">
-              Professional motorsport engineering and racing support services.
-              Delivering excellence in rally, circuit racing, and technical
-              solutions.
-            </p>
+            <p className="text-zinc-400 mb-4 max-w-md">{t("description")}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">{t("quickLinks")}</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/about"
                   className="text-zinc-400 hover:text-accent-yellow transition-colors"
                 >
-                  About Us
+                  {t("aboutUs")}
                 </Link>
               </li>
               <li>
@@ -43,7 +43,7 @@ export default function Footer() {
                   href="/services"
                   className="text-zinc-400 hover:text-accent-yellow transition-colors"
                 >
-                  Services
+                  {t("services")}
                 </Link>
               </li>
               <li>
@@ -51,7 +51,7 @@ export default function Footer() {
                   href="/projects"
                   className="text-zinc-400 hover:text-accent-yellow transition-colors"
                 >
-                  Projects
+                  {t("projects")}
                 </Link>
               </li>
               <li>
@@ -59,7 +59,7 @@ export default function Footer() {
                   href="/facilities"
                   className="text-zinc-400 hover:text-accent-yellow transition-colors"
                 >
-                  Facilities
+                  {t("facilities")}
                 </Link>
               </li>
             </ul>
@@ -67,16 +67,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <h3 className="text-white font-semibold mb-4">{t("contact")}</h3>
             <ul className="space-y-2 text-zinc-400">
-              <li>Email: fastforwardsport@outlook.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
+              <li>{t("emailLabel")}: fastforwardsport@outlook.com</li>
+              <li>{t("phoneLabel")}: +1 (555) 123-4567</li>
               <li>
                 <Link
                   href="/contact"
                   className="text-accent-yellow hover:text-accent-lime transition-colors"
                 >
-                  Contact Form →
+                  {t("contactForm")}
                 </Link>
               </li>
             </ul>
@@ -86,20 +86,20 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-zinc-500 text-sm">
-            © {currentYear} Fast Forward Sport. All rights reserved.
+            © {currentYear} Fast Forward Sport. {t("rights")}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link
               href="#"
               className="text-zinc-500 hover:text-accent-yellow transition-colors"
             >
-              Privacy Policy
+              {t("privacyPolicy")}
             </Link>
             <Link
               href="#"
               className="text-zinc-500 hover:text-accent-yellow transition-colors"
             >
-              Terms of Service
+              {t("termsOfService")}
             </Link>
           </div>
         </div>

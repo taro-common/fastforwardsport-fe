@@ -1,136 +1,34 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
-export default function FacilitiesPage() {
-  const workshopGallery = [
-    {
-      title: "Main Workshop Floor",
-      description:
-        "8,000 sq ft climate-controlled workspace with professional equipment",
-      image: "/images/img11.jpg",
-      category: "Workshop Space",
-    },
-    {
-      title: "Hydraulic Lifting Systems",
-      description: "4-post alignment rigs and professional lifting equipment",
-      image: "/images/img12.jpg",
-      category: "Equipment",
-    },
-    {
-      title: "Engine Dyno Cell",
-      description: "1000bhp rolling road with full data acquisition systems",
-      image: "/images/img13.jpg",
-      category: "Testing",
-    },
-    {
-      title: "Fabrication Bay",
-      description: "TIG/MIG welding stations and precision fabrication tools",
-      image: "/images/img14.jpg",
-      category: "Fabrication",
-    },
-    {
-      title: "Rally Car Build",
-      description: "Championship-winning cars under construction",
-      image: "/images/img15.jpg",
-      category: "Work in Progress",
-    },
-    {
-      title: "Race Car Preparation",
-      description: "Pre-event technical preparation and setup",
-      image: "/images/img16.jpg",
-      category: "Work in Progress",
-    },
-  ];
+type FacilitiesItem = {
+  title: string;
+  description: string;
+  image?: string;
+  category?: string;
+  items?: string[];
+  details?: string[];
+  icon?: string;
+};
 
-  const equipment = [
-    {
-      category: "Diagnostic & Tuning",
-      items: [
-        "Bosch Motorsport ECU Programming Suite",
-        "Cosworth Data Acquisition Systems",
-        "Professional Engine Dynamometer (1000bhp)",
-        "Emissions Analysis Equipment",
-        "Advanced Telemetry Systems",
-      ],
-      icon: "⚙️",
-    },
-    {
-      category: "Fabrication & Machining",
-      items: [
-        "TIG/MIG Welding Stations (FIA Approved)",
-        "CNC Milling and Turning Centers",
-        "Laser Cutting Services",
-        "Composite Workshop Facilities",
-        "CAD/CAM Design Suite",
-      ],
-      icon: "🔧",
-    },
-    {
-      category: "Chassis & Suspension",
-      items: [
-        "4-Post Alignment Rigs",
-        "Corner Weight Scales (0.1kg accuracy)",
-        "Suspension Geometry Measurement",
-        "Wheel Alignment Systems",
-        "Brake Dynamometer Testing",
-      ],
-      icon: "🏎️",
-    },
-    {
-      category: "Quality & Safety",
-      items: [
-        "ISO 9001 Certified Workshop",
-        "FIA Approved Welding Standards",
-        "Professional Inspection Equipment",
-        "3D Scanning and Modeling",
-        "Comprehensive Tool Calibration",
-      ],
-      icon: "✓",
-    },
-  ];
+type BookingPeriod = {
+  quarter: string;
+  months: string;
+  status: string;
+  booked: string;
+  color: string;
+  width: string;
+  textColor: string;
+};
 
-  const certifications = [
-    "ISO 9001:2015 Quality Management",
-    "FIA Approved Welding & Fabrication",
-    "Motorsport UK Licensed Workshop",
-    "Environmental Management Certified",
-  ];
-
-  const capacityInfo = [
-    {
-      title: "Workshop Capacity",
-      description: "Simultaneous vehicle capacity and project handling",
-      details: [
-        "12 Rally/Race car build slots",
-        "6 Engine development projects",
-        "4 R&D and testing bays",
-        "Dedicated storage for 20+ vehicles",
-      ],
-      icon: "🏭",
-    },
-    {
-      title: "Service Turnaround",
-      description: "Typical project timelines and delivery schedules",
-      details: [
-        "Pre-race preparation: 3-5 days",
-        "Engine rebuild: 2-3 weeks",
-        "Complete build: 8-12 weeks",
-        "Fabrication work: 1-4 weeks",
-      ],
-      icon: "⏱️",
-    },
-    {
-      title: "Booking Availability",
-      description: "Current capacity and scheduling information",
-      details: [
-        "Accepting projects for Q2 2026",
-        "Rush service available",
-        "Pre-season preparation slots open",
-        "Contact for immediate availability",
-      ],
-      icon: "📅",
-    },
-  ];
+export default async function FacilitiesPage() {
+  const t = await getTranslations("facilities");
+  const workshopGallery = t.raw("workshop.items") as Required<FacilitiesItem>[];
+  const equipment = t.raw("equipment") as Required<FacilitiesItem>[];
+  const certifications = t.raw("certifications") as string[];
+  const capacityInfo = t.raw("capacityInfo") as Required<FacilitiesItem>[];
+  const bookingPeriods = t.raw("bookingCalendar.periods") as BookingPeriod[];
 
   return (
     <div className="bg-black">
@@ -148,11 +46,11 @@ export default function FacilitiesPage() {
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            OUR <span className="text-accent-yellow">FACILITIES</span>
+            {t("hero.title")}{" "}
+            <span className="text-accent-yellow">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
-            World-class infrastructure and technical capability for
-            championship-winning performance
+            {t("hero.description")}
           </p>
         </div>
       </section>
@@ -162,11 +60,13 @@ export default function FacilitiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              WORKSHOP <span className="text-accent-yellow">GALLERY</span>
+              {t("workshop.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("workshop.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              State-of-the-art facilities equipped for professional motorsport
-              engineering
+              {t("workshop.description")}
             </p>
           </div>
 
@@ -204,11 +104,13 @@ export default function FacilitiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              EQUIPMENT & <span className="text-accent-yellow">TOOLS</span>
+              {t("equipmentSection.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("equipmentSection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Specialized equipment and certified tools for precision motorsport
-              engineering
+              {t("equipmentSection.description")}
             </p>
           </div>
 
@@ -253,8 +155,10 @@ export default function FacilitiesPage() {
           {/* Certifications */}
           <div className="bg-linear-to-r from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-700">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              CERTIFICATIONS &{" "}
-              <span className="text-accent-yellow">STANDARDS</span>
+              {t("certificationsSection.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("certificationsSection.highlight")}
+              </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {certifications.map((cert, index) => (
@@ -286,11 +190,13 @@ export default function FacilitiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              CAPACITY &{" "}
-              <span className="text-accent-yellow">AVAILABILITY</span>
+              {t("capacitySection.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("capacitySection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Workshop capacity and service delivery information
+              {t("capacitySection.description")}
             </p>
           </div>
 
@@ -335,48 +241,32 @@ export default function FacilitiesPage() {
           {/* Availability Calendar Placeholder */}
           <div className="mt-16 bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              BOOKING <span className="text-accent-yellow">CALENDAR</span>
+              {t("bookingCalendar.title")}{" "}
+              <span className="text-accent-yellow">
+                {t("bookingCalendar.highlight")}
+              </span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-black p-6 rounded-xl border border-zinc-700">
-                <div className="text-accent-lime text-lg font-bold mb-2">
-                  Q2 2026
+              {bookingPeriods.map((period) => (
+                <div
+                  key={period.quarter}
+                  className="bg-black p-6 rounded-xl border border-zinc-700"
+                >
+                  <div className={`${period.textColor} text-lg font-bold mb-2`}>
+                    {period.quarter}
+                  </div>
+                  <div className="text-white text-2xl font-bold mb-2">
+                    {period.months}
+                  </div>
+                  <div className="text-zinc-400 text-sm mb-4">
+                    {period.status}
+                  </div>
+                  <div
+                    className={`${period.color} h-2 rounded-full ${period.width} mb-2`}
+                  ></div>
+                  <div className="text-zinc-400 text-xs">{period.booked}</div>
                 </div>
-                <div className="text-white text-2xl font-bold mb-2">
-                  April - June
-                </div>
-                <div className="text-zinc-400 text-sm mb-4">
-                  Limited slots available
-                </div>
-                <div className="bg-accent-lime h-2 rounded-full mb-2"></div>
-                <div className="text-zinc-400 text-xs">75% Booked</div>
-              </div>
-              <div className="bg-black p-6 rounded-xl border border-zinc-700">
-                <div className="text-accent-yellow text-lg font-bold mb-2">
-                  Q3 2026
-                </div>
-                <div className="text-white text-2xl font-bold mb-2">
-                  July - Sept
-                </div>
-                <div className="text-zinc-400 text-sm mb-4">
-                  Good availability
-                </div>
-                <div className="bg-accent-yellow h-2 rounded-full w-1/2 mb-2"></div>
-                <div className="text-zinc-400 text-xs">50% Booked</div>
-              </div>
-              <div className="bg-black p-6 rounded-xl border border-zinc-700">
-                <div className="text-accent-purple text-lg font-bold mb-2">
-                  Q4 2026
-                </div>
-                <div className="text-white text-2xl font-bold mb-2">
-                  Oct - Dec
-                </div>
-                <div className="text-zinc-400 text-sm mb-4">
-                  Wide availability
-                </div>
-                <div className="bg-accent-purple h-2 rounded-full w-1/4 mb-2"></div>
-                <div className="text-zinc-400 text-xs">25% Booked</div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -387,12 +277,11 @@ export default function FacilitiesPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              EXPERIENCE OUR{" "}
-              <span className="text-accent-yellow">FACILITIES</span>
+              {t("cta.title")}{" "}
+              <span className="text-accent-yellow">{t("cta.highlight")}</span>
             </h2>
             <p className="text-xl text-zinc-300 mb-10">
-              Schedule a facility tour or inquire about workshop capacity and
-              availability
+              {t("cta.description")}
             </p>
           </div>
 
@@ -401,13 +290,13 @@ export default function FacilitiesPage() {
               href="/contact"
               className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105 text-center"
             >
-              SCHEDULE FACILITY TOUR
+              {t("cta.primaryButton")}
             </Link>
             <Link
               href="/contact"
               className="inline-block bg-transparent border-2 border-accent-yellow text-accent-yellow px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-yellow hover:text-black transition-all duration-200 transform hover:scale-105 text-center"
             >
-              INQUIRE ABOUT CAPACITY
+              {t("cta.secondaryButton")}
             </Link>
           </div>
 
@@ -425,7 +314,9 @@ export default function FacilitiesPage() {
               >
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              <div className="text-white font-semibold mb-1">Phone</div>
+              <div className="text-white font-semibold mb-1">
+                {t("contactInfo.phoneLabel")}
+              </div>
               <div className="text-zinc-400">+66 XX XXX XXXX</div>
             </div>
             <div>
@@ -440,7 +331,9 @@ export default function FacilitiesPage() {
               >
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
-              <div className="text-white font-semibold mb-1">Email</div>
+              <div className="text-white font-semibold mb-1">
+                {t("contactInfo.emailLabel")}
+              </div>
               <div className="text-zinc-400">fastforwardsport@outlook.com</div>
             </div>
             <div>
@@ -455,8 +348,10 @@ export default function FacilitiesPage() {
               >
                 <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <div className="text-white font-semibold mb-1">Hours</div>
-              <div className="text-zinc-400">Mon-Fri: 8:00 AM - 6:00 PM</div>
+              <div className="text-white font-semibold mb-1">
+                {t("contactInfo.hoursLabel")}
+              </div>
+              <div className="text-zinc-400">{t("contactInfo.hoursValue")}</div>
             </div>
           </div>
         </div>

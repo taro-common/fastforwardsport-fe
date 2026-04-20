@@ -7,6 +7,22 @@ import ProjectItem from "../components/ProjectItem";
 
 export default function Home() {
   const t = useTranslations("home");
+  const achievements = t.raw("achievements") as Array<{
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+  const featuredProjects = t.raw("featuredProjects") as Array<{
+    title: string;
+    category: string;
+    image: string;
+    description: string;
+  }>;
+
+  const galleryMessageImages = t.raw("gallery.images") as Array<{
+    alt: string;
+    category: string;
+  }>;
 
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
@@ -95,98 +111,6 @@ export default function Home() {
   //   },
   // ];
 
-  const coreBusinessUnits = [
-    {
-      title: "MOTORSPORT",
-      headline: t("the_business_engine"),
-      description: t(
-        "championship_racing_team_product_testing_lab_brand_credibility_platform",
-      ),
-      icon: "🏁",
-      link: "/services/motorsport",
-    },
-    {
-      title: "FAST-S",
-      headline: t("motorsport_engineering_garage"),
-      description: t(
-        "professional_service_center_product_installation_customer_experience_hub",
-      ),
-      icon: "🛠️",
-      link: "/services/fast-s",
-    },
-    {
-      title: "Engineering & R&D",
-      headline: t("collaborate_with_manufacturer"),
-      description: t("vehicle_development_data_analysis_technical_innovation"),
-      icon: "⚙️",
-      link: "/services/tcd",
-    },
-    {
-      title: "DISTRIBUTOR",
-      headline: t("premium_products"),
-      description: t(
-        "official_distribution_of_powerbrake_sabelt_wurth_ff_sport_merchandise",
-      ),
-      icon: "📦",
-      link: "/services/distributor",
-    },
-  ];
-
-  const achievements = [
-    {
-      title: "Thailand Rally Championship 2024 & 2025 Champion",
-      description: "Overall & Royal Cup Winner",
-      icon: "🏆",
-    },
-    {
-      title: "TRRC 2025 Round 1 Champion",
-      description: "Thailand Regional Rally Championship",
-      icon: "🥇",
-    },
-    {
-      title: "XCR Sprint Cup Hokkaido 2025",
-      description: "Podium Finish",
-      icon: "🏅",
-    },
-    {
-      title: "Asia Cross Country Rally (AXCR)",
-      description: "Multiple Podiums",
-      icon: "🌏",
-    },
-    {
-      title: "Rally Hokkaido Japan",
-      description: "International Recognition",
-      icon: "🇯🇵",
-    },
-  ];
-
-  const featuredProjects = [
-    {
-      title: "Thailand Rally Championship 2024 Build",
-      category: "CHAMPIONSHIP",
-      image: "/images/img1.jpg",
-      description: "Complete rally car build for championship-winning campaign",
-    },
-    {
-      title: "4G63 Engine Development Program",
-      category: "ENGINEERING",
-      image: "/images/img2.jpg",
-      description: "High-performance engine development and optimization",
-    },
-    {
-      title: "Asia Pacific Circuit Series Support",
-      category: "RACING",
-      image: "/images/img3.jpg",
-      description: "Professional race engineering and technical support",
-    },
-    {
-      title: "Rally Academy Graduates 2024",
-      category: "ACADEMY",
-      image: "/images/img4.jpg",
-      description: "Successfully trained drivers progressing to championships",
-    },
-  ];
-
   const partners = [
     {
       name: "Toyota Gazoo Racing Thailand",
@@ -238,48 +162,39 @@ export default function Home() {
   const galleryImages = [
     {
       src: "/images/img1.jpg",
-      alt: "Rally Championship Racing",
-      category: "Rally",
+      ...galleryMessageImages[0],
     },
     {
       src: "/images/img2.jpg",
-      alt: "Engine Development",
-      category: "Engineering",
+      ...galleryMessageImages[1],
     },
     {
       src: "/images/img3.jpg",
-      alt: "Circuit Racing",
-      category: "Racing",
+      ...galleryMessageImages[2],
     },
     {
       src: "/images/img10.jpg",
-      alt: "Race Car Build",
-      category: "Workshop",
+      ...galleryMessageImages[3],
     },
     {
       src: "/images/img11.jpg",
-      alt: "Workshop Floor",
-      category: "Facilities",
+      ...galleryMessageImages[4],
     },
     {
       src: "/images/img15.jpg",
-      alt: "Rally Car Preparation",
-      category: "Rally",
+      ...galleryMessageImages[5],
     },
     {
       src: "/images/img20.jpg",
-      alt: "Track Performance",
-      category: "Racing",
+      ...galleryMessageImages[6],
     },
     {
       src: "/images/img22.jpg",
-      alt: "Technical Development",
-      category: "Engineering",
+      ...galleryMessageImages[7],
     },
     {
       src: "/images/img17.jpg",
-      alt: "RAAT Championship Racing",
-      category: "Motorsport",
+      ...galleryMessageImages[8],
     },
   ];
 
@@ -340,26 +255,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-linear-to-br from-black/80 via-black/70 to-purple-900/50 z-10" />
           <img
             src="/images/img17.jpg"
-            alt="RAAT Championship Racing"
+            alt={t("hero.backgroundAlt")}
             className="w-full h-full object-cover"
           />
         </div>
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-accent-yellow">EXPERT TECHNOLOGY</span>
+            <span className="text-accent-yellow">{t("hero.line1")}</span>
             <br />
-            <span className="text-white">FOR LIFE</span>
+            <span className="text-white">{t("hero.line2")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl mx-auto">
-            From Championship Racing to Engineering Innovation
+          <p className="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl">
+            {t("hero.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
             <Link
               href="/services"
               className="bg-accent-yellow text-black text-center px-8 py-4 rounded-lg font-semibold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
             >
-              EXPLORE OUR SERVICES
+              {t("hero.cta")}
             </Link>
           </div>
         </div>
@@ -387,7 +302,7 @@ export default function Home() {
               OUR <span className="text-accent-yellow">GALLERY</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Behind the scenes of championship-winning performance
+              {t("gallery.description")}
             </p>
           </div>
 
@@ -437,7 +352,7 @@ export default function Home() {
               CORE <span className="text-accent-yellow">BUSINESS UNITS</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              {t("building_thailand_s_comprehensive_motorsport_ecosystem")}
+              {t("coreBusiness.description")}
             </p>
           </div>
 
@@ -477,7 +392,7 @@ export default function Home() {
               PROVEN <span className="text-accent-yellow">EXCELLENCE</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Championship victories and international recognition
+              {t("achievementsSection.description")}
             </p>
           </div>
 
@@ -508,7 +423,7 @@ export default function Home() {
               FEATURED <span className="text-accent-purple">PROJECTS</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Latest builds and engineering achievements
+              {t("featuredProjectsSection.description")}
             </p>
           </div>
 
@@ -550,7 +465,6 @@ export default function Home() {
               type="button"
               onClick={prevFeaturedProject}
               className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors"
-              aria-label="Previous featured project"
             >
               <svg
                 className="w-6 h-6"
@@ -569,7 +483,6 @@ export default function Home() {
               type="button"
               onClick={nextFeaturedProject}
               className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors"
-              aria-label="Next featured project"
             >
               <svg
                 className="w-6 h-6"
@@ -595,7 +508,6 @@ export default function Home() {
                       ? "w-8 bg-accent-yellow"
                       : "w-2.5 bg-zinc-600 hover:bg-zinc-400"
                   }`}
-                  aria-label={`Go to featured project ${index + 1}`}
                 />
               ))}
             </div>
@@ -606,7 +518,7 @@ export default function Home() {
               href="/projects"
               className="inline-block bg-accent-purple text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors duration-200"
             >
-              VIEW ALL PROJECTS
+              {t("featuredProjectsSection.viewAll")}
             </Link>
           </div>
         </div>
@@ -621,8 +533,7 @@ export default function Home() {
               <span className="text-accent-yellow">MOTORSPORT ECOSYSTEM</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-3xl mx-auto mb-12">
-              Strategic partnerships with industry leaders driving innovation
-              and growth
+              {t("partnersSection.description")}
             </p>
           </div>
 
@@ -647,7 +558,7 @@ export default function Home() {
               FAST FORWARD <span className="text-accent-yellow">CHANNEL</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              Latest stories, technical insights, and motorsport lifestyle
+              {t("newsSection.description")}
             </p>
           </div>
 
@@ -684,7 +595,7 @@ export default function Home() {
               href="/projects"
               className="inline-block bg-accent-yellow text-black px-8 py-3 rounded-lg font-semibold hover:bg-accent-lime transition-colors duration-200"
             >
-              VIEW ALL STORIES
+              {t("newsSection.viewAll")}
             </Link>
           </div>
         </div>
@@ -773,7 +684,10 @@ export default function Home() {
                 {galleryImages[lightboxIndex].alt}
               </p>
               <p className="text-zinc-400 text-xs">
-                {lightboxIndex + 1} of {galleryImages.length}
+                {t("gallery.imageCount", {
+                  current: lightboxIndex + 1,
+                  total: galleryImages.length,
+                })}
               </p>
             </div>
           </div>
@@ -787,14 +701,12 @@ export default function Home() {
             READY TO{" "}
             <span className="text-accent-yellow">EXPERIENCE FAST FORWARD?</span>
           </h2>
-          <p className="text-xl text-zinc-300 mb-10">
-            Join us in building Thailand's motorsport future
-          </p>
+          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
           <Link
             href="/contact"
             className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
-            GET IN TOUCH
+            {t("cta.button")}
           </Link>
         </div>
       </section>

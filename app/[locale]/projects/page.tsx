@@ -1,72 +1,32 @@
 import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 import ProjectItem from "../../components/ProjectItem";
 
-export default function ProjectsPage() {
-  const projects = [
-    {
-      tag: "RALLY",
-      title: "WRC Rally1 Hybrid Development",
-      date: "2025",
-      description:
-        "Complete technical support for Rally1 hybrid program including powertrain development, vehicle dynamics, and event support.",
-      image: "/images/img18.jpg",
-      color: "bg-accent-yellow",
-    },
-    {
-      tag: "ENGINE",
-      title: "Custom Turbo 2.5L Build",
-      date: "2025",
-      description:
-        "Ground-up engine build with custom turbocharger system, achieving 650bhp with exceptional reliability.",
-      image: "/images/img19.jpg",
-      color: "bg-accent-purple",
-    },
-    {
-      tag: "RACING",
-      title: "GT3 Championship Campaign",
-      date: "2024",
-      description:
-        "Full-season race engineering support including setup development, data analysis, and track-side support.",
-      image: "/images/img20.jpg",
-      color: "bg-accent-lime",
-    },
-    {
-      tag: "ACADEMY",
-      title: "Junior Driver Development",
-      date: "2024-2025",
-      description:
-        "Comprehensive driver development program from karting through to single-seaters.",
-      image: "/images/img21.jpg",
-      color: "bg-accent-yellow",
-    },
-    {
-      tag: "RALLY",
-      title: "R5 Rally Car Development",
-      date: "2024",
-      description:
-        "Complete R5 rally car build including suspension development, engine optimization, and homologation.",
-      image: "/images/img22.jpg",
-      results: ["FIA homologation", "Championship podium", "Zero DNFs"],
-      color: "bg-accent-purple",
-    },
-    {
-      tag: "SUPPORT",
-      title: "Historic Rally Restoration",
-      date: "2024",
-      description:
-        "Full restoration and modernization of Group B rally car to FIA Historic specification.",
-      image: "/images/img23.jpg",
-      results: ["Period-correct build", "FIA HTP papers", "Concours winner"],
-      color: "bg-accent-lime",
-    },
-  ];
+type Project = {
+  tag: string;
+  title: string;
+  date: string;
+  description: string;
+  image: string;
+  color: string;
+};
+
+type Stat = {
+  value: string;
+  label: string;
+};
+
+export default async function ProjectsPage() {
+  const t = await getTranslations("projects");
+  const projects = t.raw("items") as Project[];
+  const stats = t.raw("stats.items") as Stat[];
 
   return (
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
           <img
             src="/images/img24.jpg"
             alt="Projects"
@@ -75,11 +35,11 @@ export default function ProjectsPage() {
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            OUR <span className="text-accent-yellow">PROJECTS</span>
+            {t("hero.title")}{" "}
+            <span className="text-accent-yellow">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
-            Showcasing our latest engineering achievements and race-winning
-            solutions
+            {t("hero.description")}
           </p>
         </div>
       </section>
@@ -89,19 +49,19 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
             <button className="text-accent-yellow font-semibold border-b-2 border-accent-yellow pb-2 whitespace-nowrap">
-              ALL PROJECTS
+              {t("filters.all")}
             </button>
             <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
-              RALLY
+              {t("filters.rally")}
             </button>
             <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
-              ENGINE
+              {t("filters.engine")}
             </button>
             <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
-              RACING
+              {t("filters.racing")}
             </button>
             <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
-              ACADEMY
+              {t("filters.academy")}
             </button>
           </div>
         </div>
@@ -122,51 +82,35 @@ export default function ProjectsPage() {
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            PROJECT <span className="text-accent-yellow">STATISTICS</span>
+            {t("stats.title")}{" "}
+            <span className="text-accent-yellow">{t("stats.highlight")}</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl md:text-6xl font-bold text-accent-yellow mb-2">
-                200+
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <div className="text-5xl md:text-6xl font-bold text-accent-yellow mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-zinc-400 text-lg">{stat.label}</div>
               </div>
-              <div className="text-zinc-400 text-lg">Projects Completed</div>
-            </div>
-            <div>
-              <div className="text-5xl md:text-6xl font-bold text-accent-yellow mb-2">
-                50+
-              </div>
-              <div className="text-zinc-400 text-lg">Championship Wins</div>
-            </div>
-            <div>
-              <div className="text-5xl md:text-6xl font-bold text-accent-yellow mb-2">
-                98%
-              </div>
-              <div className="text-zinc-400 text-lg">Success Rate</div>
-            </div>
-            <div>
-              <div className="text-5xl md:text-6xl font-bold text-accent-yellow mb-2">
-                15
-              </div>
-              <div className="text-zinc-400 text-lg">Countries Served</div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-black via-purple-900/20 to-black">
+      <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            START YOUR <span className="text-accent-yellow">PROJECT TODAY</span>
+            {t("cta.title")}{" "}
+            <span className="text-accent-yellow">{t("cta.highlight")}</span>
           </h2>
-          <p className="text-xl text-zinc-300 mb-10">
-            Let's discuss how we can help you achieve your motorsport goals
-          </p>
+          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
           <Link
             href="/contact"
             className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
           >
-            GET IN TOUCH
+            {t("cta.button")}
           </Link>
         </div>
       </section>

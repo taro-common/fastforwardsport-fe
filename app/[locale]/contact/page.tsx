@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,7 +49,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
           <img
             src="/images/img2.jpg"
             alt="Contact"
@@ -56,11 +58,11 @@ export default function ContactPage() {
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            GET IN <span className="text-accent-yellow">TOUCH</span>
+            {t("hero.title")}{" "}
+            <span className="text-accent-yellow">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
-            Ready to start your motorsport project? Contact us today to discuss
-            your requirements
+            {t("hero.description")}
           </p>
         </div>
       </section>
@@ -72,12 +74,13 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold text-white mb-8">
-                CONTACT <span className="text-accent-yellow">INFORMATION</span>
+                {t("infoTitle")}{" "}
+                <span className="text-accent-yellow">{t("infoHighlight")}</span>
               </h2>
 
               <div className="space-y-6 mb-12">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 shrink-0">
                     <svg
                       className="w-6 h-6 text-black"
                       fill="none"
@@ -91,7 +94,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Email</h3>
+                    <h3 className="text-white font-semibold mb-1">
+                      {t("labels.email")}
+                    </h3>
                     <p className="text-zinc-400">
                       fastforwardsport@outlook.com
                     </p>
@@ -102,7 +107,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 shrink-0">
                     <svg
                       className="w-6 h-6 text-black"
                       fill="none"
@@ -116,14 +121,16 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Phone</h3>
+                    <h3 className="text-white font-semibold mb-1">
+                      {t("labels.phone")}
+                    </h3>
                     <p className="text-zinc-400">+1 (555) 123-4567</p>
                     <p className="text-zinc-400">+1 (555) 123-4568</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 shrink-0">
                     <svg
                       className="w-6 h-6 text-black"
                       fill="none"
@@ -138,15 +145,19 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Address</h3>
-                    <p className="text-zinc-400">123 Motorsport Drive</p>
-                    <p className="text-zinc-400">Racing City, RC 12345</p>
-                    <p className="text-zinc-400">United States</p>
+                    <h3 className="text-white font-semibold mb-1">
+                      {t("labels.address")}
+                    </h3>
+                    {(t.raw("address") as string[]).map((line) => (
+                      <p key={line} className="text-zinc-400">
+                        {line}
+                      </p>
+                    ))}
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 shrink-0">
                     <svg
                       className="w-6 h-6 text-black"
                       fill="none"
@@ -161,20 +172,22 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">
-                      Business Hours
+                      {t("labels.businessHours")}
                     </h3>
-                    <p className="text-zinc-400">
-                      Monday - Friday: 8:00 AM - 6:00 PM
-                    </p>
-                    <p className="text-zinc-400">Saturday: By appointment</p>
-                    <p className="text-zinc-400">Sunday: Closed</p>
+                    {(t.raw("businessHours") as string[]).map((line) => (
+                      <p key={line} className="text-zinc-400">
+                        {line}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
               <div>
-                <h3 className="text-white font-semibold mb-4">Follow Us</h3>
+                <h3 className="text-white font-semibold mb-4">
+                  {t("labels.followUs")}
+                </h3>
                 <div className="flex space-x-4">
                   <a
                     href="#"
@@ -236,7 +249,7 @@ export default function ContactPage() {
             <div>
               <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
                 <h2 className="text-2xl font-bold text-white mb-6">
-                  Send us a Message
+                  {t("form.title")}
                 </h2>
 
                 {submitted ? (
@@ -253,11 +266,10 @@ export default function ContactPage() {
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <h3 className="text-xl font-bold text-white mb-2">
-                      Thank You!
+                      {t("form.successTitle")}
                     </h3>
                     <p className="text-zinc-300">
-                      Your message has been sent successfully. We'll get back to
-                      you soon.
+                      {t("form.successDescription")}
                     </p>
                   </div>
                 ) : (
@@ -267,7 +279,7 @@ export default function ContactPage() {
                         htmlFor="name"
                         className="block text-white font-medium mb-2"
                       >
-                        Name *
+                        {t("form.name")}
                       </label>
                       <input
                         type="text"
@@ -285,7 +297,7 @@ export default function ContactPage() {
                         htmlFor="email"
                         className="block text-white font-medium mb-2"
                       >
-                        Email *
+                        {t("form.email")}
                       </label>
                       <input
                         type="email"
@@ -303,7 +315,7 @@ export default function ContactPage() {
                         htmlFor="phone"
                         className="block text-white font-medium mb-2"
                       >
-                        Phone
+                        {t("form.phone")}
                       </label>
                       <input
                         type="tel"
@@ -320,7 +332,7 @@ export default function ContactPage() {
                         htmlFor="service"
                         className="block text-white font-medium mb-2"
                       >
-                        Service Interested In
+                        {t("form.service")}
                       </label>
                       <select
                         id="service"
@@ -329,16 +341,24 @@ export default function ContactPage() {
                         onChange={handleChange}
                         className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-white focus:outline-none focus:border-accent-yellow transition-colors"
                       >
-                        <option value="">Select a service</option>
-                        <option value="rally">Rally Preparation</option>
-                        <option value="engine">Engine Development</option>
-                        <option value="racing">Circuit Racing Support</option>
-                        <option value="academy">Driver Academy</option>
-                        <option value="consultancy">
-                          Technical Consultancy
+                        <option value="">{t("form.selectService")}</option>
+                        <option value="rally">{t("form.options.rally")}</option>
+                        <option value="engine">
+                          {t("form.options.engine")}
                         </option>
-                        <option value="fabrication">Custom Fabrication</option>
-                        <option value="other">Other</option>
+                        <option value="racing">
+                          {t("form.options.racing")}
+                        </option>
+                        <option value="academy">
+                          {t("form.options.academy")}
+                        </option>
+                        <option value="consultancy">
+                          {t("form.options.consultancy")}
+                        </option>
+                        <option value="fabrication">
+                          {t("form.options.fabrication")}
+                        </option>
+                        <option value="other">{t("form.options.other")}</option>
                       </select>
                     </div>
 
@@ -347,7 +367,7 @@ export default function ContactPage() {
                         htmlFor="message"
                         className="block text-white font-medium mb-2"
                       >
-                        Message *
+                        {t("form.message")}
                       </label>
                       <textarea
                         id="message"
@@ -365,7 +385,7 @@ export default function ContactPage() {
                       disabled={isSubmitting}
                       className="w-full bg-accent-yellow text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
-                      {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
+                      {isSubmitting ? t("form.submitting") : t("form.submit")}
                     </button>
                   </form>
                 )}
@@ -394,7 +414,7 @@ export default function ContactPage() {
                   <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <p className="text-zinc-600">Map Location</p>
+                <p className="text-zinc-600">{t("mapLocation")}</p>
               </div>
             </div>
           </div>

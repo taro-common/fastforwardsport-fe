@@ -51,7 +51,7 @@ export default function Navigation() {
             <img
               src="/logo.jpg"
               alt="Fast Forward Sport Logo"
-              className="h-12 w-auto rounded-md object-cover"
+              className="h-12 w-auto object-cover"
             />
             <div className="text-xl md:text-2xl font-bold">
               <span className="text-white">FAST Forward</span>
