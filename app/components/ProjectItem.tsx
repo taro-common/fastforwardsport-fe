@@ -9,7 +9,7 @@ type Project = {
 
 export default function ProjectItem({ project }: { project: Project }) {
   return (
-    <div className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-accent-yellow transition-all duration-300 group">
+    <div className="overflow-hidden hover:border-accent-yellow transition-all duration-300 group">
       <div className="relative h-48 overflow-hidden">
         <img
           src={project.image}
@@ -24,12 +24,20 @@ export default function ProjectItem({ project }: { project: Project }) {
           </span>
         </div>
       </div>
-      <div className="p-4">
+      <div className="py-4">
         <div className="flex flex-col justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-white">{project.title}</h3>
+          <h3 className="text-xl font-bold text-white group-hover:text-accent-purple">
+            {project.title}
+          </h3>
           <p className="text-zinc-500 text-xs">{project.date}</p>
         </div>
         <p className="text-zinc-400 text-sm">{project.description}</p>
+        <p className="text-accent-yellow text-sm font-semibold mt-4 flex items-center">
+          Read More{" "}
+          <span className="ml-2 group-hover:ml-3 transition-all duration-300">
+            →
+          </span>
+        </p>
       </div>
     </div>
   );
