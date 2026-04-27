@@ -58,14 +58,14 @@ export default async function FacilitiesPage() {
       {/* Workshop Gallery Section */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("workshop.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-purple italic">
                 {t("workshop.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("workshop.description")}
             </p>
           </div>
@@ -74,7 +74,7 @@ export default async function FacilitiesPage() {
             {workshopGallery.map((item, index) => (
               <div
                 key={index}
-                className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                className="group relative bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
               >
                 <div className="relative h-64">
                   <Image
@@ -102,14 +102,14 @@ export default async function FacilitiesPage() {
       {/* Equipment & Tools Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("equipmentSection.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-purple italic">
                 {t("equipmentSection.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("equipmentSection.description")}
             </p>
           </div>
@@ -119,7 +119,7 @@ export default async function FacilitiesPage() {
             {equipment.map((category, index) => (
               <div
                 key={index}
-                className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                className="bg-zinc-900 p-8 rounded-lg border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
               >
                 <div className="flex items-center mb-6">
                   <span className="text-5xl mr-4">{category.icon}</span>
@@ -153,7 +153,7 @@ export default async function FacilitiesPage() {
           </div>
 
           {/* Certifications */}
-          <div className="bg-linear-to-r from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-700">
+          <div className="bg-linear-to-r from-zinc-900 to-zinc-800 p-8 rounded-lg border border-zinc-700">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
               {t("certificationsSection.title")}{" "}
               <span className="text-accent-yellow">
@@ -188,14 +188,14 @@ export default async function FacilitiesPage() {
       {/* Capacity & Availability Section */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("capacitySection.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-purple italic">
                 {t("capacitySection.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("capacitySection.description")}
             </p>
           </div>
@@ -204,7 +204,7 @@ export default async function FacilitiesPage() {
             {capacityInfo.map((info, index) => (
               <div
                 key={index}
-                className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                className="bg-zinc-900 p-8 rounded-lg border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
               >
                 <div className="text-5xl mb-4 text-center">{info.icon}</div>
                 <h3 className="text-2xl font-bold text-white mb-3 text-center">
@@ -239,7 +239,7 @@ export default async function FacilitiesPage() {
           </div>
 
           {/* Availability Calendar Placeholder */}
-          <div className="mt-16 bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+          <div className="mt-16 bg-zinc-900 p-8 rounded-lg border border-zinc-800">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
               {t("bookingCalendar.title")}{" "}
               <span className="text-accent-yellow">
@@ -274,30 +274,17 @@ export default async function FacilitiesPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t("cta.title")}{" "}
-              <span className="text-accent-yellow">{t("cta.highlight")}</span>
+              <span className="text-accent-purple italic">
+                {t("cta.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-300 mb-10">
               {t("cta.description")}
             </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105 text-center"
-            >
-              {t("cta.primaryButton")}
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-block bg-transparent border-2 border-accent-yellow text-accent-yellow px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-yellow hover:text-black transition-all duration-200 transform hover:scale-105 text-center"
-            >
-              {t("cta.secondaryButton")}
-            </Link>
           </div>
 
           {/* Contact Info */}
@@ -353,6 +340,15 @@ export default async function FacilitiesPage() {
               </div>
               <div className="text-zinc-400">{t("contactInfo.hoursValue")}</div>
             </div>
+          </div>
+
+          <div className="mt-20 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-lg font-bold text-2xl hover:bg-accent-lime transition-all duration-200 transform hover:scale-105 text-center"
+            >
+              {t("cta.primaryButton")}
+            </Link>
           </div>
         </div>
       </section>

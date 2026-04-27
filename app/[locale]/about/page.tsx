@@ -210,7 +210,7 @@ export default async function AboutPage() {
           {/* Internal Culture Slogan */}
           <div className="mt-16 text-center">
             <button className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-lg">
-              <p className="text-3xl font-bold">{t("valuesSection.slogan")}</p>
+              <p className="text-2xl font-bold">{t("valuesSection.slogan")}</p>
             </button>
           </div>
         </div>
