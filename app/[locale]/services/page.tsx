@@ -1,3 +1,4 @@
+import ProjectItem from "@/app/components/ProjectItem";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
@@ -17,25 +18,63 @@ type ProcessStep = {
 
 export default async function ServicesPage() {
   const t = await getTranslations("services");
-  const services = t.raw("items") as ServiceItem[];
+  const services = [
+    {
+      tag: "MOTORSPORT",
+      title: "The Business Engine",
+      date: "2024-2025",
+      description:
+        "Championship racing team, product testing lab, brand credibility platform",
+      image: "/images/img21.jpg",
+      color: "bg-accent-yellow",
+    },
+    {
+      tag: "FAST-S",
+      title: "Motorsport Engineering Garage",
+      date: "2024-2025",
+      description:
+        "Professional service center, product installation, customer experience hub",
+      image: "/images/img21.jpg",
+      color: "bg-accent-purple",
+    },
+    {
+      tag: "Engineering & R&D",
+      title: "Collaborate with Manufacturer",
+      date: "2024-2025",
+      description: "Vehicle development, data analysis, technical innovation",
+      image: "/images/img21.jpg",
+      color: "bg-accent-lime",
+    },
+    {
+      tag: "DISTRIBUTOR",
+      title: "Premium Products",
+      date: "2024-2025",
+      description:
+        "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise",
+      image: "/images/img21.jpg",
+      color: "bg-white",
+    },
+  ];
   const processSteps = t.raw("process.steps") as ProcessStep[];
 
   return (
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-accent-purple">
           <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
-          <img
+          {/* <img
             src="/images/img25.jpg"
             alt="Services"
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow">{t("hero.highlight")}</span>
+            <span className="text-accent-yellow italic">
+              {t("hero.highlight")}
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -46,50 +85,16 @@ export default async function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
-              >
-                <span
-                  className={`inline-block bg-${service.color} text-black text-xs font-bold px-3 py-1.5 rounded-full mb-4`}
-                >
-                  {service.category}
-                </span>
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-zinc-400 mb-6">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-start text-zinc-400"
-                    >
-                      <svg
-                        className="w-5 h-5 text-accent-yellow mr-2 mt-1 shrink-0"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ProjectItem key={index} project={service} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-black">
+      {/* <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
             {t("process.title")}{" "}
@@ -109,10 +114,10 @@ export default async function ServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
+      {/* <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t("cta.title")}
@@ -125,7 +130,7 @@ export default async function ServicesPage() {
             {t("cta.button")}
           </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -48,13 +48,13 @@ export default function ContactPage() {
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-accent-purple">
           <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
-          <img
+          {/* <img
             src="/images/img2.jpg"
             alt="Contact"
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
@@ -247,7 +247,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+              <div className="bg-zinc-900 p-8 rounded-lg border border-zinc-800">
                 <h2 className="text-2xl font-bold text-white mb-6">
                   {t("form.title")}
                 </h2>
@@ -398,7 +398,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-96 bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800">
+          <div className="h-96 bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
             {/* Placeholder for map */}
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center">

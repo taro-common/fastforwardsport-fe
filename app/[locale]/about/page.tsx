@@ -1,4 +1,3 @@
-import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
@@ -18,19 +17,24 @@ export default async function AboutPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-accent-purple" />
+
           <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
-          <Image
+          {/* <Image
             src="/images/img31.jpg"
             alt="Fast Forward Sport Team"
             fill
             className="object-cover"
             priority
-          />
+          /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-            {t("hero.title")}{" "}
-            <span className="text-accent-yellow">{t("hero.highlight")}</span>
+          <p className="text-accent-yellow font-semibold text-xs tracking-[0.2em] uppercase">
+            {t("hero.title")} US
+          </p>
+          <h1 className="text-5xl md:text-7xl mb-6 text-white leading-tight font-black">
+            FAST Forward{" "}
+            <span className="text-accent-yellow italic">Sport</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -45,7 +49,7 @@ export default async function AboutPage() {
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
                 {t("overview.title")}{" "}
-                <span className="text-accent-yellow">
+                <span className="text-accent-purple italic">
                   {t("overview.highlight")}
                 </span>
               </h2>
@@ -63,7 +67,7 @@ export default async function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="relative h-96 rounded-xl overflow-hidden">
+            <div className="relative h-96 overflow-hidden">
               <Image
                 src="/images/img31.jpg"
                 alt="Fast Forward Sport Racing"
@@ -79,14 +83,14 @@ export default async function AboutPage() {
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Vision */}
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t("vision.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-purple italic">
                 {t("vision.highlight")}
               </span>
             </h2>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto text-center my-30">
               <p className="text-3xl font-bold text-accent-yellow mb-4">
                 &ldquo;{t("vision.statement")}&rdquo;
               </p>
@@ -98,9 +102,9 @@ export default async function AboutPage() {
 
           {/* Mission Pillars */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold text-white mb-12 text-center">
+            <h3 className="text-3xl font-bold text-white mb-12">
               {t("mission.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-purple italic">
                 {t("mission.highlight")}
               </span>
             </h3>
@@ -108,7 +112,7 @@ export default async function AboutPage() {
               {missionPillars.map((pillar, index) => (
                 <div
                   key={index}
-                  className="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                  className="bg-zinc-900 p-6 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
                 >
                   <div className="text-4xl mb-4">{pillar.icon}</div>
                   <h4 className="text-lg font-bold text-white mb-3">
@@ -125,14 +129,14 @@ export default async function AboutPage() {
       {/* Track Record & Milestones Section */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("milestonesSection.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-purple italic">
                 {t("milestonesSection.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("milestonesSection.description")}
             </p>
           </div>
@@ -141,7 +145,7 @@ export default async function AboutPage() {
             {milestones.map((milestone, index) => (
               <div key={index} className="mb-12 last:mb-0">
                 <div className="flex items-center mb-6">
-                  <div className="bg-accent-yellow text-black text-3xl font-bold px-6 py-3 rounded-full">
+                  <div className="bg-accent-yellow text-black text-3xl font-bold px-6 py-3 skew-x-[-15deg] origin-top-right">
                     {milestone.year}
                   </div>
                   <div className="flex-1 h-1 bg-accent-yellow ml-4"></div>
@@ -150,7 +154,7 @@ export default async function AboutPage() {
                   {milestone.achievements.map((achievement, achIndex) => (
                     <div
                       key={achIndex}
-                      className="flex items-start bg-zinc-900 p-4 rounded-lg border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                      className="flex items-start bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
                     >
                       <svg
                         className="w-6 h-6 text-accent-yellow mr-4 mt-1 shrink-0"
@@ -174,16 +178,17 @@ export default async function AboutPage() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-accent-purple">
+        <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("valuesSection.title")}{" "}
-              <span className="text-accent-yellow">
+              <span className="text-accent-yellow italic">
                 {t("valuesSection.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl">
               {t("valuesSection.description")}
             </p>
           </div>
@@ -192,30 +197,28 @@ export default async function AboutPage() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 text-center"
+                className="bg-zinc-900/80 p-6 border border-white/30 hover:border-accent-yellow transition-all duration-300"
               >
-                <div className="text-5xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-lg font-bold text-white mb-2">
                   {value.title}
                 </h3>
-                <p className="text-zinc-400">{value.description}</p>
+                <p className="text-zinc-400 text-sm">{value.description}</p>
               </div>
             ))}
           </div>
 
           {/* Internal Culture Slogan */}
           <div className="mt-16 text-center">
-            <div className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-lg">
-              <p className="text-3xl font-bold">
-                &ldquo;{t("valuesSection.slogan")}&rdquo;
-              </p>
-            </div>
+            <button className="inline-block bg-linear-to-r from-accent-yellow to-accent-lime text-black px-12 py-6 rounded-lg">
+              <p className="text-3xl font-bold">{t("valuesSection.slogan")}</p>
+            </button>
           </div>
         </div>
       </section>
 
       {/* Leadership Team Section */}
-      <section className="py-20 bg-zinc-950">
+      {/* TODO: Change UI */}
+      {/* <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -249,24 +252,7 @@ export default async function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {t("cta.title")}{" "}
-            <span className="text-accent-yellow">{t("cta.highlight")}</span>
-          </h2>
-          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
-          >
-            {t("cta.button")}
-          </Link>
-        </div>
-      </section>
+      </section> */}
     </div>
   );
 }

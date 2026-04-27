@@ -25,18 +25,20 @@ export default async function ProjectsPage() {
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-accent-purple">
           <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
-          <img
+          {/* <img
             src="/images/img24.jpg"
             alt="Projects"
             className="w-full h-full object-cover"
-          />
+          /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow">{t("hero.highlight")}</span>
+            <span className="text-accent-yellow italic">
+              {t("hero.highlight")}
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -79,7 +81,7 @@ export default async function ProjectsPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-zinc-950">
+      {/* <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
             {t("stats.title")}{" "}
@@ -96,10 +98,10 @@ export default async function ProjectsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
+      {/* <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t("cta.title")}{" "}
@@ -113,7 +115,7 @@ export default async function ProjectsPage() {
             {t("cta.button")}
           </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import ProjectItem from "../components/ProjectItem";
+import BusinessUnitCard from "../components/BusinessUnitCard";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -261,10 +262,10 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-accent-yellow">{t("hero.line1")}</span>
+          <h1 className="text-5xl md:text-8xl mb-6 leading-[0.95] font-black tracking-tight">
+            <span className="text-white">{t("hero.line1")}</span>
             <br />
-            <span className="text-white">{t("hero.line2")}</span>
+            <span className="text-accent-purple italic">{t("hero.line2")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl">
             {t("hero.description")}
@@ -297,11 +298,11 @@ export default function Home() {
       {/* Gallery Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              OUR <span className="text-accent-yellow">GALLERY</span>
+              OUR <span className="text-accent-purple italic">GALLERY</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("gallery.description")}
             </p>
           </div>
@@ -347,11 +348,12 @@ export default function Home() {
       {/* Core Business Units Section */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              CORE <span className="text-accent-yellow">BUSINESS UNITS</span>
+              CORE{" "}
+              <span className="text-accent-purple italic">BUSINESS UNITS</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("coreBusiness.description")}
             </p>
           </div>
@@ -376,9 +378,9 @@ export default function Home() {
               </Link>
             ))}
           </div> */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((unit, index) => (
-              <ProjectItem key={index} project={unit} />
+              <BusinessUnitCard key={index} unit={unit} />
             ))}
           </div>
         </div>
@@ -387,11 +389,12 @@ export default function Home() {
       {/* Key Achievements Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              PROVEN <span className="text-accent-yellow">EXCELLENCE</span>
+              PROVEN{" "}
+              <span className="text-accent-purple italic">EXCELLENCE</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("achievementsSection.description")}
             </p>
           </div>
@@ -400,9 +403,9 @@ export default function Home() {
             {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="bg-zinc-900 p-6 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                className="bg-zinc-900 p-6 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
               >
-                <div className="text-4xl mb-3">{achievement.icon}</div>
+                {/* <div className="text-4xl mb-3">{achievement.icon}</div> */}
                 <h3 className="text-lg font-bold text-white mb-2">
                   {achievement.title}
                 </h3>
@@ -418,11 +421,12 @@ export default function Home() {
       {/* Featured Projects Carousel */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              FEATURED <span className="text-accent-purple">PROJECTS</span>
+              FEATURED{" "}
+              <span className="text-accent-purple italic">PROJECTS</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl">
               {t("featuredProjectsSection.description")}
             </p>
           </div>
@@ -527,23 +531,25 @@ export default function Home() {
       {/* Ecosystem & Partners Section */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               BUILDING THAILAND'S{" "}
-              <span className="text-accent-yellow">MOTORSPORT ECOSYSTEM</span>
+              <span className="text-accent-purple italic">
+                MOTORSPORT ECOSYSTEM
+              </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-zinc-400 max-w-3xl mb-12">
               {t("partnersSection.description")}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
             {partners.map((partner, index) => (
               <img
                 key={index}
                 src={partner.logo}
                 alt={partner.name}
-                className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30"
+                className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30 w-full"
               />
             ))}
           </div>
@@ -551,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* Latest News/Blog Feed */}
-      <section className="py-20 bg-zinc-950">
+      {/* <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -599,7 +605,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Lightbox Modal */}
       {lightboxImage && (
@@ -695,11 +701,14 @@ export default function Home() {
       )}
 
       {/* Footer CTA Section */}
-      <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-32 bg-linear-to-br from-black via-purple-900/20 to-black relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-yellow/10 skew-x-[-15deg] origin-top-right"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             READY TO{" "}
-            <span className="text-accent-yellow">EXPERIENCE FAST FORWARD?</span>
+            <span className="text-accent-purple italic">
+              EXPERIENCE FAST FORWARD?
+            </span>
           </h2>
           <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
           <Link

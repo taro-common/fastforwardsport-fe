@@ -34,15 +34,15 @@ export default async function FacilitiesPage() {
     <div className="bg-black">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-accent-purple">
           <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
-          <Image
+          {/* <Image
             src="/images/img17.jpg"
             alt="Fast Forward Sport Facilities"
             fill
             className="object-cover"
             priority
-          />
+          /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
