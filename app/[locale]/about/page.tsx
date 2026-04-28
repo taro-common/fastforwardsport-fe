@@ -1,13 +1,57 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import IconItem from "@/app/components/IconItem";
+import {
+  IconChartLine,
+  IconFlag,
+  IconHeartHandshake,
+  IconSeedling,
+  IconSettings,
+  IconUser,
+} from "@tabler/icons-react";
 
-type AboutItem = { title: string; description: string; icon: string };
+type AboutItem = { title: string; description: string; icon: React.ReactNode };
 type Milestone = { year: string; achievements: string[] };
 type Leader = { name: string; position: string; bio: string };
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
-  const missionPillars = t.raw("mission.items") as AboutItem[];
+  const missionPillars = [
+    {
+      title: "Motorsport Ecosystem Development",
+      description:
+        "Establish a comprehensive ecosystem through national and international events",
+      icon: <IconFlag />,
+    },
+    {
+      title: "Technology & Innovation Leadership",
+      description:
+        "Develop Thailand's premier R&D center for automotive and motorsport innovation",
+      icon: <IconSettings />,
+    },
+    {
+      title: "Human Resource Development",
+      description:
+        "Cultivate high-potential talent through continuous learning and innovation",
+      icon: <IconUser />,
+    },
+    {
+      title: "Business Expansion & Revenue Growth",
+      description:
+        "Diversify revenue through branded products and innovative solutions",
+      icon: <IconChartLine />,
+    },
+    {
+      title: "Sustainability Commitment",
+      description: "Implement eco-friendly technologies across operations",
+      icon: <IconSeedling />,
+    },
+    {
+      title: "Communication & Relationship Building",
+      description:
+        "Foster transparent, inspiring communication with stakeholders",
+      icon: <IconHeartHandshake />,
+    },
+  ] as AboutItem[];
   const milestones = t.raw("milestones") as Milestone[];
   const values = t.raw("values") as AboutItem[];
   const leaders = t.raw("leadershipSection.members") as Leader[];
@@ -79,7 +123,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="py-20 bg-black">
+      <section className="pb-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Vision */}
           <div className="mb-16">
@@ -113,8 +157,8 @@ export default async function AboutPage() {
                   key={index}
                   className="bg-zinc-900 p-6 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
                 >
-                  <div className="text-4xl mb-4">{pillar.icon}</div>
-                  <h4 className="text-lg font-bold text-white mb-3">
+                  <IconItem icon={pillar.icon} />
+                  <h4 className="text-lg font-bold text-white my-3">
                     {pillar.title}
                   </h4>
                   <p className="text-zinc-400 text-sm">{pillar.description}</p>
@@ -144,7 +188,7 @@ export default async function AboutPage() {
             {milestones.map((milestone, index) => (
               <div key={index} className="mb-12 last:mb-0">
                 <div className="flex items-center mb-6">
-                  <div className="bg-accent-yellow text-black text-2xl font-bold px-6 py-3 skew-x-[-15deg]">
+                  <div className="bg-accent-yellow text-black text-2xl font-bold px-6 py-3 -skew-x-15!">
                     {milestone.year}
                   </div>
                   <div className="flex-1 h-1 bg-accent-yellow ml-4"></div>
