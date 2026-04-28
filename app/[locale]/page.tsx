@@ -376,7 +376,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Carousel */}
-      <section className="py-20 bg-zinc-950">
+      <section className="pt-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -389,7 +389,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ProjectsCarousel projects={featuredProjects} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ProjectsCarousel projects={featuredProjects} />
+      </div>
 
       {/* Ecosystem & Partners Section */}
       <section className="py-20 bg-black">
@@ -412,7 +414,7 @@ export default function Home() {
                 key={index}
                 src={partner.logo}
                 alt={partner.name}
-                className="bg-zinc-900 rounded-xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30 w-full"
+                className="bg-zinc-900 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30 w-full"
               />
             ))}
           </div>
