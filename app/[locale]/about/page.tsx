@@ -12,7 +12,12 @@ import {
 
 type AboutItem = { title: string; description: string; icon: React.ReactNode };
 type Milestone = { year: string; achievements: string[] };
-type Leader = { name: string; position: string; bio: string };
+type Leader = {
+  name: string;
+  position: string;
+  background: string;
+  photo: string;
+};
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
@@ -55,7 +60,32 @@ export default async function AboutPage() {
   ] as AboutItem[];
   const milestones = t.raw("milestones") as Milestone[];
   const values = t.raw("values") as AboutItem[];
-  const leaders = t.raw("leadershipSection.members") as Leader[];
+  const leaders = [
+    {
+      name: "Chanthathit Pensuk",
+      position: "CEO - Business Strategy & Partnerships",
+      background:
+        "Former Product Development Manager at Toyota Customizing Development (TCD Asia). Visionary leader building Thailand's motorsport ecosystem",
+    },
+    {
+      name: "Pongkasem Jitkasem",
+      position: "Director - Motorsport",
+      background:
+        "WRC Co-driver Champion, International & Domestic Rally Champion. Brings world-class competition expertise",
+    },
+    {
+      name: "Mana Pornsiricherd",
+      position: "Director - Driver Academy & Evaluation",
+      background:
+        "Darka Rally Driver, International & Domestic Rally Champion. Leads talent development programs",
+    },
+    {
+      name: "Wataru Sugii",
+      position: "Technical Product Development",
+      background:
+        "Former HKS Top Management, TCD Asia Motorsport Advisor. Technical excellence and innovation leader",
+    },
+  ] as Leader[];
 
   return (
     <div className="bg-black">
@@ -170,6 +200,49 @@ export default async function AboutPage() {
         </div>
       </section>
 
+      {/* Leadership Team Section */}
+      <section className="py-20 bg-zinc-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {t("leadershipSection.title")}{" "}
+              <span className="text-accent-purple italic">
+                {t("leadershipSection.highlight")}
+              </span>
+            </h2>
+            <p className="text-xl text-zinc-400 max-w-2xl">
+              {t("leadershipSection.description")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {leaders.map((leader, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 gap-4"
+              >
+                <img
+                  src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg"
+                  alt={leader.name}
+                  className="w-24 h-24 rounded-full"
+                />
+                <div>
+                  <p className="text-white font-bold text-center">
+                    {leader.name}
+                  </p>
+                  <p className="mt-1 text-accent-yellow text-sm font-semibold text-center">
+                    {leader.position}
+                  </p>
+                  <p className="text-xs mt-2 text-center text-zinc-400">
+                    {leader.background}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Track Record & Milestones Section */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,44 +322,6 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Leadership Team Section */}
-      {/* TODO: Change UI */}
-      {/* <section className="py-20 bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {t("leadershipSection.title")}{" "}
-              <span className="text-accent-yellow">
-                {t("leadershipSection.highlight")}
-              </span>
-            </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              {t("leadershipSection.description")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {leaders.map((leader) => (
-              <div
-                key={leader.name}
-                className="bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
-              >
-                <div className="h-64 bg-linear-to-br from-accent-yellow to-accent-purple"></div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {leader.name}
-                  </h3>
-                  <p className="text-accent-yellow font-semibold mb-3">
-                    {leader.position}
-                  </p>
-                  <p className="text-zinc-400 text-sm">{leader.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
     </div>
   );
 }
