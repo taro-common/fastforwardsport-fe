@@ -142,13 +142,11 @@ export default async function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="relative h-96 overflow-hidden">
-              <img
-                src="/images/img31.jpg"
-                alt="Fast Forward Sport Racing"
-                className="object-cover"
-              />
-            </div>
+            <img
+              src="/images/img31.jpg"
+              alt="Fast Forward Sport Racing"
+              className="w-full h-60 md:h-96 object-cover object-bottom"
+            />
           </div>
         </div>
       </section>

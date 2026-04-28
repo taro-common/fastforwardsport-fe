@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ProjectItem from "../../components/ProjectItem";
+import ProjectsCarousel from "@/app/components/ProjectsCarousel";
 
 type Project = {
   tag: string;
@@ -13,6 +14,32 @@ type Project = {
 export default async function ProjectsPage() {
   const t = await getTranslations("projects");
   const projects = t.raw("items") as Project[];
+  const featuredProjects = [
+    {
+      title: "Thailand Rally Championship 2024 Build",
+      category: "CHAMPIONSHIP",
+      image: "/images/img1.jpg",
+      description: "Complete rally car build for championship-winning campaign",
+    },
+    {
+      title: "4G63 Engine Development Program",
+      category: "ENGINEERING",
+      image: "/images/img2.jpg",
+      description: "High-performance engine development and optimization",
+    },
+    {
+      title: "Asia Pacific Circuit Series Support",
+      category: "RACING",
+      image: "/images/img3.jpg",
+      description: "Professional race engineering and technical support",
+    },
+    {
+      title: "Rally Academy Graduates 2024",
+      category: "ACADEMY",
+      image: "/images/img4.jpg",
+      description: "Successfully trained drivers progressing to championships",
+    },
+  ];
 
   return (
     <div className="bg-black">
@@ -38,6 +65,13 @@ export default async function ProjectsPage() {
           </p>
         </div>
       </section>
+
+      <h2 className="mt-20 max-w-7xl mx-auto text-4xl font-bold text-white mb-6 px-4 sm:px-6 lg:px-8">
+        Featured <span className="text-accent-purple italic">Stories</span>
+      </h2>
+      <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <ProjectsCarousel projects={featuredProjects} />
+      </div>
 
       {/* Filter Tabs */}
       <section className="bg-zinc-950 border-b border-zinc-800 sticky top-20 z-40">
@@ -65,6 +99,7 @@ export default async function ProjectsPage() {
       {/* Projects Grid */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-2xl font-bold text-white mb-6">All Projects</p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <ProjectItem key={index} project={project} index={index} />

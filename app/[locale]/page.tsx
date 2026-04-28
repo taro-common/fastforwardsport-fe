@@ -3,13 +3,9 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
-import ProjectItem from "../components/ProjectItem";
 import BusinessUnitCard from "../components/BusinessUnitCard";
-import {
-  IconAward,
-  IconShieldCheckFilled,
-  IconTrophy,
-} from "@tabler/icons-react";
+import { IconShieldCheckFilled } from "@tabler/icons-react";
+import ProjectsCarousel from "../components/ProjectsCarousel";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -32,7 +28,46 @@ export default function Home() {
 
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
-  const [featuredProjectIndex, setFeaturedProjectIndex] = useState<number>(0);
+
+  // Define galleryImages before openLightbox
+  const galleryImages = [
+    {
+      src: "/images/img1.jpg",
+      ...galleryMessageImages[0],
+    },
+    {
+      src: "/images/img2.jpg",
+      ...galleryMessageImages[1],
+    },
+    {
+      src: "/images/img3.jpg",
+      ...galleryMessageImages[2],
+    },
+    {
+      src: "/images/img10.jpg",
+      ...galleryMessageImages[3],
+    },
+    {
+      src: "/images/img11.jpg",
+      ...galleryMessageImages[4],
+    },
+    {
+      src: "/images/img15.jpg",
+      ...galleryMessageImages[5],
+    },
+    {
+      src: "/images/img20.jpg",
+      ...galleryMessageImages[6],
+    },
+    {
+      src: "/images/img22.jpg",
+      ...galleryMessageImages[7],
+    },
+    {
+      src: "/images/img17.jpg",
+      ...galleryMessageImages[8],
+    },
+  ];
 
   const openLightbox = (src: string) => {
     const index = galleryImages.findIndex((img) => img.src === src);
@@ -57,16 +92,6 @@ export default function Home() {
     setLightboxImage(galleryImages[newIndex].src);
   };
 
-  const nextFeaturedProject = () => {
-    setFeaturedProjectIndex((prev) => (prev + 1) % featuredProjects.length);
-  };
-
-  const prevFeaturedProject = () => {
-    setFeaturedProjectIndex(
-      (prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length,
-    );
-  };
-
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -85,37 +110,6 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handleKeyDown);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightboxImage, lightboxIndex]);
-
-  // const coreBusinessUnits = [
-  //   {
-  //     title: "RAAT Championship",
-  //     description:
-  //       "Professional rally team competing at the highest level in Thailand and Asia-Pacific region.",
-  //     icon: "🏆",
-  //     link: "/services#rally",
-  //   },
-  //   {
-  //     title: "Fast Forward Racing Academy",
-  //     description:
-  //       "Comprehensive driver development programs from grassroots to professional racing.",
-  //     icon: "🎓",
-  //     link: "/services#academy",
-  //   },
-  //   {
-  //     title: "Fast Forward Engineering",
-  //     description:
-  //       "Advanced motorsport engineering services, R&D, and performance optimization.",
-  //     icon: "⚙️",
-  //     link: "/services#engineering",
-  //   },
-  //   {
-  //     title: "Fast Forward Channel",
-  //     description:
-  //       "Digital content platform sharing motorsport stories, technical knowledge, and lifestyle.",
-  //     icon: "📺",
-  //     link: "/services#media",
-  //   },
-  // ];
 
   const partners = [
     {
@@ -165,44 +159,7 @@ export default function Home() {
     },
   ];
 
-  const galleryImages = [
-    {
-      src: "/images/img1.jpg",
-      ...galleryMessageImages[0],
-    },
-    {
-      src: "/images/img2.jpg",
-      ...galleryMessageImages[1],
-    },
-    {
-      src: "/images/img3.jpg",
-      ...galleryMessageImages[2],
-    },
-    {
-      src: "/images/img10.jpg",
-      ...galleryMessageImages[3],
-    },
-    {
-      src: "/images/img11.jpg",
-      ...galleryMessageImages[4],
-    },
-    {
-      src: "/images/img15.jpg",
-      ...galleryMessageImages[5],
-    },
-    {
-      src: "/images/img20.jpg",
-      ...galleryMessageImages[6],
-    },
-    {
-      src: "/images/img22.jpg",
-      ...galleryMessageImages[7],
-    },
-    {
-      src: "/images/img17.jpg",
-      ...galleryMessageImages[8],
-    },
-  ];
+  // galleryImages already defined above at line 38-72
 
   const galleryLayoutClasses = [
     "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
@@ -430,103 +387,9 @@ export default function Home() {
               {t("featuredProjectsSection.description")}
             </p>
           </div>
-
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl">
-              <div
-                className="flex transition-transform duration-500 ease-out"
-                style={{
-                  transform: `translateX(-${featuredProjectIndex * 100}%)`,
-                }}
-              >
-                {featuredProjects.map((project, index) => (
-                  <div key={index} className="w-full shrink-0">
-                    <div className="group relative overflow-hidden rounded-2xl h-96 md:h-120 cursor-pointer">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                      <div className="absolute bottom-6 left-6 right-6">
-                        <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-                          {project.category}
-                        </span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                          {project.title}
-                        </h3>
-                        <p className="text-zinc-300 text-sm md:text-base">
-                          {project.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={prevFeaturedProject}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M15 19l-7-7 7-7"></path>
-              </svg>
-            </button>
-
-            <button
-              type="button"
-              onClick={nextFeaturedProject}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M9 5l7 7-7 7"></path>
-              </svg>
-            </button>
-
-            <div className="flex justify-center gap-2 mt-6">
-              {featuredProjects.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => setFeaturedProjectIndex(index)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    featuredProjectIndex === index
-                      ? "w-8 bg-accent-yellow"
-                      : "w-2.5 bg-zinc-600 hover:bg-zinc-400"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/projects"
-              className="inline-block bg-accent-purple text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors duration-200"
-            >
-              {t("featuredProjectsSection.viewAll")}
-            </Link>
-          </div>
         </div>
       </section>
+      <ProjectsCarousel projects={featuredProjects} />
 
       {/* Ecosystem & Partners Section */}
       <section className="py-20 bg-black">
