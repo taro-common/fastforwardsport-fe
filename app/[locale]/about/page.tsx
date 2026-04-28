@@ -58,7 +58,7 @@ export default async function AboutPage() {
                   {paragraph}
                 </p>
               ))}
-              <div className="bg-zinc-900 border-l-4 border-accent-yellow p-6 rounded-r-xl mt-8">
+              <div className="bg-zinc-900 border-l-4 border-accent-yellow p-6 rounded-r-lg mt-8">
                 <p className="text-white text-xl font-semibold mb-2">
                   &ldquo;{t("overview.quote")}&rdquo;
                 </p>
@@ -68,10 +68,9 @@ export default async function AboutPage() {
               </div>
             </div>
             <div className="relative h-96 overflow-hidden">
-              <Image
+              <img
                 src="/images/img31.jpg"
                 alt="Fast Forward Sport Racing"
-                fill
                 className="object-cover"
               />
             </div>
@@ -145,7 +144,7 @@ export default async function AboutPage() {
             {milestones.map((milestone, index) => (
               <div key={index} className="mb-12 last:mb-0">
                 <div className="flex items-center mb-6">
-                  <div className="bg-accent-yellow text-black text-3xl font-bold px-6 py-3 skew-x-[-15deg] origin-top-right">
+                  <div className="bg-accent-yellow text-black text-2xl font-bold px-6 py-3 skew-x-[-15deg]">
                     {milestone.year}
                   </div>
                   <div className="flex-1 h-1 bg-accent-yellow ml-4"></div>

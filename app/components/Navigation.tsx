@@ -53,14 +53,18 @@ export default function Navigation() {
               alt="Fast Forward Sport Logo"
               className="h-12 w-auto object-cover"
             />
-            <div className="text-xl md:text-2xl font-bold">
+            <div className="text-xl md:hidden lg:block md:text-2xl font-bold truncate">
               <span className="text-white">FAST Forward</span>
               <span className="text-accent-yellow ml-2">Sport</span>
+            </div>
+            <div className="hidden text-xl md:block lg:hidden md:text-2xl font-bold">
+              <span className="text-white">FF</span>
+              <span className="text-accent-yellow">S</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -77,7 +81,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/contact"
-              className="bg-accent-yellow text-black px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-accent-lime transition-colors duration-200"
+              className="hidden lg:block bg-accent-yellow text-black px-3 py-2.5 rounded-lg font-semibold text-sm hover:bg-accent-lime transition-colors duration-200 truncate"
             >
               {t("getInTouch")}
             </Link>
@@ -86,10 +90,12 @@ export default function Navigation() {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center space-x-2 text-sm font-medium text-zinc-300 hover:text-accent-yellow transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-zinc-900"
+                className="h-10 flex items-center space-x-2 text-sm font-medium text-zinc-300 hover:text-accent-yellow transition-colors duration-200 px-3 rounded-lg bg-zinc-900"
                 aria-label="Toggle language"
               >
-                <span className="text-xl">{currentLanguage?.flag}</span>
+                <span className="hidden lg:block text-xl">
+                  {currentLanguage?.flag}
+                </span>
                 <span>{currentLanguage?.code.toUpperCase()}</span>
                 <svg
                   className={`w-4 h-4 transition-transform ${

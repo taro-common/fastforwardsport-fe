@@ -59,7 +59,9 @@ export default function ContactPage() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow">{t("hero.highlight")}</span>
+            <span className="text-accent-yellow italic">
+              {t("hero.highlight")}
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -75,7 +77,9 @@ export default function ContactPage() {
             <div>
               <h2 className="text-3xl font-bold text-white mb-8">
                 {t("infoTitle")}{" "}
-                <span className="text-accent-yellow">{t("infoHighlight")}</span>
+                <span className="text-accent-purple italic">
+                  {t("infoHighlight")}
+                </span>
               </h2>
 
               <div className="space-y-6 mb-12">
