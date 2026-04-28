@@ -1,3 +1,7 @@
+"use client";
+import { Link } from "@/i18n/routing";
+import Image from "next/image";
+
 type Project = {
   tag: string;
   title: string;
@@ -7,9 +11,18 @@ type Project = {
   color: string;
 };
 
-export default function ProjectItem({ project }: { project: Project }) {
+export default function ProjectItem({
+  project,
+  index,
+}: {
+  project: Project;
+  index?: number;
+}) {
   return (
-    <div className="overflow-hidden hover:border-accent-yellow transition-all duration-300 group">
+    <Link
+      href={`/projects/${(index ?? 0) + 1}`}
+      className="block group overflow-hidden hover:border-accent-yellow transition-all duration-300"
+    >
       <div className="relative h-48 overflow-hidden">
         <img
           src={project.image}
@@ -39,6 +52,6 @@ export default function ProjectItem({ project }: { project: Project }) {
           </span>
         </p>
       </div>
-    </div>
+    </Link>
   );
 }

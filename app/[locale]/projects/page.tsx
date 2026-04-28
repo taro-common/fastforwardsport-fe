@@ -1,4 +1,3 @@
-import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import ProjectItem from "../../components/ProjectItem";
 
@@ -11,15 +10,9 @@ type Project = {
   color: string;
 };
 
-type Stat = {
-  value: string;
-  label: string;
-};
-
 export default async function ProjectsPage() {
   const t = await getTranslations("projects");
   const projects = t.raw("items") as Project[];
-  const stats = t.raw("stats.items") as Stat[];
 
   return (
     <div className="bg-black">
@@ -74,7 +67,7 @@ export default async function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <ProjectItem key={index} project={project} />
+              <ProjectItem key={index} project={project} index={index} />
             ))}
           </div>
         </div>
