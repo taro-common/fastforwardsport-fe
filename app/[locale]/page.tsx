@@ -5,6 +5,11 @@ import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import ProjectItem from "../components/ProjectItem";
 import BusinessUnitCard from "../components/BusinessUnitCard";
+import {
+  IconAward,
+  IconShieldCheckFilled,
+  IconTrophy,
+} from "@tabler/icons-react";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -399,19 +404,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
             {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="bg-zinc-900 p-6 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                className="flex items-center bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 gap-4"
               >
-                {/* <div className="text-4xl mb-3">{achievement.icon}</div> */}
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {achievement.title}
-                </h3>
-                <p className="text-zinc-400 text-sm">
-                  {achievement.description}
-                </p>
+                <IconShieldCheckFilled className="text-accent-yellow" />
+                <p className="text-white text-lg">{achievement.description}</p>
               </div>
             ))}
           </div>

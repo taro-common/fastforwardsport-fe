@@ -6,6 +6,7 @@ import {
   IconHeartHandshake,
   IconSeedling,
   IconSettings,
+  IconShieldCheckFilled,
   IconUser,
 } from "@tabler/icons-react";
 
@@ -197,19 +198,9 @@ export default async function AboutPage() {
                   {milestone.achievements.map((achievement, achIndex) => (
                     <div
                       key={achIndex}
-                      className="flex items-start bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                      className="flex items-center bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 gap-4"
                     >
-                      <svg
-                        className="w-6 h-6 text-accent-yellow mr-4 mt-1 shrink-0"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
+                      <IconShieldCheckFilled className="text-accent-yellow" />
                       <p className="text-white text-lg">{achievement}</p>
                     </div>
                   ))}
