@@ -4,9 +4,7 @@ import {
   IconArrowLeft,
   IconArrowRight,
   IconCalendar,
-  IconChevronLeft,
 } from "@tabler/icons-react";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 
 type Project = {
@@ -120,13 +118,13 @@ export default function ProjectDetailPage() {
     <div className="bg-black">
       {/* Hero Section with Project Image */}
       <section className="mx-auto max-w-7xl px-[15%]">
-        <button
+        <Link
+          href="/projects"
           className="pt-20 md:pt-24 pb-6 flex items-center gap-2 hover:text-accent-yellow transition-colors cursor-pointer"
-          onClick={() => window.history.back()}
         >
           <IconArrowLeft size={16} />
           <p>All Projects</p>
-        </button>
+        </Link>
         <img src={project.image} alt={project.title} />
       </section>
 
