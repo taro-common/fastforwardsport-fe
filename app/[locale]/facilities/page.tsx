@@ -82,7 +82,7 @@ export default async function FacilitiesPage() {
                   <Image
                     src={item.image}
                     alt={item.title}
-                    fill
+                    layout="fill"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4 bg-accent-yellow text-black text-xs font-bold px-3 py-1 rounded-full">
