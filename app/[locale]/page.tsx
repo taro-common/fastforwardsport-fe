@@ -175,29 +175,6 @@ export default function Home() {
     },
   ];
 
-  const newsArticles = [
-    {
-      title: "Thailand Rally Championship Victory 2025",
-      category: "Motorsport Story",
-      image: "/images/img5.jpg",
-      date: "March 2025",
-    },
-    {
-      title: "4G63 Engine Development: Technical Deep Dive",
-      category: "Engineering Know-how",
-      image: "/images/img6.jpg",
-      date: "February 2025",
-    },
-    {
-      title: "Rally Hokkaido Japan: International Experience",
-      category: "Race Experience",
-      image: "/images/img7.jpg",
-      date: "January 2025",
-    },
-  ];
-
-  // galleryImages already defined above at line 38-72
-
   const galleryLayoutClasses = [
     "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
     "col-span-1 row-span-1",
@@ -262,9 +239,9 @@ export default function Home() {
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
           <h1 className="text-5xl md:text-8xl mb-6 leading-[0.95] font-black tracking-tight">
-            <span className=" ">{t("hero.line1")}</span>
+            <span>{t("hero.line1")}</span>
             <br />
-            <span className="text-accent-purple  ">{t("hero.line2")}</span>
+            <span className="text-accent-purple">{t("hero.line2")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-700 mb-10 max-w-3xl">
             {t("hero.description")}
@@ -298,8 +275,11 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              OUR <span className="text-accent-purple">GALLERY</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+              {t("gallery.title")}{" "}
+              <span className="text-accent-purple">
+                {t("gallery.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-600 max-w-2xl">
               {t("gallery.description")}
@@ -348,34 +328,17 @@ export default function Home() {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              CORE <span className="text-accent-purple">BUSINESS UNITS</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+              {t("coreBusiness.title")}{" "}
+              <span className="text-accent-purple">
+                {t("coreBusiness.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-600 max-w-2xl">
               {t("coreBusiness.description")}
             </p>
           </div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {coreBusinessUnits.map((unit, index) => (
-              <Link
-                key={index}
-                href={unit.link}
-                className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 hover:border-accent-yellow transition-all duration-300 transform hover:-translate-y-2 group"
-              >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {unit.icon}
-                </div>
-                <h3 className="text-sm font-bold   mb-3 group-hover:text-accent-yellow transition-colors">
-                  {unit.title}
-                </h3>
-                <p className="text-xl text-zinc-300 font-bold mb-1">
-                  {unit.headline}
-                </p>
-                <p className="text-zinc-400">{unit.description}</p>
-              </Link>
-            ))}
-          </div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((unit, index) => (
               <BusinessUnitCard key={index} unit={unit} />
@@ -388,7 +351,7 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
               {t("proven_excellence.title")}{" "}
               <span className="text-accent-purple  ">
                 {t("proven_excellence.highlight")}
@@ -419,8 +382,11 @@ export default function Home() {
       <section className="pt-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
-              FEATURED <span className="text-accent-purple  ">PROJECTS</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+              {t("featuredProjectsSection.title")}{" "}
+              <span className="text-accent-purple">
+                {t("featuredProjectsSection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-600 max-w-2xl">
               {t("featuredProjectsSection.description")}
@@ -436,9 +402,11 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
-              BUILDING THAILAND'S{" "}
-              <span className="text-accent-purple  ">MOTORSPORT ECOSYSTEM</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+              {t("partnersSection.title")}{" "}
+              <span className="text-accent-purple">
+                {t("partnersSection.highlight")}
+              </span>
             </h2>
             <p className="text-xl text-zinc-600 max-w-3xl mb-12">
               {t("partnersSection.description")}
@@ -457,57 +425,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Latest News/Blog Feed */}
-      {/* <section className="py-20 bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
-              FAST FORWARD <span className="text-accent-yellow">CHANNEL</span>
-            </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-              {t("newsSection.description")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {newsArticles.map((article, index) => (
-              <div
-                key={index}
-                className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-accent-yellow transition-all duration-300 group cursor-pointer"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full">
-                      {article.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-zinc-500 text-sm mb-2">{article.date}</p>
-                  <h3 className="text-xl font-bold   group-hover:text-accent-yellow transition-colors">
-                    {article.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/projects"
-              className="inline-block bg-accent-yellow text-black px-8 py-3 rounded-lg font-semibold hover:bg-accent-lime transition-colors duration-200"
-            >
-              {t("newsSection.viewAll")}
-            </Link>
-          </div>
-        </div>
-      </section> */}
 
       {/* Lightbox Modal */}
       {lightboxImage && (
@@ -606,11 +523,9 @@ export default function Home() {
       <section className="py-32 bg-linear-to-br from-white via-purple-100/35 to-white relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-yellow/10 skew-x-[-15deg] origin-top-right"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            READY TO{" "}
-            <span className="text-accent-purple  ">
-              EXPERIENCE FAST FORWARD?
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
+            {t("cta.title")}{" "}
+            <span className="text-accent-purple  ">{t("cta.highlight")}</span>
           </h2>
           <p className="text-xl text-zinc-700 mb-10">{t("cta.description")}</p>
           <Link

@@ -69,7 +69,7 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActivePath(link.href) ? "page" : undefined}
-                className={`text-sm font-medium transition-colors duration-200 pb-1 ${
+                className={`text-sm font-medium transition-colors duration-200 pb-1 font-d ${
                   isActivePath(link.href)
                     ? "text-accent-purple border-b border-accent-purple"
                     : "text-zinc-700 hover:text-accent-purple"

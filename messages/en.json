@@ -23,11 +23,14 @@
       "cta": "EXPLORE OUR SERVICES"
     },
     "gallery": {
-      "our_gallery": "OUR GALLERY",
+      "title": "OUR",
+      "highlight": "GALLERY",
       "description": "Behind the scenes of championship-winning performance",
       "zoomLabel": "View image"
     },
     "coreBusiness": {
+      "title": "CORE",
+      "highlight": "BUSINESS UNITS",
       "description": "Building Thailand's comprehensive motorsport ecosystem"
     },
     "achievementsSection": {
@@ -45,6 +48,8 @@
       "viewAll": "VIEW ALL PROJECTS"
     },
     "partnersSection": {
+      "title": "BUILDING THAILAND'S",
+      "highlight": "MOTORSPORT ECOSYSTEM",
       "description": "Strategic partnerships with industry leaders driving innovation and growth"
     },
     "newsSection": {
@@ -52,6 +57,8 @@
       "viewAll": "VIEW ALL STORIES"
     },
     "cta": {
+      "title": "READY TO",
+      "highlight": "EXPERIENCE FAST FORWARD?",
       "description": "Join us in building Thailand's motorsport future",
       "button": "GET IN TOUCH"
     }

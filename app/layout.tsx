@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Bebas_Neue, Prompt } from "next/font/google";
 import "./globals.css";
+
+const prompt = Prompt({
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-prompt",
+});
+
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bebas-neue",
+});
 
 export const metadata: Metadata = {
   title: "Fast Forward Sport",
@@ -12,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${prompt.variable} ${bebasNeue.variable}`}>
       <body>{children}</body>
     </html>
   );

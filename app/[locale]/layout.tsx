@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bebas_Neue, Prompt } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
@@ -9,13 +9,13 @@ import Footer from "../components/Footer";
 import PageTransition from "../components/PageTransition";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+export const prompt = Prompt({
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+export const bebasNeue = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -45,13 +45,12 @@ export default async function LocaleLayout({
 
   // Providing all messages to the client side
   const messages = await getMessages();
+  const localeFontClass =
+    locale === "th" ? prompt.className : bebasNeue.className;
 
   return (
-    <html
-      lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
+    <html lang={locale} className="h-full antialiased">
+      <body className={`min-h-full flex flex-col ${prompt.className}`}>
         <NextIntlClientProvider messages={messages}>
           <Navigation />
           <main className="flex-1 pt-20">
