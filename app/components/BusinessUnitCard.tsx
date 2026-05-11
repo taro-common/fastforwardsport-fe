@@ -17,7 +17,7 @@ export default function BusinessUnitCard({ unit }: { unit: BusinessUnit }) {
   const tagColor = TAG_COLORS[unit.tag] ?? "bg-accent-yellow text-black";
 
   return (
-    <div className="group relative flex flex-col overflow-hidden border border-zinc-800 bg-zinc-900 hover:border-accent-yellow transition-all duration-300 hover:-translate-y-1">
+    <div className="group relative flex flex-col overflow-hidden border border-zinc-200 bg-white hover:border-accent-yellow transition-all duration-300 hover:-translate-y-1">
       {/* Image */}
       {/* Tag badge */}
       <span
@@ -35,12 +35,12 @@ export default function BusinessUnitCard({ unit }: { unit: BusinessUnit }) {
           <p className="text-zinc-500 text-xs mt-1">{unit.date}</p>
         </div>
 
-        <p className="text-zinc-400 text-sm leading-relaxed flex-1">
+        <p className="text-zinc-600 text-sm leading-relaxed flex-1">
           {unit.description}
         </p>
 
         {/* Divider + arrow */}
-        <div className="mt-5 pt-4 border-t border-zinc-800 flex items-center justify-between">
+        <div className="mt-5 pt-4 border-t border-zinc-200 flex items-center justify-between">
           <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
             Learn More
           </span>

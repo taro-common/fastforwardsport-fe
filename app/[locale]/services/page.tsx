@@ -62,7 +62,7 @@ export default async function ServicesPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
-          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
           {/* <img
             src="/images/img25.jpg"
             alt="Services"
@@ -74,14 +74,14 @@ export default async function ServicesPage() {
             {t("hero.title")}{" "}
             <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-2xl font-bold   mb-6">Services</p>
           <div className="grid grid-cols-2 gap-8">

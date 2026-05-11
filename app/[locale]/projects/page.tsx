@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
-          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
           {/* <img
             src="/images/img24.jpg"
             alt="Projects"
@@ -58,36 +58,39 @@ export default async function ProjectsPage() {
             {t("hero.title")}{" "}
             <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>
       </section>
 
       <h2 className="mt-20 max-w-7xl mx-auto text-4xl font-bold   mb-6 px-4 sm:px-6 lg:px-8">
-        Featured <span className="text-accent-purple  ">Stories</span>
+        {t("featuredProjects.title")}{" "}
+        <span className="text-accent-purple  ">
+          {t("featuredProjects.highlight")}
+        </span>
       </h2>
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <ProjectsCarousel projects={featuredProjects} />
       </div>
 
       {/* Filter Tabs */}
-      <section className="mt-8 bg-zinc-950 border-b border-zinc-800 sticky top-20 z-40 max-w-7xl mx-auto">
+      <section className="mt-8 bg-zinc-50 border-b border-zinc-200 sticky top-20 z-40 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
             <button className="text-accent-yellow font-semibold border-b-2 border-accent-yellow pb-2 whitespace-nowrap">
               {t("filters.all")}
             </button>
-            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
               {t("filters.rally")}
             </button>
-            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
               {t("filters.engine")}
             </button>
-            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
               {t("filters.racing")}
             </button>
-            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
               {t("filters.academy")}
             </button>
           </div>

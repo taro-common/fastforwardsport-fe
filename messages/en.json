@@ -5,7 +5,6 @@
     "services": "SERVICES",
     "projects": "PROJECTS",
     "facilities": "FACILITIES",
-    "contact": "CONTACT",
     "getInTouch": "GET IN TOUCH"
   },
   "common": {
@@ -24,20 +23,9 @@
       "cta": "EXPLORE OUR SERVICES"
     },
     "gallery": {
+      "our_gallery": "OUR GALLERY",
       "description": "Behind the scenes of championship-winning performance",
-      "zoomLabel": "View image",
-      "imageCount": "{current} of {total}",
-      "images": [
-        { "alt": "Rally Championship Racing", "category": "Rally" },
-        { "alt": "Engine Development", "category": "Engineering" },
-        { "alt": "Circuit Racing", "category": "Racing" },
-        { "alt": "Race Car Build", "category": "Workshop" },
-        { "alt": "Workshop Floor", "category": "Facilities" },
-        { "alt": "Rally Car Preparation", "category": "Rally" },
-        { "alt": "Track Performance", "category": "Racing" },
-        { "alt": "Technical Development", "category": "Engineering" },
-        { "alt": "RAAT Championship Racing", "category": "Motorsport" }
-      ]
+      "zoomLabel": "View image"
     },
     "coreBusiness": {
       "description": "Building Thailand's comprehensive motorsport ecosystem"
@@ -45,63 +33,17 @@
     "achievementsSection": {
       "description": "Championship victories and international recognition"
     },
-    "achievements": [
-      {
-        "title": "Thailand Rally Championship 2024 & 2025 Champion",
-        "description": "Overall & Royal Cup Winner",
-        "icon": "🏆"
-      },
-      {
-        "title": "TRRC 2025 Round 1 Champion",
-        "description": "Thailand Regional Rally Championship",
-        "icon": "🥇"
-      },
-      {
-        "title": "XCR Sprint Cup Hokkaido 2025",
-        "description": "Podium Finish",
-        "icon": "🏅"
-      },
-      {
-        "title": "Asia Cross Country Rally (AXCR)",
-        "description": "Multiple Podiums",
-        "icon": "🌏"
-      },
-      {
-        "title": "Rally Hokkaido Japan",
-        "description": "International Recognition",
-        "icon": "🇯🇵"
-      }
-    ],
+    "proven_excellence": {
+      "title": "PROVEN",
+      "highlight": "EXCELLENCE",
+      "description": "Championship victories and international recognition"
+    },
     "featuredProjectsSection": {
+      "title": "FEATURED",
+      "highlight": "PROJECTS",
       "description": "Latest builds and engineering achievements",
       "viewAll": "VIEW ALL PROJECTS"
     },
-    "featuredProjects": [
-      {
-        "title": "Thailand Rally Championship 2024 Build",
-        "category": "CHAMPIONSHIP",
-        "image": "/images/img1.jpg",
-        "description": "Complete rally car build for championship-winning campaign"
-      },
-      {
-        "title": "4G63 Engine Development Program",
-        "category": "ENGINEERING",
-        "image": "/images/img2.jpg",
-        "description": "High-performance engine development and optimization"
-      },
-      {
-        "title": "Asia Pacific Circuit Series Support",
-        "category": "RACING",
-        "image": "/images/img3.jpg",
-        "description": "Professional race engineering and technical support"
-      },
-      {
-        "title": "Rally Academy Graduates 2024",
-        "category": "ACADEMY",
-        "image": "/images/img4.jpg",
-        "description": "Successfully trained drivers progressing to championships"
-      }
-    ],
     "partnersSection": {
       "description": "Strategic partnerships with industry leaders driving innovation and growth"
     },

@@ -22,8 +22,8 @@ export default function Navigation() {
   ];
 
   const languages = [
-    { code: "en", name: "English", flag: "🇬🇧" },
-    { code: "th", name: "ไทย", flag: "🇹🇭" },
+    { code: "en", name: "English" },
+    { code: "th", name: "ไทย" },
   ];
 
   const currentLanguage = languages.find((lang) => lang.code === locale);
@@ -54,11 +54,11 @@ export default function Navigation() {
             />
             <div className="text-xl md:hidden lg:block md:text-2xl font-bold truncate">
               <span className=" ">FAST Forward</span>
-              <span className="text-accent-yellow ml-2">Sport</span>
+              <span className="text-accent-purple ml-2">Sport</span>
             </div>
             <div className="hidden text-xl md:block lg:hidden md:text-2xl font-bold">
               <span className=" ">FF</span>
-              <span className="text-accent-yellow">S</span>
+              <span className="text-accent-purple">S</span>
             </div>
           </Link>
 
@@ -71,8 +71,8 @@ export default function Navigation() {
                 aria-current={isActivePath(link.href) ? "page" : undefined}
                 className={`text-sm font-medium transition-colors duration-200 pb-1 ${
                   isActivePath(link.href)
-                    ? "text-accent-yellow border-b border-accent-yellow"
-                    : "text-zinc-300 hover:text-accent-yellow"
+                    ? "text-accent-purple border-b border-accent-purple"
+                    : "text-zinc-700 hover:text-accent-purple"
                 }`}
               >
                 {link.label}
@@ -89,7 +89,7 @@ export default function Navigation() {
             <div className="relative">
               <button
                 onClick={() => setIsLangOpen(!isLangOpen)}
-                className="h-10 flex items-center space-x-2 text-sm font-medium text-zinc-300 hover:text-accent-yellow transition-colors duration-200 px-3 rounded-lg bg-zinc-900"
+                className="h-10 flex items-center space-x-2 text-sm font-medium text-zinc-700 hover:text-accent-purple transition-colors duration-200 px-3 rounded-lg bg-zinc-100"
                 aria-label="Toggle language"
               >
                 <span className="hidden lg:block text-xl">
@@ -113,18 +113,17 @@ export default function Navigation() {
 
               {/* Language Dropdown */}
               {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-zinc-900 border border-zinc-800 rounded-lg shadow-lg py-1">
+                <div className="absolute right-0 mt-2 w-40 bg-white border border-zinc-200 rounded-lg shadow-lg py-1">
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang.code)}
-                      className={`w-full flex items-center space-x-3 px-4 py-2 text-sm hover:bg-zinc-800 transition-colors ${
+                      className={`w-full flex items-center space-x-3 px-4 py-2 text-sm hover:bg-zinc-100 transition-colors ${
                         locale === lang.code
-                          ? "text-accent-yellow"
-                          : "text-zinc-300"
+                          ? "text-accent-purple"
+                          : "text-zinc-700"
                       }`}
                     >
-                      <span className="text-xl">{lang.flag}</span>
                       <span>{lang.name}</span>
                       {locale === lang.code && (
                         <svg
@@ -173,7 +172,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/98 border-t border-zinc-800">
+        <div className="md:hidden bg-white/98 border-t border-zinc-200">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -182,8 +181,8 @@ export default function Navigation() {
                 aria-current={isActivePath(link.href) ? "page" : undefined}
                 className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
                   isActivePath(link.href)
-                    ? "bg-zinc-900 text-accent-yellow"
-                    : "text-zinc-300 hover:text-accent-yellow hover:bg-zinc-900"
+                    ? "bg-zinc-100 text-accent-yellow"
+                    : "text-zinc-700 hover:text-accent-yellow hover:bg-zinc-100"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -199,7 +198,7 @@ export default function Navigation() {
             </Link>
 
             {/* Language Switcher - Mobile */}
-            <div className="mt-4 pt-4 border-t border-zinc-800">
+            <div className="mt-4 pt-4 border-t border-zinc-200">
               <div className="text-xs font-semibold text-zinc-500 px-3 mb-2">
                 {tCommon("language")}
               </div>
@@ -213,8 +212,8 @@ export default function Navigation() {
                     }}
                     className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-base transition-colors ${
                       locale === lang.code
-                        ? "bg-zinc-900 text-accent-yellow"
-                        : "text-zinc-300 hover:bg-zinc-900"
+                        ? "bg-zinc-100 text-accent-yellow"
+                        : "text-zinc-700 hover:bg-zinc-100"
                     }`}
                   >
                     <span className="text-xl">{lang.flag}</span>

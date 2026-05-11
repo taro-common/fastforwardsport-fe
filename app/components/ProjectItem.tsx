@@ -44,7 +44,7 @@ export default function ProjectItem({
           </h3>
           <p className="text-zinc-500 text-xs">{project.date}</p>
         </div>
-        <p className="text-zinc-400 text-sm">{project.description}</p>
+        <p className="text-zinc-600 text-sm">{project.description}</p>
         <p className="text-accent-yellow text-sm font-semibold mt-4 flex items-center">
           Read More{" "}
           <span className="ml-2 group-hover:ml-3 transition-all duration-300">

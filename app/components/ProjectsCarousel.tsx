@@ -49,7 +49,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                     layout="fill"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-white/95 via-white/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
                       {project.category}
@@ -57,7 +57,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                     <h3 className="text-2xl md:text-3xl font-bold   mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-zinc-300 text-sm md:text-base">
+                    <p className="text-zinc-700 text-sm md:text-base">
                       {project.description}
                     </p>
                   </div>
@@ -70,7 +70,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
         <button
           type="button"
           onClick={prevFeaturedProject}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90   rounded-full p-3 transition-colors"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 transition-colors border border-zinc-200"
         >
           <svg
             className="w-6 h-6"
@@ -88,7 +88,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
         <button
           type="button"
           onClick={nextFeaturedProject}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90   rounded-full p-3 transition-colors"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 transition-colors border border-zinc-200"
         >
           <svg
             className="w-6 h-6"

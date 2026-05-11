@@ -2,10 +2,9 @@
   "nav": {
     "home": "หน้าแรก",
     "about": "เกี่ยวกับเรา",
-    "services": "บริการ",
+    "services": "บริการของเรา",
     "projects": "ผลงาน",
-    "facilities": "สิ่งอำนวยความสะดวก",
-    "contact": "ติดต่อเรา",
+    "facilities": "อุปกรณ์และเครื่องมือ",
     "getInTouch": "ติดต่อเรา"
   },
   "common": {
@@ -18,90 +17,33 @@
     "subtitle": "ความเป็นเลิศด้านวิศวกรรม Motorsport",
     "hero": {
       "backgroundAlt": "รถแข่ง RAAT Championship",
-      "line1": "EXPERT TECHNOLOGY",
-      "line2": "FOR LIFE",
-      "description": "จาก Championship Racing สู่ Engineering Innovation",
+      "line1": "เทคโนโลยีเชิงวิศวกรรม",
+      "line2": "เพื่อการขับเคลื่อนสู่อนาคต",
+      "description": "จากชัยชนะในสนามแข่ง สู่การพัฒนาเทคโนโลยีที่ใช้ได้จริง",
       "cta": "ดูบริการของเรา"
     },
     "gallery": {
-      "description": "เบื้องหลังผลงานระดับแชมเปียนชิป",
-      "zoomLabel": "ดูภาพ",
-      "imageCount": "{current} จาก {total}",
-      "images": [
-        { "alt": "การแข่งขัน Rally ระดับแชมเปียนชิป", "category": "Rally" },
-        { "alt": "งานพัฒนาเครื่องยนต์", "category": "Engineering" },
-        { "alt": "การแข่งขัน Circuit Racing", "category": "Racing" },
-        { "alt": "การประกอบรถแข่ง", "category": "Workshop" },
-        { "alt": "พื้นที่ภายใน Workshop", "category": "Facilities" },
-        { "alt": "การเตรียมรถ Rally", "category": "Rally" },
-        { "alt": "สมรรถนะบนสนามแข่ง", "category": "Racing" },
-        { "alt": "งานพัฒนาเชิงเทคนิค", "category": "Engineering" },
-        { "alt": "รถแข่ง RAAT Championship", "category": "Motorsport" }
-      ]
+      "our_gallery": "แกลเลอรี",
+      "description": "เบื้องหลังการทำงานที่ขับเคลื่อนผลงานระดับแชมป์",
+      "zoomLabel": "ดูภาพ"
     },
     "coreBusiness": {
-      "description": "สร้าง Motorsport ecosystem ที่ครบวงจรของประเทศไทย"
+      "description": "ขับเคลื่อนวงการมอเตอร์สปอร์ตไทยให้เติบโตอย่างครบวงจร"
     },
     "achievementsSection": {
       "description": "ชัยชนะระดับแชมเปียนชิปและการยอมรับในระดับนานาชาติ"
     },
-    "achievements": [
-      {
-        "title": "แชมป์ Thailand Rally Championship 2024 และ 2025",
-        "description": "ชนะเลิศ Overall และ Royal Cup",
-        "icon": "🏆"
-      },
-      {
-        "title": "แชมป์ TRRC 2025 Round 1",
-        "description": "Thailand Regional Rally Championship",
-        "icon": "🥇"
-      },
-      {
-        "title": "XCR Sprint Cup Hokkaido 2025",
-        "description": "จบการแข่งขันบนโพเดียม",
-        "icon": "🏅"
-      },
-      {
-        "title": "Asia Cross Country Rally (AXCR)",
-        "description": "คว้าโพเดียมหลายรายการ",
-        "icon": "🌏"
-      },
-      {
-        "title": "Rally Hokkaido Japan",
-        "description": "ได้รับการยอมรับระดับนานาชาติ",
-        "icon": "🇯🇵"
-      }
-    ],
+    "proven_excellence": {
+      "title": "ผลงาน",
+      "highlight": "ที่พิสูจน์ความเป็นเลิศ",
+      "description": "ชัยชนะจากสนามแข่งระดับแชมป์ สู่การยอมรับในเวทีนานาชาติ"
+    },
     "featuredProjectsSection": {
+      "title": "ผลงาน",
+      "highlight": "เด่น",
       "description": "โปรเจกต์ล่าสุดและผลงานด้านวิศวกรรมที่โดดเด่น",
       "viewAll": "ดูผลงานทั้งหมด"
     },
-    "featuredProjects": [
-      {
-        "title": "รถแข่ง Thailand Rally Championship 2024",
-        "category": "CHAMPIONSHIP",
-        "image": "/images/img1.jpg",
-        "description": "สร้างรถ Rally แบบครบวงจรสำหรับแคมเปญแชมป์รายการ"
-      },
-      {
-        "title": "โครงการพัฒนาเครื่องยนต์ 4G63",
-        "category": "ENGINEERING",
-        "image": "/images/img2.jpg",
-        "description": "พัฒนาและเพิ่มประสิทธิภาพเครื่องยนต์สมรรถนะสูง"
-      },
-      {
-        "title": "การสนับสนุน Asia Pacific Circuit Series",
-        "category": "RACING",
-        "image": "/images/img3.jpg",
-        "description": "Race engineering และ technical support ระดับมืออาชีพ"
-      },
-      {
-        "title": "ผู้ผ่านโปรแกรม Rally Academy 2024",
-        "category": "ACADEMY",
-        "image": "/images/img4.jpg",
-        "description": "นักขับที่ผ่านการฝึกและต่อยอดสู่การแข่งขันระดับแชมเปียนชิป"
-      }
-    ],
     "partnersSection": {
       "description": "ความร่วมมือเชิงกลยุทธ์กับผู้นำในอุตสาหกรรมเพื่อขับเคลื่อนนวัตกรรมและการเติบโต"
     },

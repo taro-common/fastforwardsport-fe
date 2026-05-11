@@ -88,13 +88,13 @@ export default async function AboutPage() {
   ] as Leader[];
 
   return (
-    <div className="">
+    <div className="bg-zinc-50">
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-32 overflow-hidden bg-zinc-100">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-accent-purple" />
+          <div className="absolute inset-0 bg-linear-to-br from-zinc-100 via-white to-purple-100" />
 
-          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
           {/* <Image
             src="/images/img31.jpg"
             alt="Fast Forward Sport Team"
@@ -107,33 +107,33 @@ export default async function AboutPage() {
           <p className="text-accent-yellow font-semibold text-xs tracking-[0.2em] uppercase">
             {t("hero.title")} US
           </p>
-          <h1 className="text-5xl md:text-7xl mb-6   leading-tight font-black">
+          <h1 className="text-5xl md:text-7xl mb-6 text-zinc-900 leading-tight font-black">
             FAST Forward <span className="text-accent-yellow  ">Sport</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>
       </section>
 
       {/* Company Overview Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold   mb-6">
+              <h2 className="text-4xl font-bold text-zinc-900 mb-6">
                 {t("overview.title")}{" "}
                 <span className="text-accent-purple  ">
                   {t("overview.highlight")}
                 </span>
               </h2>
               {(t.raw("overview.paragraphs") as string[]).map((paragraph) => (
-                <p key={paragraph} className="text-zinc-400 text-lg mb-4">
+                <p key={paragraph} className="text-zinc-600 text-lg mb-4">
                   {paragraph}
                 </p>
               ))}
-              <div className="border-l-4 border-accent-yellow p-6 rounded-r-lg mt-8">
-                <p className="  text-xl font-semibold mb-2">
+              <div className="border-l-4 border-accent-yellow bg-zinc-50 p-6 rounded-r-lg mt-8">
+                <p className="text-zinc-900 text-xl font-semibold mb-2">
                   &ldquo;{t("overview.quote")}&rdquo;
                 </p>
                 <p className="text-accent-yellow font-bold mt-4">
@@ -155,7 +155,7 @@ export default async function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Vision */}
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6">
               {t("vision.title")}{" "}
               <span className="text-accent-purple  ">
                 {t("vision.highlight")}
@@ -165,7 +165,7 @@ export default async function AboutPage() {
               <p className="text-3xl font-bold text-accent-yellow mb-4">
                 &ldquo;{t("vision.statement")}&rdquo;
               </p>
-              <p className="text-zinc-300 text-xl leading-relaxed">
+              <p className="text-zinc-700 text-xl leading-relaxed">
                 {t("vision.description")}
               </p>
             </div>
@@ -173,7 +173,7 @@ export default async function AboutPage() {
 
           {/* Mission Pillars */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold   mb-12">
+            <h3 className="text-3xl font-bold text-zinc-900 mb-12">
               {t("mission.title")}{" "}
               <span className="text-accent-purple  ">
                 {t("mission.highlight")}
@@ -183,11 +183,13 @@ export default async function AboutPage() {
               {missionPillars.map((pillar, index) => (
                 <div
                   key={index}
-                  className="p-6 border border-zinc-800 hover:border-accent-yellow transition-all duration-300"
+                  className="p-6 border border-zinc-200 bg-white rounded-xl shadow-xs hover:shadow-md hover:border-accent-yellow transition-all duration-300"
                 >
                   <IconItem icon={pillar.icon} />
-                  <h4 className="text-lg font-bold   my-3">{pillar.title}</h4>
-                  <p className="text-zinc-400 text-sm">{pillar.description}</p>
+                  <h4 className="text-lg font-bold text-zinc-900 my-3">
+                    {pillar.title}
+                  </h4>
+                  <p className="text-zinc-600 text-sm">{pillar.description}</p>
                 </div>
               ))}
             </div>
@@ -237,16 +239,16 @@ export default async function AboutPage() {
       </section> */}
 
       {/* Track Record & Milestones Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
               {t("milestonesSection.title")}{" "}
               <span className="text-accent-purple  ">
                 {t("milestonesSection.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-zinc-600 max-w-2xl">
               {t("milestonesSection.description")}
             </p>
           </div>
@@ -264,10 +266,10 @@ export default async function AboutPage() {
                   {milestone.achievements.map((achievement, achIndex) => (
                     <div
                       key={achIndex}
-                      className="flex items-center p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 gap-4"
+                      className="flex items-center p-4 border border-zinc-200 bg-zinc-50 rounded-xl hover:border-accent-yellow transition-all duration-300 gap-4"
                     >
                       <IconShieldCheckFilled className="text-accent-yellow" />
-                      <p className="  text-lg">{achievement}</p>
+                      <p className="text-zinc-900 text-lg">{achievement}</p>
                     </div>
                   ))}
                 </div>
@@ -278,17 +280,17 @@ export default async function AboutPage() {
       </section>
 
       {/* Our Values Section */}
-      <section className="py-20 bg-accent-purple">
-        <div className="absolute inset-0 bg-linear-to-br from-white via-white/80 to-purple-900/30" />
+      <section className="relative py-20 bg-zinc-50">
+        <div className="absolute inset-0 bg-linear-to-br from-white via-white to-purple-100/40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
               {t("valuesSection.title")}{" "}
               <span className="text-accent-purple">
                 {t("valuesSection.highlight")}
               </span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl">
+            <p className="text-xl text-zinc-700 max-w-2xl">
               {t("valuesSection.description")}
             </p>
           </div>
@@ -297,10 +299,12 @@ export default async function AboutPage() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-6 border border-white/30 hover:border-accent-yellow transition-all duration-300"
+                className="bg-white/90 backdrop-blur-sm p-6 border border-zinc-200 rounded-xl shadow-xs hover:shadow-md hover:border-accent-yellow transition-all duration-300"
               >
-                <h3 className="text-lg font-bold   mb-2">{value.title}</h3>
-                <p className="text-zinc-400 text-sm">{value.description}</p>
+                <h3 className="text-lg font-bold text-zinc-900 mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-zinc-600 text-sm">{value.description}</p>
               </div>
             ))}
           </div>

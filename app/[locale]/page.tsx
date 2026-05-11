@@ -9,17 +9,54 @@ import ProjectsCarousel from "../components/ProjectsCarousel";
 
 export default function Home() {
   const t = useTranslations("home");
-  const achievements = t.raw("achievements") as Array<{
-    title: string;
-    description: string;
-    icon: string;
-  }>;
-  const featuredProjects = t.raw("featuredProjects") as Array<{
-    title: string;
-    category: string;
-    image: string;
-    description: string;
-  }>;
+  const achievements = [
+    {
+      title: "Thailand Rally Championship 2024 & 2025 Champion",
+      description: "Overall & Royal Cup Winner",
+    },
+    {
+      title: "TRRC 2025 Round 1 Champion",
+      description: "Thailand Regional Rally Championship",
+    },
+    {
+      title: "XCR Sprint Cup Hokkaido 2025",
+      description: "Podium Finish",
+    },
+    {
+      title: "Asia Cross Country Rally (AXCR)",
+      description: "Multiple Podiums",
+    },
+    {
+      title: "Rally Hokkaido Japan",
+      description: "International Recognition",
+    },
+  ];
+  const featuredProjects = [
+    {
+      title: "Thailand Rally Championship 2024 Build",
+      category: "CHAMPIONSHIP",
+      image: "/images/img1.jpg",
+      description: "Complete rally car build for championship-winning campaign",
+    },
+    {
+      title: "4G63 Engine Development Program",
+      category: "ENGINEERING",
+      image: "/images/img2.jpg",
+      description: "High-performance engine development and optimization",
+    },
+    {
+      title: "Asia Pacific Circuit Series Support",
+      category: "RACING",
+      image: "/images/img3.jpg",
+      description: "Professional race engineering and technical support",
+    },
+    {
+      title: "Rally Academy Graduates 2024",
+      category: "ACADEMY",
+      image: "/images/img4.jpg",
+      description: "Successfully trained drivers progressing to championships",
+    },
+  ];
 
   const galleryMessageImages = t.raw("gallery.images") as Array<{
     alt: string;
@@ -215,7 +252,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-br from-black/80 via-black/70 to-purple-900/50 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
           <img
             src="/images/img17.jpg"
             alt={t("hero.backgroundAlt")}
@@ -229,7 +266,7 @@ export default function Home() {
             <br />
             <span className="text-accent-purple  ">{t("hero.line2")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-700 mb-10 max-w-3xl">
             {t("hero.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
@@ -264,7 +301,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               OUR <span className="text-accent-purple">GALLERY</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-zinc-600 max-w-2xl">
               {t("gallery.description")}
             </p>
           </div>
@@ -283,10 +320,10 @@ export default function Home() {
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-white/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
                   <div className="text-center">
                     <svg
-                      className="w-12 h-12   mx-auto mb-2"
+                      className="w-12 h-12 text-zinc-900 mx-auto mb-2"
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -296,7 +333,7 @@ export default function Home() {
                     >
                       <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
                     </svg>
-                    <span className="  text-sm font-semibold">
+                    <span className="text-zinc-900 text-sm font-semibold">
                       {image.category}
                     </span>
                   </div>
@@ -314,7 +351,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               CORE <span className="text-accent-purple">BUSINESS UNITS</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-zinc-600 max-w-2xl">
               {t("coreBusiness.description")}
             </p>
           </div>
@@ -352,10 +389,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold   mb-4">
-              PROVEN <span className="text-accent-purple  ">EXCELLENCE</span>
+              {t("proven_excellence.title")}{" "}
+              <span className="text-accent-purple  ">
+                {t("proven_excellence.highlight")}
+              </span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              {t("achievementsSection.description")}
+            <p className="text-xl text-zinc-600 max-w-2xl">
+              {t("proven_excellence.description")}
             </p>
           </div>
 
@@ -363,10 +403,12 @@ export default function Home() {
             {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="flex items-center bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 gap-4"
+                className="flex items-center bg-white p-4 border border-zinc-200 hover:border-accent-yellow transition-all duration-300 gap-4"
               >
                 <IconShieldCheckFilled className="text-accent-yellow" />
-                <p className="  text-lg">{achievement.description}</p>
+                <p className="text-zinc-900 text-lg">
+                  {achievement.description}
+                </p>
               </div>
             ))}
           </div>
@@ -374,13 +416,13 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Carousel */}
-      <section className="pt-20 bg-zinc-950">
+      <section className="pt-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold   mb-4">
               FEATURED <span className="text-accent-purple  ">PROJECTS</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-zinc-600 max-w-2xl">
               {t("featuredProjectsSection.description")}
             </p>
           </div>
@@ -398,7 +440,7 @@ export default function Home() {
               BUILDING THAILAND'S{" "}
               <span className="text-accent-purple  ">MOTORSPORT ECOSYSTEM</span>
             </h2>
-            <p className="text-xl text-zinc-400 max-w-3xl mb-12">
+            <p className="text-xl text-zinc-600 max-w-3xl mb-12">
               {t("partnersSection.description")}
             </p>
           </div>
@@ -409,7 +451,7 @@ export default function Home() {
                 key={index}
                 src={partner.logo}
                 alt={partner.name}
-                className="bg-zinc-900 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30 w-full"
+                className="bg-white border border-zinc-200 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30 w-full"
               />
             ))}
           </div>
@@ -470,12 +512,12 @@ export default function Home() {
       {/* Lightbox Modal */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-white/96 backdrop-blur-xs flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
           {/* Close Button */}
           <button
-            className="absolute top-4 right-4   hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute top-4 right-4 text-zinc-800 bg-white/90 border border-zinc-200 rounded-full p-2 hover:text-accent-yellow transition-colors duration-200 z-60"
             onClick={closeLightbox}
           >
             <svg
@@ -493,7 +535,7 @@ export default function Home() {
 
           {/* Previous Button */}
           <button
-            className="absolute left-4   hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute left-4 text-zinc-800 bg-white/90 border border-zinc-200 rounded-full p-2 hover:text-accent-yellow transition-colors duration-200 z-60"
             onClick={(e) => {
               e.stopPropagation();
               prevImage();
@@ -514,7 +556,7 @@ export default function Home() {
 
           {/* Next Button */}
           <button
-            className="absolute right-4   hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute right-4 text-zinc-800 bg-white/90 border border-zinc-200 rounded-full p-2 hover:text-accent-yellow transition-colors duration-200 z-60"
             onClick={(e) => {
               e.stopPropagation();
               nextImage();
@@ -545,11 +587,11 @@ export default function Home() {
 
           {/* Image Info */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-            <div className="bg-black/70 px-6 py-3 rounded-full backdrop-blur-sm">
+            <div className="bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-zinc-200">
               <p className="  text-sm font-semibold mb-1">
                 {galleryImages[lightboxIndex].alt}
               </p>
-              <p className="text-zinc-400 text-xs">
+              <p className="text-zinc-600 text-xs">
                 {t("gallery.imageCount", {
                   current: lightboxIndex + 1,
                   total: galleryImages.length,
@@ -561,7 +603,7 @@ export default function Home() {
       )}
 
       {/* Footer CTA Section */}
-      <section className="py-32 bg-linear-to-br from-white via-purple-900/20 to-white relative">
+      <section className="py-32 bg-linear-to-br from-white via-purple-100/35 to-white relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-yellow/10 skew-x-[-15deg] origin-top-right"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -570,7 +612,7 @@ export default function Home() {
               EXPERIENCE FAST FORWARD?
             </span>
           </h2>
-          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
+          <p className="text-xl text-zinc-700 mb-10">{t("cta.description")}</p>
           <Link
             href="/contact"
             className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-lg font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"

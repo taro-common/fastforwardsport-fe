@@ -49,7 +49,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
-          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/80 to-purple-900/30 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
           {/* <img
             src="/images/img2.jpg"
             alt="Contact"
@@ -61,14 +61,14 @@ export default function ContactPage() {
             {t("hero.title")}{" "}
             <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -99,10 +99,10 @@ export default function ContactPage() {
                     <h3 className="  font-semibold mb-1">
                       {t("labels.email")}
                     </h3>
-                    <p className="text-zinc-400">
+                    <p className="text-zinc-600">
                       fastforwardsport@outlook.com
                     </p>
-                    <p className="text-zinc-400">
+                    <p className="text-zinc-600">
                       technical@fastforwardsport.com
                     </p>
                   </div>
@@ -126,8 +126,8 @@ export default function ContactPage() {
                     <h3 className="  font-semibold mb-1">
                       {t("labels.phone")}
                     </h3>
-                    <p className="text-zinc-400">+1 (555) 123-4567</p>
-                    <p className="text-zinc-400">+1 (555) 123-4568</p>
+                    <p className="text-zinc-600">+1 (555) 123-4567</p>
+                    <p className="text-zinc-600">+1 (555) 123-4568</p>
                   </div>
                 </div>
 
@@ -151,7 +151,7 @@ export default function ContactPage() {
                       {t("labels.address")}
                     </h3>
                     {(t.raw("address") as string[]).map((line) => (
-                      <p key={line} className="text-zinc-400">
+                      <p key={line} className="text-zinc-600">
                         {line}
                       </p>
                     ))}
@@ -177,7 +177,7 @@ export default function ContactPage() {
                       {t("labels.businessHours")}
                     </h3>
                     {(t.raw("businessHours") as string[]).map((line) => (
-                      <p key={line} className="text-zinc-400">
+                      <p key={line} className="text-zinc-600">
                         {line}
                       </p>
                     ))}
@@ -191,7 +191,7 @@ export default function ContactPage() {
                 <div className="flex space-x-4">
                   <a
                     href="#"
-                    className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
+                    className="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
                   >
                     <span className="sr-only">Facebook</span>
                     <svg
@@ -204,7 +204,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href="#"
-                    className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
+                    className="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
                   >
                     <span className="sr-only">Instagram</span>
                     <svg
@@ -217,7 +217,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href="#"
-                    className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
+                    className="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
                   >
                     <span className="sr-only">Twitter</span>
                     <svg
@@ -230,7 +230,7 @@ export default function ContactPage() {
                   </a>
                   <a
                     href="#"
-                    className="w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
+                    className="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
                   >
                     <span className="sr-only">YouTube</span>
                     <svg
@@ -247,7 +247,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div>
-              <div className="bg-zinc-900 p-8 rounded-lg border border-zinc-800">
+              <div className="bg-white p-8 rounded-lg border border-zinc-200">
                 <h2 className="text-2xl font-bold   mb-6">{t("form.title")}</h2>
 
                 {submitted ? (
@@ -266,7 +266,7 @@ export default function ContactPage() {
                     <h3 className="text-xl font-bold   mb-2">
                       {t("form.successTitle")}
                     </h3>
-                    <p className="text-zinc-300">
+                    <p className="text-zinc-700">
                       {t("form.successDescription")}
                     </p>
                   </div>
@@ -286,7 +286,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg   focus:outline-none focus:border-accent-yellow transition-colors"
+                        className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-lg focus:outline-none focus:border-accent-yellow transition-colors"
                       />
                     </div>
 
@@ -304,7 +304,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg   focus:outline-none focus:border-accent-yellow transition-colors"
+                        className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-lg focus:outline-none focus:border-accent-yellow transition-colors"
                       />
                     </div>
 
@@ -321,7 +321,7 @@ export default function ContactPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg   focus:outline-none focus:border-accent-yellow transition-colors"
+                        className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-lg focus:outline-none focus:border-accent-yellow transition-colors"
                       />
                     </div>
 
@@ -337,7 +337,7 @@ export default function ContactPage() {
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg   focus:outline-none focus:border-accent-yellow transition-colors"
+                        className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-lg focus:outline-none focus:border-accent-yellow transition-colors"
                       >
                         <option value="">{t("form.selectService")}</option>
                         <option value="rally">{t("form.options.rally")}</option>
@@ -374,7 +374,7 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         rows={5}
-                        className="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg   focus:outline-none focus:border-accent-yellow transition-colors resize-none"
+                        className="w-full px-4 py-3 bg-white border border-zinc-200 rounded-lg focus:outline-none focus:border-accent-yellow transition-colors resize-none"
                       ></textarea>
                     </div>
 
@@ -396,7 +396,7 @@ export default function ContactPage() {
       {/* Map Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="h-96 bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800">
+          <div className="h-96 bg-white rounded-lg overflow-hidden border border-zinc-200">
             {/* Placeholder for map */}
             <div className="w-full h-full flex items-center justify-center">
               <div className="text-center">

@@ -23,7 +23,7 @@ export default function Footer() {
                 className="h-10 w-auto"
               />
             </div>
-            <p className="text-zinc-400 mb-4 max-w-md">{t("description")}</p>
+            <p className="text-zinc-600 mb-4 max-w-md">{t("description")}</p>
           </div>
 
           {/* Quick Links */}
@@ -33,7 +33,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-zinc-400 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
                 >
                   {t("aboutUs")}
                 </Link>
@@ -41,7 +41,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-zinc-400 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
                 >
                   {t("services")}
                 </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects"
-                  className="text-zinc-400 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
                 >
                   {t("projects")}
                 </Link>
@@ -57,7 +57,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/facilities"
-                  className="text-zinc-400 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
                 >
                   {t("facilities")}
                 </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="  font-semibold mb-4">{t("contact")}</h3>
-            <ul className="space-y-2 text-zinc-400">
+            <ul className="space-y-2 text-zinc-600">
               <li>{t("emailLabel")}: fastforwardsport@outlook.com</li>
               <li>{t("phoneLabel")}: +1 (555) 123-4567</li>
               <li>
@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center">
+        <div className="pt-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-zinc-500 text-sm">
             © {currentYear} Fast Forward Sport. {t("rights")}
           </p>
