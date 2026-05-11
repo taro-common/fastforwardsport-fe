@@ -54,7 +54,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                     <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
                       {project.category}
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold   mb-2">
                       {project.title}
                     </h3>
                     <p className="text-zinc-300 text-sm md:text-base">
@@ -70,7 +70,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
         <button
           type="button"
           onClick={prevFeaturedProject}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90   rounded-full p-3 transition-colors"
         >
           <svg
             className="w-6 h-6"
@@ -88,7 +88,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
         <button
           type="button"
           onClick={nextFeaturedProject}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white rounded-full p-3 transition-colors"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90   rounded-full p-3 transition-colors"
         >
           <svg
             className="w-6 h-6"
@@ -122,7 +122,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
       {/* <div className="text-center mt-12">
         <Link
           href="/projects"
-          className="inline-block bg-accent-purple text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors duration-200"
+          className="inline-block bg-accent-purple   px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors duration-200"
         >
           {t("featuredProjectsSection.viewAll")}
         </Link>

@@ -19,7 +19,6 @@ export default function Navigation() {
     { href: "/services", label: t("services") },
     { href: "/projects", label: t("projects") },
     { href: "/facilities", label: t("facilities") },
-    { href: "/contact", label: t("contact") },
   ];
 
   const languages = [
@@ -43,7 +42,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-sm border-b border-zinc-800">
+    <nav className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -54,11 +53,11 @@ export default function Navigation() {
               className="h-12 w-auto object-cover"
             />
             <div className="text-xl md:hidden lg:block md:text-2xl font-bold truncate">
-              <span className="text-white">FAST Forward</span>
+              <span className=" ">FAST Forward</span>
               <span className="text-accent-yellow ml-2">Sport</span>
             </div>
             <div className="hidden text-xl md:block lg:hidden md:text-2xl font-bold">
-              <span className="text-white">FF</span>
+              <span className=" ">FF</span>
               <span className="text-accent-yellow">S</span>
             </div>
           </Link>
@@ -150,7 +149,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden   p-2"
             aria-label="Toggle menu"
           >
             <svg
@@ -174,7 +173,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/98 border-t border-zinc-800">
+        <div className="md:hidden bg-white/98 border-t border-zinc-800">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link

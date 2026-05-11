@@ -39,7 +39,7 @@ export default function ProjectItem({
       </div>
       <div className="py-4">
         <div className="flex flex-col justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-white group-hover:text-accent-purple">
+          <h3 className="text-xl font-bold   group-hover:text-accent-purple">
             {project.title}
           </h3>
           <p className="text-zinc-500 text-xs">{project.date}</p>

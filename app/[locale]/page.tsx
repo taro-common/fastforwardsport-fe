@@ -211,7 +211,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-black">
+    <div className="">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -225,9 +225,9 @@ export default function Home() {
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
           <h1 className="text-5xl md:text-8xl mb-6 leading-[0.95] font-black tracking-tight">
-            <span className="text-white">{t("hero.line1")}</span>
+            <span className=" ">{t("hero.line1")}</span>
             <br />
-            <span className="text-accent-purple italic">{t("hero.line2")}</span>
+            <span className="text-accent-purple  ">{t("hero.line2")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 mb-10 max-w-3xl">
             {t("hero.description")}
@@ -258,11 +258,11 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              OUR <span className="text-accent-purple italic">GALLERY</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              OUR <span className="text-accent-purple">GALLERY</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl">
               {t("gallery.description")}
@@ -286,7 +286,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-center">
                     <svg
-                      className="w-12 h-12 text-white mx-auto mb-2"
+                      className="w-12 h-12   mx-auto mb-2"
                       fill="none"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -296,7 +296,7 @@ export default function Home() {
                     >
                       <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
                     </svg>
-                    <span className="text-white text-sm font-semibold">
+                    <span className="  text-sm font-semibold">
                       {image.category}
                     </span>
                   </div>
@@ -308,12 +308,11 @@ export default function Home() {
       </section>
 
       {/* Core Business Units Section */}
-      <section className="py-20 bg-zinc-950">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              CORE{" "}
-              <span className="text-accent-purple italic">BUSINESS UNITS</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              CORE <span className="text-accent-purple">BUSINESS UNITS</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl">
               {t("coreBusiness.description")}
@@ -330,7 +329,7 @@ export default function Home() {
                 <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {unit.icon}
                 </div>
-                <h3 className="text-sm font-bold text-white mb-3 group-hover:text-accent-yellow transition-colors">
+                <h3 className="text-sm font-bold   mb-3 group-hover:text-accent-yellow transition-colors">
                   {unit.title}
                 </h3>
                 <p className="text-xl text-zinc-300 font-bold mb-1">
@@ -349,12 +348,11 @@ export default function Home() {
       </section>
 
       {/* Key Achievements Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              PROVEN{" "}
-              <span className="text-accent-purple italic">EXCELLENCE</span>
+            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
+              PROVEN <span className="text-accent-purple  ">EXCELLENCE</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl">
               {t("achievementsSection.description")}
@@ -368,7 +366,7 @@ export default function Home() {
                 className="flex items-center bg-zinc-900 p-4 border border-zinc-800 hover:border-accent-yellow transition-all duration-300 gap-4"
               >
                 <IconShieldCheckFilled className="text-accent-yellow" />
-                <p className="text-white text-lg">{achievement.description}</p>
+                <p className="  text-lg">{achievement.description}</p>
               </div>
             ))}
           </div>
@@ -379,9 +377,8 @@ export default function Home() {
       <section className="pt-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              FEATURED{" "}
-              <span className="text-accent-purple italic">PROJECTS</span>
+            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
+              FEATURED <span className="text-accent-purple  ">PROJECTS</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl">
               {t("featuredProjectsSection.description")}
@@ -394,14 +391,12 @@ export default function Home() {
       </div>
 
       {/* Ecosystem & Partners Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
               BUILDING THAILAND'S{" "}
-              <span className="text-accent-purple italic">
-                MOTORSPORT ECOSYSTEM
-              </span>
+              <span className="text-accent-purple  ">MOTORSPORT ECOSYSTEM</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-3xl mb-12">
               {t("partnersSection.description")}
@@ -425,7 +420,7 @@ export default function Home() {
       {/* <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold   mb-4">
               FAST FORWARD <span className="text-accent-yellow">CHANNEL</span>
             </h2>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
@@ -453,7 +448,7 @@ export default function Home() {
                 </div>
                 <div className="p-6">
                   <p className="text-zinc-500 text-sm mb-2">{article.date}</p>
-                  <h3 className="text-xl font-bold text-white group-hover:text-accent-yellow transition-colors">
+                  <h3 className="text-xl font-bold   group-hover:text-accent-yellow transition-colors">
                     {article.title}
                   </h3>
                 </div>
@@ -480,7 +475,7 @@ export default function Home() {
         >
           {/* Close Button */}
           <button
-            className="absolute top-4 right-4 text-white hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute top-4 right-4   hover:text-accent-yellow transition-colors duration-200 z-60"
             onClick={closeLightbox}
           >
             <svg
@@ -498,7 +493,7 @@ export default function Home() {
 
           {/* Previous Button */}
           <button
-            className="absolute left-4 text-white hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute left-4   hover:text-accent-yellow transition-colors duration-200 z-60"
             onClick={(e) => {
               e.stopPropagation();
               prevImage();
@@ -519,7 +514,7 @@ export default function Home() {
 
           {/* Next Button */}
           <button
-            className="absolute right-4 text-white hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute right-4   hover:text-accent-yellow transition-colors duration-200 z-60"
             onClick={(e) => {
               e.stopPropagation();
               nextImage();
@@ -551,7 +546,7 @@ export default function Home() {
           {/* Image Info */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
             <div className="bg-black/70 px-6 py-3 rounded-full backdrop-blur-sm">
-              <p className="text-white text-sm font-semibold mb-1">
+              <p className="  text-sm font-semibold mb-1">
                 {galleryImages[lightboxIndex].alt}
               </p>
               <p className="text-zinc-400 text-xs">
@@ -566,12 +561,12 @@ export default function Home() {
       )}
 
       {/* Footer CTA Section */}
-      <section className="py-32 bg-linear-to-br from-black via-purple-900/20 to-black relative">
+      <section className="py-32 bg-linear-to-br from-white via-purple-900/20 to-white relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-yellow/10 skew-x-[-15deg] origin-top-right"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             READY TO{" "}
-            <span className="text-accent-purple italic">
+            <span className="text-accent-purple  ">
               EXPERIENCE FAST FORWARD?
             </span>
           </h2>

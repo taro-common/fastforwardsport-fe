@@ -42,7 +42,7 @@ export default async function ProjectsPage() {
   ];
 
   return (
-    <div className="bg-black">
+    <div className="">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
@@ -54,11 +54,9 @@ export default async function ProjectsPage() {
           /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6  ">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow italic">
-              {t("hero.highlight")}
-            </span>
+            <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -66,30 +64,30 @@ export default async function ProjectsPage() {
         </div>
       </section>
 
-      <h2 className="mt-20 max-w-7xl mx-auto text-4xl font-bold text-white mb-6 px-4 sm:px-6 lg:px-8">
-        Featured <span className="text-accent-purple italic">Stories</span>
+      <h2 className="mt-20 max-w-7xl mx-auto text-4xl font-bold   mb-6 px-4 sm:px-6 lg:px-8">
+        Featured <span className="text-accent-purple  ">Stories</span>
       </h2>
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <ProjectsCarousel projects={featuredProjects} />
       </div>
 
       {/* Filter Tabs */}
-      <section className="bg-zinc-950 border-b border-zinc-800 sticky top-20 z-40">
+      <section className="mt-8 bg-zinc-950 border-b border-zinc-800 sticky top-20 z-40 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
             <button className="text-accent-yellow font-semibold border-b-2 border-accent-yellow pb-2 whitespace-nowrap">
               {t("filters.all")}
             </button>
-            <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
               {t("filters.rally")}
             </button>
-            <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
               {t("filters.engine")}
             </button>
-            <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
               {t("filters.racing")}
             </button>
-            <button className="text-zinc-400 hover:text-white font-semibold pb-2 whitespace-nowrap">
+            <button className="text-zinc-400 hover:  font-semibold pb-2 whitespace-nowrap">
               {t("filters.academy")}
             </button>
           </div>
@@ -97,9 +95,9 @@ export default async function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 bg-black">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-2xl font-bold text-white mb-6">All Projects</p>
+          <p className="text-2xl font-bold   mb-6">All Projects</p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <ProjectItem key={index} project={project} index={index} />
@@ -111,7 +109,7 @@ export default async function ProjectsPage() {
       {/* Stats Section */}
       {/* <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+          <h2 className="text-4xl font-bold   mb-12 text-center">
             {t("stats.title")}{" "}
             <span className="text-accent-yellow">{t("stats.highlight")}</span>
           </h2>
@@ -131,7 +129,7 @@ export default async function ProjectsPage() {
       {/* CTA Section */}
       {/* <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold   mb-6">
             {t("cta.title")}{" "}
             <span className="text-accent-yellow">{t("cta.highlight")}</span>
           </h2>

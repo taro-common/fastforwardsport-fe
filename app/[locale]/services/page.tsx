@@ -58,7 +58,7 @@ export default async function ServicesPage() {
   const processSteps = t.raw("process.steps") as ProcessStep[];
 
   return (
-    <div className="bg-black">
+    <div className="">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
@@ -70,11 +70,9 @@ export default async function ServicesPage() {
           /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6  ">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow italic">
-              {t("hero.highlight")}
-            </span>
+            <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -85,7 +83,7 @@ export default async function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-2xl font-bold text-white mb-6">Services</p>
+          <p className="text-2xl font-bold   mb-6">Services</p>
           <div className="grid grid-cols-2 gap-8">
             {services.map((service, index) => (
               <ProjectItem key={index} project={service} />
@@ -97,7 +95,7 @@ export default async function ServicesPage() {
       {/* Process Section */}
       {/* <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center">
+          <h2 className="text-4xl font-bold   mb-12 text-center">
             {t("process.title")}{" "}
             <span className="text-accent-yellow">{t("process.highlight")}</span>
           </h2>
@@ -107,7 +105,7 @@ export default async function ServicesPage() {
                 <div className="w-16 h-16 bg-accent-yellow rounded-full flex items-center justify-center text-black text-2xl font-bold mx-auto mb-4">
                   {step.number}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold   mb-2">
                   {step.title}
                 </h3>
                 <p className="text-zinc-400">{step.description}</p>
@@ -120,7 +118,7 @@ export default async function ServicesPage() {
       {/* CTA Section */}
       {/* <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold   mb-6">
             {t("cta.title")}
           </h2>
           <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>

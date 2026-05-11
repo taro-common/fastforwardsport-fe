@@ -31,7 +31,7 @@ export default async function FacilitiesPage() {
   const bookingPeriods = t.raw("bookingCalendar.periods") as BookingPeriod[];
 
   return (
-    <div className="bg-black">
+    <div className="">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
@@ -47,9 +47,7 @@ export default async function FacilitiesPage() {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow italic">
-              {t("hero.highlight")}
-            </span>
+            <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 max-w-3xl">
             {t("hero.description")}
@@ -63,7 +61,7 @@ export default async function FacilitiesPage() {
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("workshop.title")}{" "}
-              <span className="text-accent-purple italic">
+              <span className="text-accent-purple  ">
                 {t("workshop.highlight")}
               </span>
             </h2>
@@ -82,7 +80,7 @@ export default async function FacilitiesPage() {
                   <Image
                     src={item.image}
                     alt={item.title}
-                    layout="fill"
+                    fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 right-4 bg-accent-yellow text-black text-xs font-bold px-3 py-1 rounded-full">
@@ -102,12 +100,12 @@ export default async function FacilitiesPage() {
       </section>
 
       {/* Equipment & Tools Section */}
-      <section className="py-20 bg-black">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("equipmentSection.title")}{" "}
-              <span className="text-accent-purple italic">
+              <span className="text-accent-purple  ">
                 {t("equipmentSection.highlight")}
               </span>
             </h2>
@@ -166,7 +164,7 @@ export default async function FacilitiesPage() {
               {certifications.map((cert, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-center bg-black p-4 rounded-xl border border-accent-yellow/20"
+                  className="flex items-center justify-center p-4 rounded-xl border border-accent-yellow/20"
                 >
                   <svg
                     className="w-6 h-6 text-accent-yellow mr-3 shrink-0"
@@ -193,7 +191,7 @@ export default async function FacilitiesPage() {
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t("capacitySection.title")}{" "}
-              <span className="text-accent-purple italic">
+              <span className="text-accent-purple  ">
                 {t("capacitySection.highlight")}
               </span>
             </h2>
@@ -252,7 +250,7 @@ export default async function FacilitiesPage() {
               {bookingPeriods.map((period) => (
                 <div
                   key={period.quarter}
-                  className="bg-black p-6 rounded-xl border border-zinc-700"
+                  className="p-6 rounded-xl border border-zinc-700"
                 >
                   <div className={`${period.textColor} text-lg font-bold mb-2`}>
                     {period.quarter}
@@ -280,9 +278,7 @@ export default async function FacilitiesPage() {
           <div className="mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               {t("cta.title")}{" "}
-              <span className="text-accent-purple italic">
-                {t("cta.highlight")}
-              </span>
+              <span className="text-accent-purple  ">{t("cta.highlight")}</span>
             </h2>
             <p className="text-xl text-zinc-300 mb-10">
               {t("cta.description")}

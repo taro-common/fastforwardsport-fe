@@ -8,7 +8,7 @@ type BusinessUnit = {
 
 const TAG_COLORS: Record<string, string> = {
   MOTORSPORT: "bg-accent-yellow text-black",
-  "FAST-S": "bg-accent-purple text-white",
+  "FAST-S": "bg-accent-purple  ",
   "Engineering & R&D": "bg-accent-lime text-black",
   DISTRIBUTOR: "bg-white text-black",
 };
@@ -29,7 +29,7 @@ export default function BusinessUnitCard({ unit }: { unit: BusinessUnit }) {
       {/* Content */}
       <div className="flex flex-col flex-1 p-6">
         <div className="mb-3">
-          <h3 className="text-lg font-bold text-white leading-snug group-hover:text-accent-yellow transition-colors duration-200">
+          <h3 className="text-lg font-bold   leading-snug group-hover:text-accent-yellow transition-colors duration-200">
             {unit.title}
           </h3>
           <p className="text-zinc-500 text-xs mt-1">{unit.date}</p>

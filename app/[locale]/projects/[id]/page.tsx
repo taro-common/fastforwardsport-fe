@@ -95,11 +95,9 @@ export default function ProjectDetailPage() {
 
   if (!project) {
     return (
-      <div className="bg-black min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Project Not Found
-          </h1>
+          <h1 className="text-4xl font-bold   mb-4">Project Not Found</h1>
           <p className="text-zinc-400 mb-8">
             The project you&apos;re looking for doesn&apos;t exist.
           </p>
@@ -115,7 +113,7 @@ export default function ProjectDetailPage() {
   }
 
   return (
-    <div className="bg-black">
+    <div className="">
       {/* Hero Section with Project Image */}
       <section className="mx-auto max-w-7xl px-[15%]">
         <Link
@@ -140,7 +138,7 @@ export default function ProjectDetailPage() {
             {project.date}
           </p>
         </div>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black   leading-tight mb-6">
           {project.title}
         </h1>
         <p className="text-zinc-400 text-lg leading-relaxed mb-8">
@@ -191,7 +189,7 @@ export default function ProjectDetailPage() {
               <IconArrowLeft size={16} className="inline-block mr-1" />
               Previous Project
             </p>
-            <h6 className=" font-bold text-white group-hover:text-accent-yellow transition-colors mb-2">
+            <h6 className=" font-bold   group-hover:text-accent-yellow transition-colors mb-2">
               {projects[prevProject].title}
             </h6>
           </Link>
@@ -205,7 +203,7 @@ export default function ProjectDetailPage() {
               Next Project
               <IconArrowRight size={16} className="inline-block ml-1" />
             </p>
-            <h6 className=" font-bold text-white group-hover:text-accent-yellow transition-colors mb-2">
+            <h6 className=" font-bold   group-hover:text-accent-yellow transition-colors mb-2">
               {projects[nextProject].title}
             </h6>
           </Link>
