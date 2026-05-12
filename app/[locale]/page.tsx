@@ -6,29 +6,35 @@ import { useState, useEffect } from "react";
 import BusinessUnitCard from "../components/BusinessUnitCard";
 import { IconShieldCheckFilled, IconZoom } from "@tabler/icons-react";
 import ProjectsCarousel from "../components/ProjectsCarousel";
+import ProjectItem, { Project } from "../components/ProjectItem";
 
 export default function Home() {
   const t = useTranslations("home");
-  const achievements = [
+  const achievements: Project[] = [
     {
       title: "Thailand Rally Championship 2024 & 2025 Champion",
       description: "Overall & Royal Cup Winner",
+      image: "/images/img18.jpg",
     },
     {
       title: "TRRC 2025 Round 1 Champion",
       description: "Thailand Regional Rally Championship",
+      image: "/images/img19.jpg",
     },
     {
       title: "XCR Sprint Cup Hokkaido 2025",
       description: "Podium Finish",
+      image: "/images/img20.jpg",
     },
     {
       title: "Asia Cross Country Rally (AXCR)",
       description: "Multiple Podiums",
+      image: "/images/img22.jpg",
     },
     {
       title: "Rally Hokkaido Japan",
       description: "International Recognition",
+      image: "/images/img17.jpg",
     },
   ];
   const featuredProjects = [
@@ -333,8 +339,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-4 items-center">
-            <div className="w-full flex flex-col gap-2">
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-4 items-center overflow-visible">
+            <div className="relative z-20 w-full flex flex-col gap-2 overflow-visible">
               {services.map((unit, index) => (
                 <BusinessUnitCard key={index} unit={unit} />
               ))}
@@ -342,7 +348,7 @@ export default function Home() {
             <img
               src="/images/img17.jpg"
               alt="Core Business Units"
-              className="object-cover w-full h-full z-10"
+              className="relative z-10 object-cover w-full h-full"
             />
           </div>
         </div>
@@ -363,17 +369,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mx-auto">
             {achievements.map((achievement, index) => (
-              <div
-                key={index}
-                className="flex items-center bg-white p-4 border border-zinc-200 hover:border-accent-yellow transition-all duration-300 gap-4"
-              >
-                <IconShieldCheckFilled className="text-accent-yellow" />
-                <p className="text-zinc-900 text-lg">
-                  {achievement.description}
-                </p>
-              </div>
+              <ProjectItem key={index} project={achievement} />
             ))}
           </div>
         </div>

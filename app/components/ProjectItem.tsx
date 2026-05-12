@@ -1,14 +1,13 @@
 "use client";
 import { Link } from "@/i18n/routing";
-import Image from "next/image";
 
-type Project = {
-  tag: string;
+export type Project = {
+  tag?: string;
   title: string;
-  date: string;
-  description: string;
+  date?: string;
+  description?: string;
   image: string;
-  color: string;
+  color?: string;
 };
 
 export default function ProjectItem({
@@ -45,7 +44,7 @@ export default function ProjectItem({
           <p className="text-zinc-500 text-xs">{project.date}</p>
         </div>
         <p className="text-zinc-600 text-sm">{project.description}</p>
-        <p className="text-accent-yellow text-sm font-semibold mt-4 flex items-center">
+        <p className="text-accent-purple text-sm font-semibold mt-4 flex items-center">
           Read More{" "}
           <span className="ml-2 group-hover:ml-3 transition-all duration-300">
             →
