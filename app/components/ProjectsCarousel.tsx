@@ -49,15 +49,15 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                     layout="fill"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-white/95 via-white/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
                       {project.category}
                     </span>
-                    <h3 className="text-2xl md:text-3xl font-bold   mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-zinc-700 text-sm md:text-base">
+                    <p className="text-zinc-100 text-sm md:text-base">
                       {project.description}
                     </p>
                   </div>
