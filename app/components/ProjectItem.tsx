@@ -38,12 +38,12 @@ export default function ProjectItem({
       </div>
       <div className="py-4">
         <div className="flex flex-col justify-between items-start mb-4">
-          <h3 className="text-xl font-bold   group-hover:text-accent-purple">
+          <h3 className="text-xl font-bold group-hover:text-accent-purple">
             {project.title}
           </h3>
           <p className="text-zinc-500 text-xs">{project.date}</p>
         </div>
-        <p className="text-zinc-600 text-sm">{project.description}</p>
+        {/* <p className="text-zinc-600 text-sm">{project.description}</p> */}
         <p className="text-accent-purple text-sm font-semibold mt-4 flex items-center">
           Read More{" "}
           <span className="ml-2 group-hover:ml-3 transition-all duration-300">

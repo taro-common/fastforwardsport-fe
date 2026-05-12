@@ -4,7 +4,13 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import BusinessUnitCard from "../components/BusinessUnitCard";
-import { IconShieldCheckFilled, IconZoom } from "@tabler/icons-react";
+import {
+  IconChevronLeft,
+  IconChevronRight,
+  IconShieldCheckFilled,
+  IconX,
+  IconZoom,
+} from "@tabler/icons-react";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 import ProjectItem, { Project } from "../components/ProjectItem";
 
@@ -428,25 +434,15 @@ export default function Home() {
       {/* Lightbox Modal */}
       {lightboxImage && (
         <div
-          className="fixed inset-0 z-50 bg-white/96 backdrop-blur-xs flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/96 backdrop-blur-xs flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
           {/* Close Button */}
           <button
-            className="absolute top-4 right-4 text-zinc-800 bg-white/90 border border-zinc-200 rounded-full p-2 hover:text-accent-yellow transition-colors duration-200 z-60"
+            className="absolute top-4 right-4 text-zinc-800 bg-white/90 border border-zinc-200 rounded-full p-2 hover:text-accent-purple transition-colors duration-200 z-60"
             onClick={closeLightbox}
           >
-            <svg
-              className="w-10 h-10"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+            <IconX className="w-6 h-6" />
           </button>
 
           {/* Previous Button */}
@@ -457,17 +453,7 @@ export default function Home() {
               prevImage();
             }}
           >
-            <svg
-              className="w-12 h-12"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M15 19l-7-7 7-7"></path>
-            </svg>
+            <IconChevronLeft className="w-6 h-6" />
           </button>
 
           {/* Next Button */}
@@ -478,21 +464,11 @@ export default function Home() {
               nextImage();
             }}
           >
-            <svg
-              className="w-12 h-12"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M9 5l7 7-7 7"></path>
-            </svg>
+            <IconChevronRight className="w-6 h-6" />
           </button>
 
           {/* Image */}
-          <div className="relative max-w-7xl max-h-[90vh] w-full">
+          <div className="relative max-w-4xl max-h-[80vh] w-full mb-4">
             <img
               src={lightboxImage}
               alt={galleryImages[lightboxIndex].alt}
