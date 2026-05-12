@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Prompt } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
@@ -8,6 +7,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import PageTransition from "../components/PageTransition";
 import "../globals.css";
+import { Bebas_Neue, Prompt } from "next/font/google";
 
 export const prompt = Prompt({
   subsets: ["thai", "latin"],

@@ -24,6 +24,10 @@ body {
   font-family: var(--font-prompt), system-ui, sans-serif;
 }
 
+.font-prompt {
+  font-family: var(--font-prompt), system-ui, sans-serif;
+}
+
 .font-display {
   font-family: var(--font-bebas-neue), sans-serif;
 }
