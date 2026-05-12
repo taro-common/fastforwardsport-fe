@@ -84,9 +84,6 @@ export default function Navigation() {
                 className="h-10 flex items-center space-x-2 text-sm font-medium text-zinc-700 hover:text-accent-purple transition-colors duration-200 px-3 rounded-lg bg-zinc-100"
                 aria-label="Toggle language"
               >
-                <span className="hidden lg:block text-xl">
-                  {currentLanguage?.flag}
-                </span>
                 <span>{currentLanguage?.code.toUpperCase()}</span>
                 <svg
                   className={`w-4 h-4 transition-transform ${
