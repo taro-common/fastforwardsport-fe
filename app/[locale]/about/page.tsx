@@ -9,6 +9,7 @@ import {
   IconShieldCheckFilled,
   IconUser,
 } from "@tabler/icons-react";
+import Image from "next/image";
 
 type AboutItem = { title: string; description: string; icon: React.ReactNode };
 type Milestone = { year: string; achievements: string[] };
@@ -60,32 +61,32 @@ export default async function AboutPage() {
   ] as AboutItem[];
   const milestones = t.raw("milestones") as Milestone[];
   const values = t.raw("values") as AboutItem[];
-  const leaders = [
-    {
-      name: "Chanthathit Pensuk",
-      position: "CEO - Business Strategy & Partnerships",
-      background:
-        "Former Product Development Manager at Toyota Customizing Development (TCD Asia). Visionary leader building Thailand's motorsport ecosystem",
-    },
-    {
-      name: "Pongkasem Jitkasem",
-      position: "Director - Motorsport",
-      background:
-        "WRC Co-driver Champion, International & Domestic Rally Champion. Brings world-class competition expertise",
-    },
-    {
-      name: "Mana Pornsiricherd",
-      position: "Director - Driver Academy & Evaluation",
-      background:
-        "Darka Rally Driver, International & Domestic Rally Champion. Leads talent development programs",
-    },
-    {
-      name: "Wataru Sugii",
-      position: "Technical Product Development",
-      background:
-        "Former HKS Top Management, TCD Asia Motorsport Advisor. Technical excellence and innovation leader",
-    },
-  ] as Leader[];
+  // const leaders = [
+  //   {
+  //     name: "Chanthathit Pensuk",
+  //     position: "CEO - Business Strategy & Partnerships",
+  //     background:
+  //       "Former Product Development Manager at Toyota Customizing Development (TCD Asia). Visionary leader building Thailand's motorsport ecosystem",
+  //   },
+  //   {
+  //     name: "Pongkasem Jitkasem",
+  //     position: "Director - Motorsport",
+  //     background:
+  //       "WRC Co-driver Champion, International & Domestic Rally Champion. Brings world-class competition expertise",
+  //   },
+  //   {
+  //     name: "Mana Pornsiricherd",
+  //     position: "Director - Driver Academy & Evaluation",
+  //     background:
+  //       "Darka Rally Driver, International & Domestic Rally Champion. Leads talent development programs",
+  //   },
+  //   {
+  //     name: "Wataru Sugii",
+  //     position: "Technical Product Development",
+  //     background:
+  //       "Former HKS Top Management, TCD Asia Motorsport Advisor. Technical excellence and innovation leader",
+  //   },
+  // ] as Leader[];
 
   return (
     <div className="bg-zinc-50">
@@ -94,23 +95,23 @@ export default async function AboutPage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-linear-to-br from-zinc-100 via-white to-purple-100" />
 
-          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
-          {/* <Image
-            src="/images/img31.jpg"
+          {/* <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/75 to-purple-200/40 z-10" /> */}
+          <Image
+            src="/about_cover.jpg"
             alt="Fast Forward Sport Team"
-            fill
+            layout="fill"
             className="object-cover"
             priority
-          /> */}
+          />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-accent-yellow font-semibold text-xs tracking-[0.2em] uppercase">
-            {t("hero.title")} US
+          <p className="text-accent-purple font-semibold text-xs tracking-[0.2em] uppercase">
+            {t("hero.title")}
           </p>
-          <h1 className="text-5xl md:text-7xl mb-6 text-zinc-900 leading-tight font-black">
-            FAST Forward <span className="text-accent-yellow  ">Sport</span>
+          <h1 className="text-5xl md:text-7xl mb-6 text-white leading-tight font-black">
+            FAST Forward <span className="text-accent-yellow">Sport</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-100 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>

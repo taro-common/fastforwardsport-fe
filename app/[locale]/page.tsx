@@ -58,10 +58,17 @@ export default function Home() {
     },
   ];
 
-  const galleryMessageImages = t.raw("gallery.images") as Array<{
-    alt: string;
-    category: string;
-  }>;
+  const galleryMessageImages = [
+    { alt: "Rally Car in Action" },
+    { alt: "Engine Tuning Session" },
+    { alt: "Team Celebrating Victory" },
+    { alt: "Driver Training at Rally Academy" },
+    { alt: "Technical Workshop with Partners" },
+    { alt: "Car Setup for Circuit Racing" },
+    { alt: "Rally Car Jumping over Terrain" },
+    { alt: "Data Analysis in Engineering Lab" },
+    { alt: "Team Strategizing in Garage" },
+  ];
 
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
@@ -419,7 +426,7 @@ export default function Home() {
                 key={index}
                 src={partner.logo}
                 alt={partner.name}
-                className="bg-white border border-zinc-200 hover:border-accent-yellow transition-all duration-300 flex items-center justify-center min-h-30 w-full"
+                className="bg-white border border-zinc-200 transition-all duration-300 flex items-center justify-center min-h-30 w-full"
               />
             ))}
           </div>

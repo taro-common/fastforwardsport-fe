@@ -48,18 +48,10 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Fast Forward Sport Logo"
               className="h-12 w-auto object-cover"
             />
-            <div className="text-xl md:hidden lg:block md:text-2xl font-bold truncate">
-              <span className=" ">FAST Forward</span>
-              <span className="text-accent-purple ml-2">Sport</span>
-            </div>
-            <div className="hidden text-xl md:block lg:hidden md:text-2xl font-bold">
-              <span className=" ">FF</span>
-              <span className="text-accent-purple">S</span>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -69,7 +61,7 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActivePath(link.href) ? "page" : undefined}
-                className={`text-sm font-medium transition-colors duration-200 pb-1 font-d ${
+                className={`text-sm font-medium transition-colors duration-200 pb-1 ${
                   isActivePath(link.href)
                     ? "text-accent-purple border-b border-accent-purple"
                     : "text-zinc-700 hover:text-accent-purple"

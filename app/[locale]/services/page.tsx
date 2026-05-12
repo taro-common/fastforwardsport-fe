@@ -62,12 +62,12 @@ export default async function ServicesPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
-          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
-          {/* <img
-            src="/images/img25.jpg"
+          {/* <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" /> */}
+          <img
+            src="/service_cover.jpg"
             alt="Services"
             className="w-full h-full object-cover"
-          /> */}
+          />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6  ">
