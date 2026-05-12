@@ -91,33 +91,27 @@
       "items": [
         {
           "title": "Motorsport Ecosystem Development",
-          "description": "Establish a comprehensive ecosystem through national and international events",
-          "icon": "🏁"
+          "description": "Establish a comprehensive ecosystem through national and international events"
         },
         {
           "title": "Technology & Innovation Leadership",
-          "description": "Develop Thailand's premier R&D center for automotive and motorsport innovation",
-          "icon": "⚙️"
+          "description": "Develop Thailand's premier R&D center for automotive and motorsport innovation"
         },
         {
           "title": "Human Resource Development",
-          "description": "Cultivate high-potential talent through continuous learning and innovation",
-          "icon": "👥"
+          "description": "Cultivate high-potential talent through continuous learning and innovation"
         },
         {
           "title": "Business Expansion & Revenue Growth",
-          "description": "Diversify revenue through branded products and innovative solutions",
-          "icon": "📈"
+          "description": "Diversify revenue through branded products and innovative solutions"
         },
         {
           "title": "Sustainability Commitment",
-          "description": "Implement eco-friendly technologies across operations",
-          "icon": "🌱"
+          "description": "Implement eco-friendly technologies across operations"
         },
         {
           "title": "Communication & Relationship Building",
-          "description": "Foster transparent, inspiring communication with stakeholders",
-          "icon": "🤝"
+          "description": "Foster transparent, inspiring communication with stakeholders"
         }
       ]
     },
@@ -153,23 +147,19 @@
     "values": [
       {
         "title": "Teamwork & Shared Success",
-        "description": "Collaborative approach to achieving goals",
-        "icon": "🤝"
+        "description": "Collaborative approach to achieving goals"
       },
       {
         "title": "Continuous Development & Learning",
-        "description": "Commitment to improvement and innovation",
-        "icon": "📚"
+        "description": "Commitment to improvement and innovation"
       },
       {
         "title": "Honesty & Transparency",
-        "description": "Open communication with all stakeholders",
-        "icon": "💎"
+        "description": "Open communication with all stakeholders"
       },
       {
         "title": "Humility & Respect",
-        "description": "Valuing diverse perspectives and expertise",
-        "icon": "🙏"
+        "description": "Valuing diverse perspectives and expertise"
       }
     ],
     "leadershipSection": {

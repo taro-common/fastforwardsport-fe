@@ -89,11 +89,11 @@ export default async function AboutPage() {
   // ] as Leader[];
 
   return (
-    <div className="bg-zinc-50">
+    <div className="">
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden bg-zinc-100">
+      <section className="relative pt-12 pb-52 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-br from-zinc-100 via-white to-purple-100" />
+          {/* <div className="absolute inset-0 bg-linear-to-br from-zinc-100 via-white to-purple-100" /> */}
 
           {/* <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/75 to-purple-200/40 z-10" /> */}
           <Image
@@ -105,11 +105,11 @@ export default async function AboutPage() {
           />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-accent-purple font-semibold text-xs tracking-[0.2em] uppercase">
+          <p className="text-white font-semibold text-xs tracking-[0.2em] uppercase">
             {t("hero.title")}
           </p>
-          <h1 className="text-5xl md:text-7xl mb-6 text-white leading-tight font-black">
-            FAST Forward <span className="text-accent-yellow">Sport</span>
+          <h1 className="text-5xl md:text-7xl mb-6 text-white leading-tight font-black font-display">
+            FAST Forward Sport
           </h1>
           <p className="text-xl md:text-2xl text-zinc-100 max-w-3xl">
             {t("hero.description")}
@@ -118,11 +118,11 @@ export default async function AboutPage() {
       </section>
 
       {/* Company Overview Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-zinc-900 mb-6">
+              <h2 className="text-4xl font-bold text-zinc-900 mb-6 font-display">
                 {t("overview.title")}{" "}
                 <span className="text-accent-purple  ">
                   {t("overview.highlight")}
@@ -133,11 +133,11 @@ export default async function AboutPage() {
                   {paragraph}
                 </p>
               ))}
-              <div className="border-l-4 border-accent-yellow bg-zinc-50 p-6 rounded-r-lg mt-8">
+              <div className="border-l-4 border-accent-purple bg-zinc-50 p-6 rounded-r-lg mt-8">
                 <p className="text-zinc-900 text-xl font-semibold mb-2">
                   &ldquo;{t("overview.quote")}&rdquo;
                 </p>
-                <p className="text-accent-yellow font-bold mt-4">
+                <p className="text-accent-purple font-bold mt-4">
                   {t("overview.signature")}
                 </p>
               </div>
@@ -156,14 +156,14 @@ export default async function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Vision */}
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 font-display">
               {t("vision.title")}{" "}
-              <span className="text-accent-purple  ">
+              <span className="text-accent-purple">
                 {t("vision.highlight")}
               </span>
             </h2>
             <div className="max-w-4xl mx-auto text-center my-30">
-              <p className="text-3xl font-bold text-accent-yellow mb-4">
+              <p className="text-3xl font-bold mb-4">
                 &ldquo;{t("vision.statement")}&rdquo;
               </p>
               <p className="text-zinc-700 text-xl leading-relaxed">
@@ -174,7 +174,7 @@ export default async function AboutPage() {
 
           {/* Mission Pillars */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold text-zinc-900 mb-12">
+            <h3 className="text-3xl font-bold text-zinc-900 mb-12 font-display">
               {t("mission.title")}{" "}
               <span className="text-accent-purple  ">
                 {t("mission.highlight")}
@@ -240,10 +240,10 @@ export default async function AboutPage() {
       </section> */}
 
       {/* Track Record & Milestones Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
               {t("milestonesSection.title")}{" "}
               <span className="text-accent-purple  ">
                 {t("milestonesSection.highlight")}
@@ -285,7 +285,7 @@ export default async function AboutPage() {
         <div className="absolute inset-0 bg-linear-to-br from-white via-white to-purple-100/40" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
               {t("valuesSection.title")}{" "}
               <span className="text-accent-purple">
                 {t("valuesSection.highlight")}
