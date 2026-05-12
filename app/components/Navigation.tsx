@@ -42,7 +42,7 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50  backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -140,7 +140,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden   p-2"
+            className="md:hidden p-2"
             aria-label="Toggle menu"
           >
             <svg
@@ -164,7 +164,7 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/98 border-t border-zinc-200">
+        <div className="md:hidden bg-white/98">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -173,8 +173,8 @@ export default function Navigation() {
                 aria-current={isActivePath(link.href) ? "page" : undefined}
                 className={`block px-3 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
                   isActivePath(link.href)
-                    ? "bg-zinc-100 text-accent-yellow"
-                    : "text-zinc-700 hover:text-accent-yellow hover:bg-zinc-100"
+                    ? "bg-zinc-100 text-accent-purple"
+                    : "text-zinc-700 hover:text-accent-purple hover:bg-zinc-100"
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -204,11 +204,10 @@ export default function Navigation() {
                     }}
                     className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-base transition-colors ${
                       locale === lang.code
-                        ? "bg-zinc-100 text-accent-yellow"
+                        ? "bg-zinc-100 text-accent-purple"
                         : "text-zinc-700 hover:bg-zinc-100"
                     }`}
                   >
-                    <span className="text-xl">{lang.flag}</span>
                     <span>{lang.name}</span>
                     {locale === lang.code && (
                       <svg

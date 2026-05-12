@@ -33,9 +33,9 @@ export default async function FacilitiesPage() {
   return (
     <div className="bg-zinc-50">
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden bg-zinc-100">
+      <section className="relative pt-12 pb-52 overflow-hidden bg-zinc-100">
         <div className="absolute inset-0 z-0 bg-accent-purple">
-          {/* <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" /> */}
+          <div className="absolute inset-0 bg-black/30 z-10" />
           <Image
             src="/facility_cover.jpg"
             alt="Fast Forward Sport Facilities"
@@ -45,11 +45,11 @@ export default async function FacilitiesPage() {
           />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-zinc-900">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white font-display">
             {t("hero.title")}{" "}
-            <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
+            <span className="text-accent-yellow ">{t("hero.highlight")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-100 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>

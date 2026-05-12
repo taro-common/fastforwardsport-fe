@@ -236,7 +236,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
+          <div className="absolute inset-0 bg-black/30 z-10" />
           <img
             src="/images/img17.jpg"
             alt={t("hero.backgroundAlt")}
@@ -245,12 +245,12 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
-          <h1 className="text-5xl md:text-8xl mb-6 leading-[0.95] font-black tracking-tight">
+          <h1 className="text-5xl md:text-8xl mb-6 font-black tracking-tight text-white">
             <span>{t("hero.line1")}</span>
             <br />
-            <span className="text-accent-purple">{t("hero.line2")}</span>
+            <span className="text-accent-yellow">{t("hero.line2")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-700 mb-10 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-100 mb-10 max-w-3xl">
             {t("hero.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-start">

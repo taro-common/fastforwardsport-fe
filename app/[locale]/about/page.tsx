@@ -93,9 +93,7 @@ export default async function AboutPage() {
       {/* Hero Section */}
       <section className="relative pt-12 pb-52 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* <div className="absolute inset-0 bg-linear-to-br from-zinc-100 via-white to-purple-100" /> */}
-
-          {/* <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/75 to-purple-200/40 z-10" /> */}
+          <div className="absolute inset-0 bg-black/30 z-10" />
           <Image
             src="/about_cover.jpg"
             alt="Fast Forward Sport Team"
@@ -105,11 +103,11 @@ export default async function AboutPage() {
           />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-white font-semibold text-xs tracking-[0.2em] uppercase">
+          <p className="text-accent-yellow font-semibold text-xs tracking-[0.2em] uppercase">
             {t("hero.title")}
           </p>
           <h1 className="text-5xl md:text-7xl mb-6 text-white leading-tight font-black font-display">
-            FAST Forward Sport
+            FAST Forward <span className="text-accent-yellow ">Sport</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-100 max-w-3xl">
             {t("hero.description")}

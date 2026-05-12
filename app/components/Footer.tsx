@@ -74,7 +74,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-accent-yellow hover:text-accent-lime transition-colors"
+                  className="text-accent-purple hover:text-accent-lime transition-colors"
                 >
                   {t("contactForm")}
                 </Link>
