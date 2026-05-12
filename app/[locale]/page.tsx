@@ -4,7 +4,7 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import BusinessUnitCard from "../components/BusinessUnitCard";
-import { IconShieldCheckFilled } from "@tabler/icons-react";
+import { IconShieldCheckFilled, IconZoom } from "@tabler/icons-react";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 
 export default function Home() {
@@ -307,22 +307,9 @@ export default function Home() {
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-white/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
                   <div className="text-center">
-                    <svg
-                      className="w-12 h-12 text-zinc-900 mx-auto mb-2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
-                    </svg>
-                    <span className="text-zinc-900 text-sm font-semibold">
-                      {image.category}
-                    </span>
+                    <IconZoom className="text-white w-12 h-12 font-black" />
                   </div>
                 </div>
               </div>
@@ -346,10 +333,17 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((unit, index) => (
-              <BusinessUnitCard key={index} unit={unit} />
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-4 items-center">
+            <div className="w-full flex flex-col gap-2">
+              {services.map((unit, index) => (
+                <BusinessUnitCard key={index} unit={unit} />
+              ))}
+            </div>
+            <img
+              src="/images/img17.jpg"
+              alt="Core Business Units"
+              className="object-cover w-full h-full z-10"
+            />
           </div>
         </div>
       </section>

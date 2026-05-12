@@ -8,7 +8,7 @@ type BusinessUnit = {
 
 const TAG_COLORS: Record<string, string> = {
   MOTORSPORT: "bg-accent-yellow text-black",
-  "FAST-S": "bg-accent-purple  ",
+  "FAST-S": "bg-accent-purple text-white",
   "Engineering & R&D": "bg-accent-lime text-black",
   DISTRIBUTOR: "bg-white text-black",
 };
@@ -17,38 +17,26 @@ export default function BusinessUnitCard({ unit }: { unit: BusinessUnit }) {
   const tagColor = TAG_COLORS[unit.tag] ?? "bg-accent-yellow text-black";
 
   return (
-    <div className="group relative flex flex-col overflow-hidden border border-zinc-200 bg-white hover:border-accent-yellow transition-all duration-300 hover:-translate-y-1">
+    <div className="group relative flex overflow-hidden rounded-md border border-zinc-200 bg-white transition-all duration-300 hover:translate-x-10 cursor-pointer z-30">
       {/* Image */}
-      {/* Tag badge */}
-      <span
-        className={`${tagColor} text-xs font-bold px-3 py-1.5 tracking-wide`}
-      >
-        {unit.tag}
-      </span>
+      <div className="flex flex-col p-4">
+        {/* Tag badge */}
+        <span className="inline-flex w-fit text-xs font-bold tracking-wide text-accent-purple">
+          {unit.tag}
+        </span>
 
-      {/* Content */}
-      <div className="flex flex-col flex-1 p-6">
-        <div className="mb-3">
-          <h3 className="text-lg font-bold   leading-snug group-hover:text-accent-yellow transition-colors duration-200">
+        {/* Content */}
+        <div className="flex flex-col flex-1">
+          <h3 className="text-lg font-bold leading-snug transition-colors duration-200">
             {unit.title}
           </h3>
-          <p className="text-zinc-500 text-xs mt-1">{unit.date}</p>
-        </div>
 
-        <p className="text-zinc-600 text-sm leading-relaxed flex-1">
-          {unit.description}
-        </p>
-
-        {/* Divider + arrow */}
-        <div className="mt-5 pt-4 border-t border-zinc-200 flex items-center justify-between">
-          <span className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
-            Learn More
-          </span>
-          <span className="text-accent-yellow font-bold transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
+          <p className="text-zinc-600 text-sm leading-relaxed flex-1">
+            {unit.description}
+          </p>
         </div>
       </div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-2 bg-accent-purple opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
     </div>
   );
 }
