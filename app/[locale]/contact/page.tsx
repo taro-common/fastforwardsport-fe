@@ -49,7 +49,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-accent-purple">
-          <div className="absolute inset-0 bg-linear-to-br from-white/90 via-white/75 to-purple-200/40 z-10" />
+          <div className="absolute inset-0 bg-linear-to-br from-black/90 via-black/75 to-accent-purple/40 z-10" />
           {/* <img
             src="/images/img2.jpg"
             alt="Contact"
@@ -57,11 +57,11 @@ export default function ContactPage() {
           /> */}
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6  ">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 font-display text-white">
             {t("hero.title")}{" "}
             <span className="text-accent-yellow  ">{t("hero.highlight")}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-700 max-w-3xl">
+          <p className="text-xl md:text-2xl text-zinc-100 max-w-3xl">
             {t("hero.description")}
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold   mb-8">
+              <h2 className="text-3xl font-bold mb-8 font-display">
                 {t("infoTitle")}{" "}
                 <span className="text-accent-purple  ">
                   {t("infoHighlight")}

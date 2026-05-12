@@ -245,7 +245,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
-          <h1 className="text-5xl md:text-8xl mb-6 font-black tracking-tight text-white">
+          <h1 className="text-5xl md:text-8xl mb-6 font-black tracking-tight text-white font-display">
             <span>{t("hero.line1")}</span>
             <br />
             <span className="text-accent-yellow">{t("hero.line2")}</span>
