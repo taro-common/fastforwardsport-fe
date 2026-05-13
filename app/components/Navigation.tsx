@@ -48,9 +48,14 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <img
-              src="/logo.png"
+              src="/logo_a_white.png"
               alt="Fast Forward Sport Logo"
-              className="h-12 w-auto object-cover"
+              className="h-12 w-auto object-cover block lg:hidden"
+            />
+            <img
+              src="/logo_b_white.png"
+              alt="Fast Forward Sport Logo"
+              className="h-12 w-auto object-cover hidden lg:block"
             />
           </Link>
 

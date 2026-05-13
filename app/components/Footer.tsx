@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="mb-4">
               <Image
-                src="/logo.png"
+                src="/logo_b_black.png"
                 alt="Fast Forward Sport Logo"
                 width={180}
                 height={60}
