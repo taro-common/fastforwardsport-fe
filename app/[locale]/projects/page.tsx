@@ -78,7 +78,7 @@ export default async function ProjectsPage() {
       <section className="mt-8sticky top-20 z-40 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
-            <button className="text-accent-yellow font-semibold border-b-2 border-accent-yellow pb-2 whitespace-nowrap">
+            <button className="text-accent-purple font-semibold border-b-2 border-accent-purple pb-2 whitespace-nowrap">
               {t("filters.all")}
             </button>
             <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
