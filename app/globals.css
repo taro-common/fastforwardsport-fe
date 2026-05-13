@@ -15,7 +15,16 @@
   --color-accent-purple: var(--accent-purple);
   --color-accent-lime: var(--accent-lime);
   --font-sans: var(--font-prompt), system-ui, sans-serif;
-  --font-display: var(--font-bebas-neue), sans-serif;
+  --font-display: var(--font-bebas-neue), var(--font-prompt), sans-serif;
+}
+
+html[lang="th"] {
+  --font-display: var(--font-prompt), sans-serif;
+}
+
+html[lang="th"] .font-display,
+html[lang="th"] .bebas-neue-regular {
+  font-family: var(--font-prompt), sans-serif !important;
 }
 
 body {
@@ -29,7 +38,7 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-bebas-neue), sans-serif;
+  font-family: var(--font-bebas-neue), var(--font-prompt), sans-serif;
 }
 
 .bebas-neue-regular {
