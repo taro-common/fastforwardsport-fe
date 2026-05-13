@@ -3,16 +3,15 @@
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
-import BusinessUnitCard from "../components/BusinessUnitCard";
 import {
   IconChevronLeft,
   IconChevronRight,
-  IconShieldCheckFilled,
   IconX,
   IconZoom,
 } from "@tabler/icons-react";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 import ProjectItem, { Project } from "../components/ProjectItem";
+import BusinessUnitSection from "../components/BusinessUnitSection";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -205,44 +204,6 @@ export default function Home() {
     "col-span-2 row-span-1 lg:col-span-1 lg:row-span-1",
   ];
 
-  const services = [
-    {
-      tag: "MOTORSPORT",
-      title: "The Business Engine",
-      date: "2024-2025",
-      description:
-        "Championship racing team, product testing lab, brand credibility platform",
-      image: "/images/img21.jpg",
-      color: "bg-accent-yellow",
-    },
-    {
-      tag: "FAST-S",
-      title: "Motorsport Engineering Garage",
-      date: "2024-2025",
-      description:
-        "Professional service center, product installation, customer experience hub",
-      image: "/images/img21.jpg",
-      color: "bg-accent-yellow",
-    },
-    {
-      tag: "Engineering & R&D",
-      title: "Collaborate with Manufacturer",
-      date: "2024-2025",
-      description: "Vehicle development, data analysis, technical innovation",
-      image: "/images/img21.jpg",
-      color: "bg-accent-yellow",
-    },
-    {
-      tag: "DISTRIBUTOR",
-      title: "Premium Products",
-      date: "2024-2025",
-      description:
-        "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise",
-      image: "/images/img21.jpg",
-      color: "bg-accent-yellow",
-    },
-  ];
-
   return (
     <div className="">
       {/* Hero Section */}
@@ -345,18 +306,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-4 items-center overflow-visible">
-            <div className="relative z-20 w-full flex flex-col gap-2 overflow-visible">
-              {services.map((unit, index) => (
-                <BusinessUnitCard key={index} unit={unit} />
-              ))}
-            </div>
-            <img
-              src="/images/img17.jpg"
-              alt="Core Business Units"
-              className="relative z-10 object-cover w-full h-full"
-            />
-          </div>
+          <BusinessUnitSection />
         </div>
       </section>
 
@@ -384,7 +334,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Carousel */}
-      <section className="pt-20 bg-zinc-50">
+      <section className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">

@@ -33,7 +33,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-purple transition-colors"
                 >
                   {t("aboutUs")}
                 </Link>
@@ -41,7 +41,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-purple transition-colors"
                 >
                   {t("services")}
                 </Link>
@@ -49,7 +49,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/projects"
-                  className="text-zinc-600 hover:text-accent-yellow transition-colors"
+                  className="text-zinc-600 hover:text-accent-purple transition-colors"
                 >
                   {t("projects")}
                 </Link>
