@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import Gallery from "@/app/components/Gallery";
 
 type FacilitiesItem = {
   title: string;
@@ -31,7 +32,7 @@ export default async function FacilitiesPage() {
   const bookingPeriods = t.raw("bookingCalendar.periods") as BookingPeriod[];
 
   return (
-    <div className="bg-zinc-50">
+    <div className="">
       {/* Hero Section */}
       <section className="relative pt-12 pb-52 overflow-hidden bg-zinc-100">
         <div className="absolute inset-0 z-0 bg-accent-purple">
@@ -55,8 +56,27 @@ export default async function FacilitiesPage() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
+              {t("workshop.title")}{" "}
+              <span className="text-accent-purple  ">
+                {t("workshop.highlight")}
+              </span>
+            </h2>
+            <p className="text-xl text-zinc-600 max-w-2xl">
+              {t("workshop.description")}
+            </p>
+          </div>
+
+          <Gallery />
+        </div>
+      </section>
+
       {/* Workshop Gallery Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
@@ -97,10 +117,10 @@ export default async function FacilitiesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Equipment & Tools Section */}
-      <section className="py-20 bg-zinc-50">
+      {/* <section className="py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
@@ -114,7 +134,6 @@ export default async function FacilitiesPage() {
             </p>
           </div>
 
-          {/* Equipment Categories */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {equipment.map((category, index) => (
               <div
@@ -152,7 +171,6 @@ export default async function FacilitiesPage() {
             ))}
           </div>
 
-          {/* Certifications */}
           <div className="bg-linear-to-r from-white to-zinc-100 p-8 rounded-xl border border-zinc-200 shadow-xs">
             <h3 className="text-2xl font-bold text-zinc-900 mb-6 text-center">
               {t("certificationsSection.title")}{" "}
@@ -185,10 +203,10 @@ export default async function FacilitiesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Capacity & Availability Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
@@ -240,7 +258,6 @@ export default async function FacilitiesPage() {
             ))}
           </div>
 
-          {/* Availability Calendar Placeholder */}
           <div className="mt-16 bg-white p-8 rounded-xl border border-zinc-200 shadow-xs">
             <h3 className="text-2xl font-bold text-zinc-900 mb-6 text-center">
               {t("bookingCalendar.title")}{" "}
@@ -272,15 +289,15 @@ export default async function FacilitiesPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-br from-white via-purple-100/25 to-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-6 font-display">
               {t("cta.title")}{" "}
-              <span className="text-accent-purple  ">{t("cta.highlight")}</span>
+              <span className="text-accent-purple ">{t("cta.highlight")}</span>
             </h2>
             <p className="text-xl text-zinc-700 mb-10">
               {t("cta.description")}
@@ -291,7 +308,7 @@ export default async function FacilitiesPage() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <svg
-                className="w-8 h-8 text-accent-yellow mx-auto mb-3"
+                className="w-8 h-8 text-accent-purple mx-auto mb-3"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -308,7 +325,7 @@ export default async function FacilitiesPage() {
             </div>
             <div>
               <svg
-                className="w-8 h-8 text-accent-yellow mx-auto mb-3"
+                className="w-8 h-8 text-accent-purple mx-auto mb-3"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -325,7 +342,7 @@ export default async function FacilitiesPage() {
             </div>
             <div>
               <svg
-                className="w-8 h-8 text-accent-yellow mx-auto mb-3"
+                className="w-8 h-8 text-accent-purple mx-auto mb-3"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
