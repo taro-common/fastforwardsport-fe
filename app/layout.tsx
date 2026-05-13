@@ -21,16 +21,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
   return (
-    <html
-      lang={locale || "en"}
-      className={`${prompt.variable} ${bebasNeue.variable}`}
-    >
+    <html className={`${prompt.variable} ${bebasNeue.variable}`}>
       <body>{children}</body>
     </html>
   );
