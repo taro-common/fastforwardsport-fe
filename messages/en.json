@@ -321,6 +321,10 @@
       "highlight": "PROJECTS",
       "description": "Showcasing our latest engineering achievements and race-winning solutions"
     },
+    "featuredProjects": {
+      "title": "FEATURED",
+      "highlight": "PROJECTS"
+    },
     "filters": {
       "all": "ALL PROJECTS",
       "rally": "RALLY",

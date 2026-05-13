@@ -64,9 +64,9 @@ export default async function ProjectsPage() {
         </div>
       </section>
 
-      <h2 className="mt-20 max-w-7xl mx-auto text-4xl font-bold   mb-6 px-4 sm:px-6 lg:px-8">
+      <h2 className="mt-20 max-w-7xl mx-auto text-4xl font-bold mb-6 px-4 sm:px-6 lg:px-8 font-display">
         {t("featuredProjects.title")}{" "}
-        <span className="text-accent-purple  ">
+        <span className="text-accent-purple">
           {t("featuredProjects.highlight")}
         </span>
       </h2>
@@ -75,7 +75,7 @@ export default async function ProjectsPage() {
       </div>
 
       {/* Filter Tabs */}
-      <section className="mt-8 bg-zinc-50 border-b border-zinc-200 sticky top-20 z-40 max-w-7xl mx-auto">
+      <section className="mt-8sticky top-20 z-40 max-w-7xl mx-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
             <button className="text-accent-yellow font-semibold border-b-2 border-accent-yellow pb-2 whitespace-nowrap">
