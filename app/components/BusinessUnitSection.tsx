@@ -11,7 +11,7 @@ export default function BusinessUnitSection() {
       date: "2024-2025",
       description:
         "Championship racing team, product testing lab, brand credibility platform",
-      image: "/bu1.jpg",
+      image: "/bu_1.jpg",
       color: "bg-accent-yellow",
     },
     {
@@ -21,7 +21,7 @@ export default function BusinessUnitSection() {
       date: "2024-2025",
       description:
         "Professional service center, product installation, customer experience hub",
-      image: "/bu2.jpg",
+      image: "/bu_2.jpg",
       color: "bg-accent-yellow",
     },
     {
@@ -30,7 +30,7 @@ export default function BusinessUnitSection() {
       title: "Collaborate with Manufacturer",
       date: "2024-2025",
       description: "Vehicle development, data analysis, technical innovation",
-      image: "/bu3.jpg",
+      image: "/bu_3.jpg",
       color: "bg-accent-yellow",
     },
     {
@@ -40,7 +40,7 @@ export default function BusinessUnitSection() {
       date: "2024-2025",
       description:
         "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise",
-      image: "/bu4.jpg",
+      image: "/bu_4.jpg",
       color: "bg-accent-yellow",
     },
   ];
