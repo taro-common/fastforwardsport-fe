@@ -26,7 +26,7 @@ export default function BusinessUnitCard({
 
   return (
     <div
-      className="group relative z-0 flex overflow-visible rounded-md border border-zinc-200 bg-white transition-all duration-300 hover:scale-x-110 hover:origin-top-left hover:z-50 cursor-pointer"
+      className="h-32 group relative z-0 flex overflow-visible rounded-md border border-zinc-200 bg-white transition-all duration-300 hover:scale-x-110 hover:origin-top-left hover:z-50 cursor-pointer"
       onMouseEnter={() => setHoveredTopic(unit.id)}
     >
       <div className="flex items-center">

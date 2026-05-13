@@ -71,6 +71,7 @@ export default function BusinessUnitSection() {
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover"
           priority={activeUnit.id === 1}
+          quality={85}
         />
       </div>
     </div>
