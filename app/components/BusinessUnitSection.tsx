@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import BusinessUnitCard from "./BusinessUnitCard";
+import {
+  IconPackage,
+  IconSettings,
+  IconTool,
+  IconTrophy,
+} from "@tabler/icons-react";
 
 export default function BusinessUnitSection() {
   const services = [
@@ -13,6 +19,7 @@ export default function BusinessUnitSection() {
         "Championship racing team, product testing lab, brand credibility platform",
       image: "/bu_1.jpg",
       color: "bg-accent-yellow",
+      icon: <IconTrophy size={32} />,
     },
     {
       id: 2,
@@ -23,6 +30,7 @@ export default function BusinessUnitSection() {
         "Professional service center, product installation, customer experience hub",
       image: "/bu_2.jpg",
       color: "bg-accent-yellow",
+      icon: <IconTool size={32} />,
     },
     {
       id: 3,
@@ -32,6 +40,7 @@ export default function BusinessUnitSection() {
       description: "Vehicle development, data analysis, technical innovation",
       image: "/bu_3.jpg",
       color: "bg-accent-yellow",
+      icon: <IconSettings size={32} />,
     },
     {
       id: 4,
@@ -42,6 +51,7 @@ export default function BusinessUnitSection() {
         "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise",
       image: "/bu_4.jpg",
       color: "bg-accent-yellow",
+      icon: <IconPackage size={32} />,
     },
   ];
 

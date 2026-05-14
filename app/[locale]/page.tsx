@@ -2,7 +2,6 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { IconChevronLeft, IconChevronRight, IconX } from "@tabler/icons-react";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 import ProjectItem, { Project } from "../components/ProjectItem";
 import BusinessUnitSection from "../components/BusinessUnitSection";

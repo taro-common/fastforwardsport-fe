@@ -26,11 +26,13 @@ export default function BusinessUnitCard({
 
   return (
     <div
-      className="h-32 group relative z-0 flex overflow-visible rounded-md border border-zinc-200 bg-white transition-all duration-300 hover:scale-x-110 hover:origin-top-left hover:z-50 cursor-pointer"
+      className="p-2 h-32 group relative z-0 flex overflow-visible rounded-md border border-zinc-200 bg-white transition-all duration-300 hover:scale-x-110 hover:origin-top-left hover:z-50 cursor-pointer"
       onMouseEnter={() => setHoveredTopic(unit.id)}
     >
       <div className="flex items-center">
-        <div className="p-4">{unit.icon}</div>
+        <div className="p-4 text-zinc-400 group-hover:text-accent-purple transition-colors duration-200">
+          {unit.icon}
+        </div>
         <div className="flex flex-col p-4">
           {/* Tag badge */}
           <span className="inline-flex w-fit text-xs font-bold tracking-wide text-accent-purple">
