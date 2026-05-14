@@ -3,6 +3,7 @@
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,24 +86,18 @@ export default function Navigation() {
             {/* Language Switcher - Desktop */}
             <div className="relative">
               <button
-                onClick={() => setIsLangOpen(!isLangOpen)}
+                onClick={() => {
+                  setIsLangOpen(!isLangOpen);
+                }}
                 className="h-10 flex items-center space-x-2 text-sm font-medium text-zinc-700 hover:text-accent-purple transition-colors duration-200 px-3 rounded-lg bg-zinc-100"
                 aria-label="Toggle language"
               >
                 <span>{currentLanguage?.code.toUpperCase()}</span>
-                <svg
-                  className={`w-4 h-4 transition-transform ${
-                    isLangOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M19 9l-7 7-7-7" />
-                </svg>
+                {isLangOpen ? (
+                  <IconChevronUp size={16} />
+                ) : (
+                  <IconChevronDown size={16} />
+                )}
               </button>
 
               {/* Language Dropdown */}

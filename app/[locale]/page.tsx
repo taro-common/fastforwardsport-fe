@@ -6,6 +6,7 @@ import ProjectsCarousel from "../components/ProjectsCarousel";
 import ProjectItem, { Project } from "../components/ProjectItem";
 import BusinessUnitSection from "../components/BusinessUnitSection";
 import Gallery from "../components/Gallery";
+import { IconArrowDown } from "@tabler/icons-react";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -104,7 +105,7 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 px-4 sm:px-6 lg:px-8 text-left w-full max-w-7xl">
-          <h1 className="text-5xl md:text-8xl mb-6 font-black tracking-tight text-white font-display">
+          <h1 className="text-5xl md:text-8xl/32 mb-6 font-black tracking-tight text-white">
             <span>{t("hero.line1")}</span>
             <br />
             <span className="text-accent-yellow">{t("hero.line2")}</span>
@@ -123,17 +124,7 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-          <svg
-            className="w-6 h-6 text-accent-yellow"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
+          <IconArrowDown size={32} className="text-accent-yellow" />
         </div>
       </section>
       {/* Gallery Section */}
