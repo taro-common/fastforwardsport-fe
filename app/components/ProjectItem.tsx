@@ -42,9 +42,6 @@ export default function ProjectItem({ project }: { project: Project }) {
     "/images/img18.jpg";
   const imageName = project.images?.[0]?.name || singleImage?.name || title;
   const tag = project.tag?.tag_en || "PROJECT";
-  const href = project.documentId
-    ? `/projects/${project.documentId}`
-    : "/projects";
 
   const getColorByTag = (tag?: string) => {
     if (tag === "RALLY") return "bg-accent-yellow";
@@ -54,7 +51,7 @@ export default function ProjectItem({ project }: { project: Project }) {
   };
   return (
     <Link
-      href={href}
+      href={`/projects/${project.documentId}`}
       className="block group overflow-hidden hover:border-accent-yellow transition-all duration-300"
     >
       <div className="relative h-48 overflow-hidden">
