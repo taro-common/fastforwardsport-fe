@@ -1,46 +1,32 @@
-import ProjectItem from "@/app/components/ProjectItem";
-import { getTranslations } from "next-intl/server";
+"use client";
 
-export default async function ServicesPage() {
-  const t = await getTranslations("services");
-  const services = [
-    {
-      tag: "MOTORSPORT",
-      title: "The Business Engine",
-      date: "2024-2025",
-      description:
-        "Championship racing team, product testing lab, brand credibility platform",
-      image: "/images/img21.jpg",
-      color: "bg-accent-yellow",
-    },
-    {
-      tag: "FAST-S",
-      title: "Motorsport Engineering Garage",
-      date: "2024-2025",
-      description:
-        "Professional service center, product installation, customer experience hub",
-      image: "/images/img21.jpg",
-      color: "bg-accent-purple",
-    },
-    {
-      tag: "Engineering & R&D",
-      title: "Collaborate with Manufacturer",
-      date: "2024-2025",
-      description: "Vehicle development, data analysis, technical innovation",
-      image: "/images/img21.jpg",
-      color: "bg-accent-lime",
-    },
-    {
-      tag: "DISTRIBUTOR",
-      title: "Premium Products",
-      date: "2024-2025",
-      description:
-        "Official distribution of Powerbrake, Sabelt, WURTH, FF SPORT merchandise",
-      image: "/images/img21.jpg",
-      color: "bg-white",
-    },
-  ];
+import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Service } from "@/app/api/services/types";
+import { listServices } from "@/app/api/services/route";
+import ServiceItem from "@/app/components/ServiceItem";
 
+export default function ServicesPage() {
+  const t = useTranslations("services");
+
+  const [services, setServices] = useState<Service[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await listServices();
+        setServices(response);
+      } catch (error) {
+        console.error("Failed to load services:", error);
+        setServices(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
   return (
     <div className="">
       {/* Hero Section */}
@@ -67,53 +53,38 @@ export default async function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-2xl font-bold   mb-6">Services</p>
-          <div className="grid grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <ProjectItem key={index} project={service} />
-            ))}
+          <p className="text-2xl font-bold   mb-6">All Services</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {isLoading ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-zinc-600">Loading...</p>
+              </div>
+            ) : services && services.length > 0 ? (
+              services.map((service) => {
+                const bgColorClass =
+                  service.title === "RALLY"
+                    ? "accent-yellow"
+                    : service.title === "ENGINE"
+                      ? "accent-purple"
+                      : service.title === "RACING"
+                        ? "accent-lime"
+                        : "accent-yellow";
+                return (
+                  <ServiceItem
+                    key={service.documentId}
+                    service={service}
+                    color={bgColorClass}
+                  />
+                );
+              })
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <p className="text-zinc-600">No services available</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
-
-      {/* Process Section */}
-      {/* <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold   mb-12 text-center">
-            {t("process.title")}{" "}
-            <span className="text-accent-yellow">{t("process.highlight")}</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {processSteps.map((step) => (
-              <div key={step.number} className="text-center">
-                <div className="w-16 h-16 bg-accent-yellow rounded-full flex items-center justify-center text-black text-2xl font-bold mx-auto mb-4">
-                  {step.number}
-                </div>
-                <h3 className="text-xl font-bold   mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-zinc-400">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold   mb-6">
-            {t("cta.title")}
-          </h2>
-          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
-          >
-            {t("cta.button")}
-          </Link>
-        </div>
-      </section> */}
     </div>
   );
 }
