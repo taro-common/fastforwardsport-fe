@@ -1,5 +1,5 @@
 "use client";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { useLocale } from "next-intl";
 
 export type Project = {
@@ -51,7 +51,7 @@ export default function ProjectItem({ project }: { project: Project }) {
   };
   return (
     <Link
-      href={`/projects/${project.documentId}`}
+      href={`/${locale}/projects/${project.documentId}`}
       className="block group overflow-hidden hover:border-accent-yellow transition-all duration-300"
     >
       <div className="relative h-48 overflow-hidden">

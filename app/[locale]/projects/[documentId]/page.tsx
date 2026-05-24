@@ -8,11 +8,11 @@ import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
 import { Project } from "@/app/api/projects/types";
 import { getProjectById } from "@/app/api/projects/api";
 
-export default function ServiceDetailPage() {
+export default function ProjectDetailPage() {
   const params = useParams<{ documentId: string }>();
   const documentId = params?.documentId;
   const locale = useLocale();
-  const t = useTranslations("services");
+  const t = useTranslations("projects");
 
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -78,14 +78,14 @@ export default function ServiceDetailPage() {
       {/* Back Button */}
       <div>
         <Link
-          href="/services"
+          href="/projects"
           className="pt-16 md:pt-20 pb-6 flex items-center gap-2 hover:text-accent-purple transition-colors cursor-pointer font-semibold"
         >
           <IconArrowLeft size={16} />
-          <p>All Services</p>
+          <p>All Projects</p>
         </Link>
         <img
-          src={project?.image?.url}
+          src={project?.image?.[0]?.url}
           alt={title}
           className="h-80 sm:100 lg:h-120 w-full object-cover"
         />

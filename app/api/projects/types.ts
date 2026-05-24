@@ -11,6 +11,5 @@ export type Project = {
   content_en: string;
   content_th: string;
   tag?: Tag;
-  image?: Image;
-  images?: Image[];
+  image?: Image[];
 };
