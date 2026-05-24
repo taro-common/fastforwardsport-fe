@@ -8,61 +8,13 @@ import {
 } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { listGalleryImages } from "../api/our-galleries/route";
+import { GalleryItem } from "../api/our-galleries/types";
 
 export default function Gallery() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
-
-  const galleryMessageImages = [
-    { alt: "Rally Car in Action" },
-    { alt: "Engine Tuning Session" },
-    { alt: "Team Celebrating Victory" },
-    { alt: "Driver Training at Rally Academy" },
-    { alt: "Technical Workshop with Partners" },
-    { alt: "Car Setup for Circuit Racing" },
-    { alt: "Rally Car Jumping over Terrain" },
-    { alt: "Data Analysis in Engineering Lab" },
-    { alt: "Team Strategizing in Garage" },
-  ];
-
-  const galleryImages = [
-    {
-      src: "/images/img1.jpg",
-      ...galleryMessageImages[0],
-    },
-    {
-      src: "/images/img2.jpg",
-      ...galleryMessageImages[1],
-    },
-    {
-      src: "/images/img3.jpg",
-      ...galleryMessageImages[2],
-    },
-    {
-      src: "/images/img10.jpg",
-      ...galleryMessageImages[3],
-    },
-    {
-      src: "/images/img11.jpg",
-      ...galleryMessageImages[4],
-    },
-    {
-      src: "/images/img15.jpg",
-      ...galleryMessageImages[5],
-    },
-    {
-      src: "/images/img20.jpg",
-      ...galleryMessageImages[6],
-    },
-    {
-      src: "/images/img22.jpg",
-      ...galleryMessageImages[7],
-    },
-    {
-      src: "/images/img17.jpg",
-      ...galleryMessageImages[8],
-    },
-  ];
+  const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
 
   const galleryLayoutClasses = [
     "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
@@ -76,7 +28,7 @@ export default function Gallery() {
   ];
 
   const openLightbox = (src: string) => {
-    const index = galleryImages.findIndex((img) => img.src === src);
+    const index = galleryImages.findIndex((item) => item.image.url === src);
     setLightboxIndex(index);
     setLightboxImage(src);
   };
@@ -84,19 +36,44 @@ export default function Gallery() {
   const nextImage = () => {
     const newIndex = (lightboxIndex + 1) % galleryImages.length;
     setLightboxIndex(newIndex);
-    setLightboxImage(galleryImages[newIndex].src);
+    setLightboxImage(galleryImages[newIndex].image.url);
   };
 
   const prevImage = () => {
     const newIndex =
       (lightboxIndex - 1 + galleryImages.length) % galleryImages.length;
     setLightboxIndex(newIndex);
-    setLightboxImage(galleryImages[newIndex].src);
+    setLightboxImage(galleryImages[newIndex].image.url);
   };
 
   const closeLightbox = () => {
     setLightboxImage(null);
   };
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadGalleryImages = async () => {
+      try {
+        const response = await listGalleryImages();
+        const items = response;
+
+        if (isMounted && items && items.length > 0) {
+          setGalleryImages(items);
+        }
+      } catch {
+        if (isMounted) {
+          setGalleryImages([]);
+        }
+      }
+    };
+
+    void loadGalleryImages();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -119,17 +96,17 @@ export default function Gallery() {
   return (
     <>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[180px]">
-        {galleryImages.map((image, index) => (
+        {galleryImages.map((item, index) => (
           <div
-            key={index}
+            key={item.id}
             className={`group relative overflow-hidden cursor-pointer min-h-45 ${
               galleryLayoutClasses[index] ?? "col-span-1 row-span-1"
             }`}
-            onClick={() => openLightbox(image.src)}
+            onClick={() => openLightbox(item.image.url)}
           >
             <img
-              src={image.src}
-              alt={image.alt}
+              src={item.image.url}
+              alt={item.image.alt}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">
@@ -182,7 +159,7 @@ export default function Gallery() {
             <div className="relative max-w-4xl max-h-[80vh] w-full mb-4 z-105">
               <img
                 src={lightboxImage}
-                alt={galleryImages[lightboxIndex].alt}
+                alt={galleryImages[lightboxIndex].image.url}
                 className="w-full h-full object-contain rounded-lg"
                 onClick={(e) => e.stopPropagation()}
               />
@@ -192,7 +169,7 @@ export default function Gallery() {
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-110">
               <div className="bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-zinc-200">
                 <p className="text-sm font-semibold mb-1">
-                  {galleryImages[lightboxIndex].alt}
+                  {galleryImages[lightboxIndex].image.url}
                 </p>
               </div>
             </div>
