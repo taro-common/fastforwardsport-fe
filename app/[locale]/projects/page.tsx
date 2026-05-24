@@ -1,45 +1,81 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { useLocale, useTranslations } from "next-intl";
 import ProjectItem from "../../components/ProjectItem";
 import ProjectsCarousel from "@/app/components/ProjectsCarousel";
+import { useEffect, useState } from "react";
+import { listProjects } from "@/app/api/projects/api";
+import type { Project } from "@/app/api/projects/types";
 
-type Project = {
-  tag: string;
+type CarouselProject = {
   title: string;
-  date: string;
-  description: string;
+  category: string;
   image: string;
-  color: string;
+  description: string;
 };
 
-export default async function ProjectsPage() {
-  const t = await getTranslations("projects");
-  const projects = t.raw("items") as Project[];
-  const featuredProjects = [
-    {
-      title: "Thailand Rally Championship 2024 Build",
-      category: "CHAMPIONSHIP",
-      image: "/images/img1.jpg",
-      description: "Complete rally car build for championship-winning campaign",
-    },
-    {
-      title: "4G63 Engine Development Program",
-      category: "ENGINEERING",
-      image: "/images/img2.jpg",
-      description: "High-performance engine development and optimization",
-    },
-    {
-      title: "Asia Pacific Circuit Series Support",
-      category: "RACING",
-      image: "/images/img3.jpg",
-      description: "Professional race engineering and technical support",
-    },
-    {
-      title: "Rally Academy Graduates 2024",
-      category: "ACADEMY",
-      image: "/images/img4.jpg",
-      description: "Successfully trained drivers progressing to championships",
-    },
-  ];
+type FilterKey =
+  | "ALL"
+  | "RALLY"
+  | "ENGINE"
+  | "RACING"
+  | "ACADEMY"
+  | "CHAMPIONSHIP"
+  | "SUPPORT";
+
+export default function ProjectsPage() {
+  const t = useTranslations("projects");
+  const locale = useLocale();
+
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [featuredProjects, setFeaturedProjects] = useState<CarouselProject[]>(
+    [],
+  );
+  const [isLoading, setIsLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState<FilterKey>("ALL");
+
+  const getProjectImageUrl = (project: Project) => {
+    const url = project.images?.[0]?.url || project.image?.url;
+    if (!url) return "/images/img18.jpg";
+    if (url.startsWith("http")) return url;
+    const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+    return `${base}${url}`;
+  };
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await listProjects();
+        setProjects(response || []);
+        const mappedFeatured = (response || []).map((project) => ({
+          title: locale === "en" ? project.title_en : project.title_th,
+          category:
+            locale === "en"
+              ? (project.tag?.tag_en ?? "PROJECT")
+              : (project.tag?.tag_th ?? "PROJECT"),
+          image: getProjectImageUrl(project),
+          description:
+            locale === "en" ? project.description_en : project.description_th,
+        }));
+        setFeaturedProjects(mappedFeatured);
+      } catch (error) {
+        console.error("Failed to load projects:", error);
+        setProjects([]);
+        setFeaturedProjects([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    void fetchProjects();
+  }, [locale]);
+
+  const filteredProjects =
+    activeFilter === "ALL"
+      ? projects
+      : projects.filter(
+          (project) => project.tag?.tag_en?.toUpperCase() === activeFilter,
+        );
 
   return (
     <div className="">
@@ -71,26 +107,67 @@ export default async function ProjectsPage() {
         </span>
       </h2>
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <ProjectsCarousel projects={featuredProjects} />
+        {featuredProjects.length > 0 ? (
+          <ProjectsCarousel projects={featuredProjects} />
+        ) : (
+          <div className="h-48 flex items-center justify-center text-zinc-500">
+            {isLoading ? "Loading..." : "No featured projects"}
+          </div>
+        )}
       </div>
 
       {/* Filter Tabs */}
-      <section className="mt-8sticky top-20 z-40 max-w-7xl mx-auto">
+      <section className="mt-8 sticky top-20 z-40 max-w-7xl mx-auto bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
-            <button className="text-accent-purple font-semibold border-b-2 border-accent-purple pb-2 whitespace-nowrap">
+            <button
+              onClick={() => setActiveFilter("ALL")}
+              className={`font-semibold pb-2 whitespace-nowrap ${
+                activeFilter === "ALL"
+                  ? "text-accent-purple border-b-2 border-accent-purple"
+                  : "text-zinc-600 hover:text-zinc-900"
+              }`}
+            >
               {t("filters.all")}
             </button>
-            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
+            <button
+              onClick={() => setActiveFilter("RALLY")}
+              className={`font-semibold pb-2 whitespace-nowrap ${
+                activeFilter === "RALLY"
+                  ? "text-accent-purple border-b-2 border-accent-purple"
+                  : "text-zinc-600 hover:text-zinc-900"
+              }`}
+            >
               {t("filters.rally")}
             </button>
-            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
+            <button
+              onClick={() => setActiveFilter("ENGINE")}
+              className={`font-semibold pb-2 whitespace-nowrap ${
+                activeFilter === "ENGINE"
+                  ? "text-accent-purple border-b-2 border-accent-purple"
+                  : "text-zinc-600 hover:text-zinc-900"
+              }`}
+            >
               {t("filters.engine")}
             </button>
-            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
+            <button
+              onClick={() => setActiveFilter("RACING")}
+              className={`font-semibold pb-2 whitespace-nowrap ${
+                activeFilter === "RACING"
+                  ? "text-accent-purple border-b-2 border-accent-purple"
+                  : "text-zinc-600 hover:text-zinc-900"
+              }`}
+            >
               {t("filters.racing")}
             </button>
-            <button className="text-zinc-600 hover:text-zinc-900 font-semibold pb-2 whitespace-nowrap">
+            <button
+              onClick={() => setActiveFilter("ACADEMY")}
+              className={`font-semibold pb-2 whitespace-nowrap ${
+                activeFilter === "ACADEMY"
+                  ? "text-accent-purple border-b-2 border-accent-purple"
+                  : "text-zinc-600 hover:text-zinc-900"
+              }`}
+            >
               {t("filters.academy")}
             </button>
           </div>
@@ -102,49 +179,20 @@ export default async function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-2xl font-bold   mb-6">All Projects</p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <ProjectItem key={index} project={project} index={index} />
-            ))}
+            {isLoading ? (
+              <p className="text-zinc-500 col-span-full">Loading...</p>
+            ) : filteredProjects.length > 0 ? (
+              filteredProjects.map((project) => (
+                <ProjectItem key={project.documentId} project={project} />
+              ))
+            ) : (
+              <p className="text-zinc-500 col-span-full">
+                No projects available
+              </p>
+            )}
           </div>
         </div>
       </section>
-
-      {/* Stats Section */}
-      {/* <section className="py-20 bg-zinc-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold   mb-12 text-center">
-            {t("stats.title")}{" "}
-            <span className="text-accent-yellow">{t("stats.highlight")}</span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <div className="text-5xl md:text-6xl font-bold text-accent-yellow mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-zinc-400 text-lg">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* CTA Section */}
-      {/* <section className="py-20 bg-linear-to-br from-black via-purple-900/20 to-black">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold   mb-6">
-            {t("cta.title")}{" "}
-            <span className="text-accent-yellow">{t("cta.highlight")}</span>
-          </h2>
-          <p className="text-xl text-zinc-300 mb-10">{t("cta.description")}</p>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent-yellow text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-accent-lime transition-all duration-200 transform hover:scale-105"
-          >
-            {t("cta.button")}
-          </Link>
-        </div>
-      </section> */}
     </div>
   );
 }
