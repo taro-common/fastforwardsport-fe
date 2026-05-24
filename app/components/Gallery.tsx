@@ -96,7 +96,7 @@ export default function Gallery() {
   return (
     <>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[180px]">
-        {galleryImages.map((item, index) => (
+        {galleryImages.slice(0, 9).map((item, index) => (
           <div
             key={item.id}
             className={`group relative overflow-hidden cursor-pointer min-h-45 ${

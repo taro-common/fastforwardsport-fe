@@ -9,5 +9,6 @@ export async function listGalleryImages() {
     return data.data || [];
   } catch (e) {
     console.log("e: ", e);
+    return null;
   }
 }
