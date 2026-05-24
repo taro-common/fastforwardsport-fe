@@ -6,6 +6,7 @@ import { useLocale } from "next-intl";
 import axios from "axios";
 import { Contact } from "@/app/api/contact/types";
 import { getContactInfo } from "@/app/api/contact/api";
+import { IconMapPin } from "@tabler/icons-react";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -49,6 +50,12 @@ export default function ContactPage() {
       : contactInfo?.business_hours_en || "";
   const email = contactInfo?.email || "";
   const phone = contactInfo?.phone || "";
+  const googleMapUrl = contactInfo?.google_map_url?.trim() || "";
+  const mapEmbedUrl = googleMapUrl
+    ? googleMapUrl.includes("/maps/embed")
+      ? googleMapUrl
+      : `https://www.google.com/maps?q=${encodeURIComponent(googleMapUrl)}&output=embed`
+    : "";
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -482,25 +489,36 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-96 bg-white rounded-lg overflow-hidden border border-zinc-200">
-            {/* Placeholder for map */}
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-center">
-                <svg
-                  className="w-24 h-24 text-zinc-700 mx-auto mb-4"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <p className="text-zinc-600">{t("mapLocation")}</p>
+            {mapEmbedUrl ? (
+              <iframe
+                title="Google Map"
+                src={mapEmbedUrl}
+                className="w-full h-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-center">
+                  <IconMapPin className="w-12 h-12 mx-auto mb-4" />
+                  <p className="text-zinc-600">{t("mapLocation")}</p>
+                </div>
               </div>
-            </div>
+            )}
           </div>
+          {googleMapUrl && (
+            <div className="mt-4 text-center">
+              <a
+                href={googleMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-purple font-semibold hover:text-accent-yellow transition-colors"
+              >
+                {t("mapLocation")}
+              </a>
+            </div>
+          )}
         </div>
       </section>
     </div>

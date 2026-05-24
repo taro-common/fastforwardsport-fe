@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
-import axios from "axios";
 import { Service } from "@/app/api/services/types";
 import { getServiceById } from "@/app/api/services/api";
 
@@ -76,24 +75,24 @@ export default function ServiceDetailPage() {
           : "accent-yellow";
 
   return (
-    <div className="">
+    <section className="max-w-7xl mx-auto px-8 sm:px-16 lg:px-28">
       {/* Back Button */}
-      <section className="max-w-7xl mx-auto px-8 sm:px-16 lg:px-28">
+      <div>
         <Link
-          href="/projects"
+          href="/services"
           className="pt-16 md:pt-20 pb-6 flex items-center gap-2 hover:text-accent-purple transition-colors cursor-pointer font-semibold"
         >
           <IconArrowLeft size={16} />
-          <p>All Projects</p>
+          <p>All Services</p>
         </Link>
         <img
           src={service.image.url}
           alt={title}
           className="h-80 sm:100 lg:h-120 w-full object-cover"
         />
-      </section>
+      </div>
 
-      <div className="mt-8 max-w-7xl mx-auto px-8 sm:px-16 lg:px-28">
+      <div className="mt-8">
         <div className="flex gap-2 items-center">
           <div
             className={`px-4 py-2 bg-${bgColorClass} text-black text-xs font-bold inline-block`}
@@ -116,6 +115,20 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight my-6">
+          {title}
+        </h1>
+        <p className="text-zinc-400 text-lg leading-relaxed mb-8">
+          {description}
+        </p>
+      </div>
+      <div className="h-px bg-zinc-800 my-10"></div>
+      <div
+        className="prose prose-zinc max-w-none"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+    </section>
   );
 }
