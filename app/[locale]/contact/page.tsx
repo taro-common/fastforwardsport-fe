@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 import axios from "axios";
 import { Contact } from "@/app/api/contact/types";
-import { getContactInfo } from "@/app/api/contact/route";
+import { getContactInfo } from "@/app/api/contact/api";
 
 export default function ContactPage() {
   const t = useTranslations("contact");

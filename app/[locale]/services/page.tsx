@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Service } from "@/app/api/services/types";
-import { listServices } from "@/app/api/services/route";
+import { listServices } from "@/app/api/services/api";
 import ServiceItem from "@/app/components/ServiceItem";
 
 export default function ServicesPage() {
@@ -14,15 +14,9 @@ export default function ServicesPage() {
 
   useEffect(() => {
     const fetchServices = async () => {
-      try {
-        const response = await listServices();
-        setServices(response);
-      } catch (error) {
-        console.error("Failed to load services:", error);
-        setServices(null);
-      } finally {
-        setIsLoading(false);
-      }
+      const response = await listServices();
+      setServices(response);
+      setIsLoading(false);
     };
 
     fetchServices();

@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { listGalleryImages } from "../api/our-galleries/route";
+import { listGalleryImages } from "../api/our-galleries/api";
 import { GalleryItem } from "../api/our-galleries/types";
 
 export default function Gallery() {
@@ -106,7 +106,7 @@ export default function Gallery() {
           >
             <img
               src={item.image.url}
-              alt={item.image.alt}
+              alt={item.image.name}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[1px]">

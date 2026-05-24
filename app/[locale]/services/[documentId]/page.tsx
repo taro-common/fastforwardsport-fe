@@ -7,7 +7,7 @@ import { Link } from "@/i18n/routing";
 import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
 import axios from "axios";
 import { Service } from "@/app/api/services/types";
-import { getServiceById } from "@/app/api/services/route";
+import { getServiceById } from "@/app/api/services/api";
 
 export default function ServiceDetailPage() {
   const params = useParams<{ documentId: string }>();
