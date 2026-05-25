@@ -6,7 +6,7 @@ import { useLocale } from "next-intl";
 import axios from "axios";
 import { Contact } from "@/app/api/contact/types";
 import { getContactInfo } from "@/app/api/contact/api";
-import { IconMapPin } from "@tabler/icons-react";
+import { IconBrandTiktok, IconMapPin } from "@tabler/icons-react";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
@@ -51,11 +51,6 @@ export default function ContactPage() {
   const email = contactInfo?.email || "";
   const phone = contactInfo?.phone || "";
   const googleMapUrl = contactInfo?.google_map_url?.trim() || "";
-  const mapEmbedUrl = googleMapUrl
-    ? googleMapUrl.includes("/maps/embed")
-      ? googleMapUrl
-      : `https://www.google.com/maps?q=${encodeURIComponent(googleMapUrl)}&output=embed`
-    : "";
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -333,6 +328,17 @@ export default function ContactPage() {
                       </svg>
                     </a>
                   )}
+                  {contactInfo?.tiktok_url && (
+                    <a
+                      href={contactInfo.tiktok_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
+                    >
+                      <span className="sr-only">TikTok</span>
+                      <IconBrandTiktok className="w-5 h-5" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -365,10 +371,7 @@ export default function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label
-                        htmlFor="name"
-                        className="block   font-medium mb-2"
-                      >
+                      <label htmlFor="name" className="block font-medium mb-2">
                         {t("form.name")}
                       </label>
                       <input
@@ -383,10 +386,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="email"
-                        className="block   font-medium mb-2"
-                      >
+                      <label htmlFor="email" className="block font-medium mb-2">
                         {t("form.email")}
                       </label>
                       <input
@@ -401,10 +401,7 @@ export default function ContactPage() {
                     </div>
 
                     <div>
-                      <label
-                        htmlFor="phone"
-                        className="block   font-medium mb-2"
-                      >
+                      <label htmlFor="phone" className="block font-medium mb-2">
                         {t("form.phone")}
                       </label>
                       <input
@@ -420,7 +417,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="service"
-                        className="block   font-medium mb-2"
+                        className="block font-medium mb-2"
                       >
                         {t("form.service")}
                       </label>
@@ -489,10 +486,10 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="h-96 bg-white rounded-lg overflow-hidden border border-zinc-200">
-            {mapEmbedUrl ? (
+            {googleMapUrl ? (
               <iframe
                 title="Google Map"
-                src={mapEmbedUrl}
+                src={googleMapUrl}
                 className="w-full h-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -507,18 +504,6 @@ export default function ContactPage() {
               </div>
             )}
           </div>
-          {googleMapUrl && (
-            <div className="mt-4 text-center">
-              <a
-                href={googleMapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent-purple font-semibold hover:text-accent-yellow transition-colors"
-              >
-                {t("mapLocation")}
-              </a>
-            </div>
-          )}
         </div>
       </section>
     </div>

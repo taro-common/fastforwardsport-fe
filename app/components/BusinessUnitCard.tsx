@@ -1,29 +1,28 @@
-type BusinessUnit = {
-  id: number;
-  tag: string;
-  title: string;
-  date: string;
-  description: string;
-  image: string;
-  icon?: React.ReactNode;
-};
+import { useLocale } from "next-intl";
+import { Service } from "../api/services/types";
+import {
+  IconPackage,
+  IconSettings,
+  IconTool,
+  IconTrophy,
+} from "@tabler/icons-react";
+import React from "react";
 
-// const TAG_COLORS: Record<string, string> = {
-//   MOTORSPORT: "bg-accent-yellow text-black",
-//   "FAST-S": "bg-accent-purple text-white",
-//   "Engineering & R&D": "bg-accent-lime text-black",
-//   DISTRIBUTOR: "bg-white text-black",
-// };
+const icons = [IconPackage, IconSettings, IconTool, IconTrophy];
 
 export default function BusinessUnitCard({
   unit,
   setHoveredTopic,
+  index,
 }: {
-  unit: BusinessUnit;
+  unit: Service;
   setHoveredTopic: React.Dispatch<React.SetStateAction<number>>;
+  index: number;
 }) {
-  // const tagColor = TAG_COLORS[unit.tag] ?? "bg-accent-yellow text-black";
-
+  const locale = useLocale();
+  const tag = locale === "en" ? unit.tag.tag_en : unit.tag.tag_th;
+  const description =
+    locale === "en" ? unit.description_en : unit.description_th;
   return (
     <div
       className="p-2 h-32 group relative z-0 flex overflow-visible rounded-md border border-zinc-200 bg-white transition-all duration-300 hover:scale-x-110 hover:origin-top-left hover:z-50 cursor-pointer"
@@ -31,12 +30,14 @@ export default function BusinessUnitCard({
     >
       <div className="flex items-center">
         <div className="p-4 text-zinc-400 group-hover:text-accent-purple transition-colors duration-200">
-          {unit.icon}
+          {React.createElement(icons[index % icons.length], {
+            className: "w-6 h-6",
+          })}
         </div>
         <div className="flex flex-col p-4">
           {/* Tag badge */}
           <span className="inline-flex w-fit text-xs font-bold tracking-wide text-accent-purple">
-            {unit.tag}
+            {tag}
           </span>
 
           {/* Content */}
@@ -46,7 +47,7 @@ export default function BusinessUnitCard({
             </h3>
 
             <p className="text-zinc-600 text-sm leading-relaxed flex-1">
-              {unit.description}
+              {description}
             </p>
           </div>
         </div>

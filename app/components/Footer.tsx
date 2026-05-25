@@ -3,11 +3,27 @@
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Contact } from "../api/contact/types";
+import { useEffect, useState } from "react";
+import { getContactInfo } from "../api/contact/api";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const t = useTranslations("footer");
 
+  const [contactInfo, setContactInfo] = useState<Contact | null>(null);
+
+  useEffect(() => {
+    const fetchContactInfo = async () => {
+      const response = await getContactInfo();
+      setContactInfo(response);
+    };
+
+    fetchContactInfo();
+  }, []);
+
+  const email = contactInfo?.email || "";
+  const phone = contactInfo?.phone || "";
   return (
     <footer className="border-t border-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -69,8 +85,12 @@ export default function Footer() {
           <div>
             <h3 className="  font-semibold mb-4">{t("contact")}</h3>
             <ul className="space-y-2 text-zinc-600">
-              <li>{t("emailLabel")}: fastforwardsport@outlook.com</li>
-              <li>{t("phoneLabel")}: +1 (555) 123-4567</li>
+              <li>
+                {t("emailLabel")}: {email}
+              </li>
+              <li>
+                {t("phoneLabel")}: {phone}
+              </li>
               <li>
                 <Link
                   href="/contact"
