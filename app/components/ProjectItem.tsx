@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { Project } from "../api/projects/types";
+import { getColorByTag } from "../api/services/types";
 
 export default function ProjectItem({ project }: { project: Project }) {
   const locale = useLocale();
@@ -18,12 +19,6 @@ export default function ProjectItem({ project }: { project: Project }) {
   const imageName = project?.image?.[0]?.name || title;
   const tag = project.tag?.tag_en || "PROJECT";
 
-  const getColorByTag = (tag?: string) => {
-    if (tag === "RALLY") return "bg-accent-yellow";
-    if (tag === "ENGINE") return "bg-accent-purple";
-    if (tag === "RACING") return "bg-accent-lime";
-    return "bg-accent-yellow";
-  };
   return (
     <Link
       href={`/${locale}/projects/${project.documentId}`}

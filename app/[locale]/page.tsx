@@ -9,11 +9,14 @@ import { IconArrowDown } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { Project } from "../api/projects/types";
 import { listProjects } from "../api/projects/api";
+import { GalleryItem } from "../api/our-galleries/types";
+import { listGalleryImages } from "../api/our-galleries/api";
 
 export default function Home() {
   const t = useTranslations("home");
   const locale = useLocale();
   const [projects, setProjects] = useState<Project[]>([]);
+  const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -26,7 +29,18 @@ export default function Home() {
       }
     };
 
-    void fetchProjects();
+    fetchProjects();
+
+    const loadGalleryImages = async () => {
+      const response = await listGalleryImages();
+      const items = response;
+
+      if (items && items.length > 0) {
+        setGalleryImages(items);
+      }
+    };
+
+    loadGalleryImages();
   }, [locale]);
 
   // const achievements: Project[] = [
@@ -135,7 +149,7 @@ export default function Home() {
             </p>
           </div>
 
-          <Gallery />
+          <Gallery galleryImages={galleryImages} />
         </div>
       </section>
 

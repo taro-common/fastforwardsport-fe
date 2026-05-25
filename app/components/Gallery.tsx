@@ -8,13 +8,15 @@ import {
 } from "@tabler/icons-react";
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { listGalleryImages } from "../api/our-galleries/api";
 import { GalleryItem } from "../api/our-galleries/types";
 
-export default function Gallery() {
+export default function Gallery({
+  galleryImages,
+}: {
+  galleryImages: GalleryItem[];
+}) {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
-  const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
 
   const galleryLayoutClasses = [
     "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2",
@@ -49,31 +51,6 @@ export default function Gallery() {
   const closeLightbox = () => {
     setLightboxImage(null);
   };
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadGalleryImages = async () => {
-      try {
-        const response = await listGalleryImages();
-        const items = response;
-
-        if (isMounted && items && items.length > 0) {
-          setGalleryImages(items);
-        }
-      } catch {
-        if (isMounted) {
-          setGalleryImages([]);
-        }
-      }
-    };
-
-    void loadGalleryImages();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

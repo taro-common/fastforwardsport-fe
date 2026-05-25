@@ -20,3 +20,10 @@ export type Tag = {
   tag_th: string;
   tag_en: string;
 };
+
+export const getColorByTag = (tag?: string) => {
+  if (tag === "RALLY") return "bg-accent-yellow";
+  if (tag === "ENGINE") return "bg-accent-purple";
+  if (tag === "RACING") return "bg-accent-lime";
+  return "bg-accent-yellow";
+};

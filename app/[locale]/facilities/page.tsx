@@ -7,11 +7,15 @@ import { useEffect, useState } from "react";
 import { Contact } from "@/app/api/contact/types";
 import { getContactInfo } from "@/app/api/contact/api";
 import { useTranslations } from "next-intl";
+import { GalleryItem } from "@/app/api/our-galleries/types";
+import { listGalleryImages } from "@/app/api/our-galleries/api";
+import { getColorByTag } from "@/app/api/services/types";
 
 export default function FacilitiesPage() {
   const t = useTranslations("facilities");
 
   const [contactInfo, setContactInfo] = useState<Contact | null>(null);
+  const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
 
   useEffect(() => {
     const fetchContactInfo = async () => {
@@ -19,8 +23,20 @@ export default function FacilitiesPage() {
       setContactInfo(response);
     };
 
+    const loadGalleryImages = async () => {
+      const response = await listGalleryImages();
+      const items = response;
+
+      if (items && items.length > 0) {
+        setGalleryImages(items);
+      }
+    };
+
+    loadGalleryImages();
+
     fetchContactInfo();
   }, []);
+
   return (
     <div className="">
       {/* Hero Section */}
@@ -49,10 +65,10 @@ export default function FacilitiesPage() {
       {/* Gallery Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
+          <div className="">
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
               {t("workshop.title")}{" "}
-              <span className="text-accent-purple  ">
+              <span className="text-accent-purple ">
                 {t("workshop.highlight")}
               </span>
             </h2>
@@ -60,8 +76,25 @@ export default function FacilitiesPage() {
               {t("workshop.description")}
             </p>
           </div>
-
-          <Gallery />
+          {/* TODO: Implement */}
+          <p
+            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
+          >
+            WORKSHOP
+          </p>
+          <Gallery galleryImages={galleryImages} />
+          <p
+            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
+          >
+            WORKSHOP
+          </p>
+          <Gallery galleryImages={galleryImages} />
+          <p
+            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
+          >
+            WORKSHOP
+          </p>
+          <Gallery galleryImages={galleryImages} />
         </div>
       </section>
 

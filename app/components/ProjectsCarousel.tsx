@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { Project } from "../api/projects/types";
 import { useLocale } from "use-intl";
@@ -59,7 +58,7 @@ export default function ProjectsCarousel({
                       <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                         {title}
                       </h3>
-                      <p className="text-zinc-100 text-sm md:text-base">
+                      <p className="text-zinc-100 text-sm md:text-base line-clamp-2">
                         {description}
                       </p>
                     </div>
