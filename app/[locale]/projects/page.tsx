@@ -7,13 +7,6 @@ import { useEffect, useState } from "react";
 import { listProjects } from "@/app/api/projects/api";
 import type { Project } from "@/app/api/projects/types";
 
-type CarouselProject = {
-  title: string;
-  category: string;
-  image: string;
-  description: string;
-};
-
 type FilterKey =
   | "ALL"
   | "RALLY"
@@ -28,42 +21,16 @@ export default function ProjectsPage() {
   const locale = useLocale();
 
   const [projects, setProjects] = useState<Project[]>([]);
-  const [featuredProjects, setFeaturedProjects] = useState<CarouselProject[]>(
-    [],
-  );
-  const [isLoading, setIsLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState<FilterKey>("ALL");
-
-  const getProjectImageUrl = (project: Project) => {
-    const url = project.images?.[0]?.url || project.image?.url;
-    if (!url) return "/images/img18.jpg";
-    if (url.startsWith("http")) return url;
-    const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
-    return `${base}${url}`;
-  };
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await listProjects();
         setProjects(response || []);
-        const mappedFeatured = (response || []).map((project) => ({
-          title: locale === "en" ? project.title_en : project.title_th,
-          category:
-            locale === "en"
-              ? (project.tag?.tag_en ?? "PROJECT")
-              : (project.tag?.tag_th ?? "PROJECT"),
-          image: getProjectImageUrl(project),
-          description:
-            locale === "en" ? project.description_en : project.description_th,
-        }));
-        setFeaturedProjects(mappedFeatured);
       } catch (error) {
         console.error("Failed to load projects:", error);
         setProjects([]);
-        setFeaturedProjects([]);
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -107,13 +74,7 @@ export default function ProjectsPage() {
         </span>
       </h2>
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        {featuredProjects.length > 0 ? (
-          <ProjectsCarousel projects={featuredProjects} />
-        ) : (
-          <div className="h-48 flex items-center justify-center text-zinc-500">
-            {isLoading ? "Loading..." : "No featured projects"}
-          </div>
-        )}
+        {projects.length > 0 && <ProjectsCarousel projects={projects} />}
       </div>
 
       {/* Filter Tabs */}
@@ -179,9 +140,7 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-2xl font-bold   mb-6">All Projects</p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
-            {isLoading ? (
-              <p className="text-zinc-500 col-span-full">Loading...</p>
-            ) : filteredProjects.length > 0 ? (
+            {filteredProjects.length > 0 ? (
               filteredProjects.map((project) => (
                 <ProjectItem key={project.documentId} project={project} />
               ))

@@ -1,22 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import { Project } from "../api/projects/types";
+import { useLocale } from "use-intl";
 
-type Project = {
-  title: string;
-  category: string;
-  image: string;
-  description: string;
-};
-
-interface ProjectsCarouselProps {
+export default function ProjectsCarousel({
+  projects,
+}: {
   projects: Project[];
-}
-
-export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
-  const t = useTranslations("home");
+}) {
+  const locale = useLocale();
   const [featuredProjectIndex, setFeaturedProjectIndex] = useState<number>(0);
 
   const nextFeaturedProject = () => {
@@ -39,30 +34,39 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
               transform: `translateX(-${featuredProjectIndex * 100}%)`,
             }}
           >
-            {projects.map((project, index) => (
-              <div key={index} className="w-full shrink-0">
-                <div className="group relative overflow-hidden h-96 md:h-120 cursor-pointer">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    layout="fill"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-                      {project.category}
-                    </span>
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-zinc-100 text-sm md:text-base">
-                      {project.description}
-                    </p>
+            {projects.map((project, index) => {
+              const tag =
+                locale === "th" ? project.tag?.tag_th : project.tag?.tag_en;
+              const title =
+                locale === "th" ? project.title_th : project.title_en;
+              const description =
+                locale === "th"
+                  ? project.description_th
+                  : project.description_en;
+              return (
+                <div key={index} className="w-full shrink-0">
+                  <div className="group relative overflow-hidden h-96 md:h-120 cursor-pointer">
+                    <img
+                      src={project.image?.[0]?.url || "/placeholder.png"}
+                      alt={project.image?.[0]?.name || ""}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
+                        {tag}
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                        {title}
+                      </h3>
+                      <p className="text-zinc-100 text-sm md:text-base">
+                        {description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -71,17 +75,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
           onClick={prevFeaturedProject}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 transition-colors border border-zinc-200"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M15 19l-7-7 7-7"></path>
-          </svg>
+          <IconChevronLeft className="w-6 h-6" />
         </button>
 
         <button
@@ -89,17 +83,7 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
           onClick={nextFeaturedProject}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-3 transition-colors border border-zinc-200"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M9 5l7 7-7 7"></path>
-          </svg>
+          <IconChevronRight className="w-6 h-6" />
         </button>
 
         <div className="flex justify-center gap-2 mt-6">
@@ -117,15 +101,6 @@ export default function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
           ))}
         </div>
       </div>
-
-      {/* <div className="text-center mt-12">
-        <Link
-          href="/projects"
-          className="inline-block bg-accent-purple   px-8 py-3 rounded-lg font-semibold hover:bg-purple-600 transition-colors duration-200"
-        >
-          {t("featuredProjectsSection.viewAll")}
-        </Link>
-      </div> */}
     </div>
   );
 }

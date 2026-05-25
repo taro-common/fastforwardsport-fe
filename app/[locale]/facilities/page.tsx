@@ -1,36 +1,26 @@
+"use client";
+
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
 import Gallery from "@/app/components/Gallery";
+import { useEffect, useState } from "react";
+import { Contact } from "@/app/api/contact/types";
+import { getContactInfo } from "@/app/api/contact/api";
+import { useTranslations } from "next-intl";
 
-type FacilitiesItem = {
-  title: string;
-  description: string;
-  image?: string;
-  category?: string;
-  items?: string[];
-  details?: string[];
-  icon?: string;
-};
+export default function FacilitiesPage() {
+  const t = useTranslations("facilities");
 
-type BookingPeriod = {
-  quarter: string;
-  months: string;
-  status: string;
-  booked: string;
-  color: string;
-  width: string;
-  textColor: string;
-};
+  const [contactInfo, setContactInfo] = useState<Contact | null>(null);
 
-export default async function FacilitiesPage() {
-  const t = await getTranslations("facilities");
-  const workshopGallery = t.raw("workshop.items") as Required<FacilitiesItem>[];
-  const equipment = t.raw("equipment") as Required<FacilitiesItem>[];
-  const certifications = t.raw("certifications") as string[];
-  const capacityInfo = t.raw("capacityInfo") as Required<FacilitiesItem>[];
-  const bookingPeriods = t.raw("bookingCalendar.periods") as BookingPeriod[];
+  useEffect(() => {
+    const fetchContactInfo = async () => {
+      const response = await getContactInfo();
+      setContactInfo(response);
+    };
 
+    fetchContactInfo();
+  }, []);
   return (
     <div className="">
       {/* Hero Section */}
@@ -75,222 +65,6 @@ export default async function FacilitiesPage() {
         </div>
       </section>
 
-      {/* Workshop Gallery Section */}
-      {/* <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
-              {t("workshop.title")}{" "}
-              <span className="text-accent-purple  ">
-                {t("workshop.highlight")}
-              </span>
-            </h2>
-            <p className="text-xl text-zinc-600 max-w-2xl">
-              {t("workshop.description")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {workshopGallery.map((item, index) => (
-              <div
-                key={index}
-                className="group relative bg-white rounded-xl overflow-hidden border border-zinc-200 shadow-xs hover:shadow-md hover:border-accent-yellow transition-all duration-300"
-              >
-                <div className="relative h-64">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    layout="fill"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 right-4 bg-accent-yellow text-black text-xs font-bold px-3 py-1 rounded-full">
-                    {item.category}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-zinc-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-zinc-600 text-sm">{item.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Equipment & Tools Section */}
-      {/* <section className="py-20 bg-zinc-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
-              {t("equipmentSection.title")}{" "}
-              <span className="text-accent-purple  ">
-                {t("equipmentSection.highlight")}
-              </span>
-            </h2>
-            <p className="text-xl text-zinc-600 max-w-2xl">
-              {t("equipmentSection.description")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {equipment.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-xl border border-zinc-200 shadow-xs hover:shadow-md hover:border-accent-yellow transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <span className="text-5xl mr-4">{category.icon}</span>
-                  <h3 className="text-2xl font-bold text-zinc-900">
-                    {category.category}
-                  </h3>
-                </div>
-                <ul className="space-y-3">
-                  {category.items.map((item, itemIndex) => (
-                    <li
-                      key={itemIndex}
-                      className="flex items-start text-zinc-600"
-                    >
-                      <svg
-                        className="w-5 h-5 text-accent-yellow mr-3 mt-1 shrink-0"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="bg-linear-to-r from-white to-zinc-100 p-8 rounded-xl border border-zinc-200 shadow-xs">
-            <h3 className="text-2xl font-bold text-zinc-900 mb-6 text-center">
-              {t("certificationsSection.title")}{" "}
-              <span className="text-accent-yellow">
-                {t("certificationsSection.highlight")}
-              </span>
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {certifications.map((cert, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center p-4 rounded-xl border border-accent-yellow/20"
-                >
-                  <svg
-                    className="w-6 h-6 text-accent-yellow mr-3 shrink-0"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                  </svg>
-                  <span className="text-zinc-900 text-sm font-medium">
-                    {cert}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Capacity & Availability Section */}
-      {/* <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
-              {t("capacitySection.title")}{" "}
-              <span className="text-accent-purple  ">
-                {t("capacitySection.highlight")}
-              </span>
-            </h2>
-            <p className="text-xl text-zinc-600 max-w-2xl">
-              {t("capacitySection.description")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {capacityInfo.map((info, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-xl border border-zinc-200 shadow-xs hover:shadow-md hover:border-accent-yellow transition-all duration-300"
-              >
-                <div className="text-5xl mb-4 text-center">{info.icon}</div>
-                <h3 className="text-2xl font-bold text-zinc-900 mb-3 text-center">
-                  {info.title}
-                </h3>
-                <p className="text-zinc-600 text-center mb-6">
-                  {info.description}
-                </p>
-                <div className="space-y-3">
-                  {info.details.map((detail, detailIndex) => (
-                    <div
-                      key={detailIndex}
-                      className="flex items-start bg-zinc-50 p-3 rounded-lg"
-                    >
-                      <svg
-                        className="w-5 h-5 text-accent-yellow mr-3 mt-0.5 shrink-0"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M9 5l7 7-7 7"></path>
-                      </svg>
-                      <span className="text-zinc-700 text-sm">{detail}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 bg-white p-8 rounded-xl border border-zinc-200 shadow-xs">
-            <h3 className="text-2xl font-bold text-zinc-900 mb-6 text-center">
-              {t("bookingCalendar.title")}{" "}
-              <span className="text-accent-yellow">
-                {t("bookingCalendar.highlight")}
-              </span>
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {bookingPeriods.map((period) => (
-                <div
-                  key={period.quarter}
-                  className="p-6 rounded-xl border border-zinc-200"
-                >
-                  <div className={`${period.textColor} text-lg font-bold mb-2`}>
-                    {period.quarter}
-                  </div>
-                  <div className="text-zinc-900 text-2xl font-bold mb-2">
-                    {period.months}
-                  </div>
-                  <div className="text-zinc-600 text-sm mb-4">
-                    {period.status}
-                  </div>
-                  <div
-                    className={`${period.color} h-2 rounded-full ${period.width} mb-2`}
-                  ></div>
-                  <div className="text-zinc-600 text-xs">{period.booked}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* CTA Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -321,7 +95,7 @@ export default async function FacilitiesPage() {
               <div className="text-zinc-900 font-semibold mb-1">
                 {t("contactInfo.phoneLabel")}
               </div>
-              <div className="text-zinc-600">+66 XX XXX XXXX</div>
+              <div className="text-zinc-600">{contactInfo?.phone}</div>
             </div>
             <div>
               <svg
@@ -338,7 +112,7 @@ export default async function FacilitiesPage() {
               <div className="text-zinc-900 font-semibold mb-1">
                 {t("contactInfo.emailLabel")}
               </div>
-              <div className="text-zinc-600">fastforwardsport@outlook.com</div>
+              <div className="text-zinc-600">{contactInfo?.email}</div>
             </div>
             <div>
               <svg

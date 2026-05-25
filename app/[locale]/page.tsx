@@ -1,68 +1,61 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import ProjectsCarousel from "../components/ProjectsCarousel";
-import ProjectItem, { Project } from "../components/ProjectItem";
 import BusinessUnitSection from "../components/BusinessUnitSection";
 import Gallery from "../components/Gallery";
 import { IconArrowDown } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import { Project } from "../api/projects/types";
+import { listProjects } from "../api/projects/api";
 
 export default function Home() {
   const t = useTranslations("home");
-  const achievements: Project[] = [
-    {
-      title: "Thailand Rally Championship 2024 & 2025 Champion",
-      description: "Overall & Royal Cup Winner",
-      image: "/images/img18.jpg",
-    },
-    {
-      title: "TRRC 2025 Round 1 Champion",
-      description: "Thailand Regional Rally Championship",
-      image: "/images/img19.jpg",
-    },
-    {
-      title: "XCR Sprint Cup Hokkaido 2025",
-      description: "Podium Finish",
-      image: "/images/img20.jpg",
-    },
-    {
-      title: "Asia Cross Country Rally (AXCR)",
-      description: "Multiple Podiums",
-      image: "/images/img22.jpg",
-    },
-    {
-      title: "Rally Hokkaido Japan",
-      description: "International Recognition",
-      image: "/images/img17.jpg",
-    },
-  ];
-  const featuredProjects = [
-    {
-      title: "Thailand Rally Championship 2024 Build",
-      category: "CHAMPIONSHIP",
-      image: "/images/img1.jpg",
-      description: "Complete rally car build for championship-winning campaign",
-    },
-    {
-      title: "4G63 Engine Development Program",
-      category: "ENGINEERING",
-      image: "/images/img2.jpg",
-      description: "High-performance engine development and optimization",
-    },
-    {
-      title: "Asia Pacific Circuit Series Support",
-      category: "RACING",
-      image: "/images/img3.jpg",
-      description: "Professional race engineering and technical support",
-    },
-    {
-      title: "Rally Academy Graduates 2024",
-      category: "ACADEMY",
-      image: "/images/img4.jpg",
-      description: "Successfully trained drivers progressing to championships",
-    },
-  ];
+  const locale = useLocale();
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await listProjects();
+        setProjects(response || []);
+      } catch (error) {
+        console.error("Failed to load projects:", error);
+        setProjects([]);
+      }
+    };
+
+    void fetchProjects();
+  }, [locale]);
+
+  // const achievements: Project[] = [
+  //   {
+  //     title: "Thailand Rally Championship 2024 & 2025 Champion",
+  //     description: "Overall & Royal Cup Winner",
+  //     image: "/images/img18.jpg",
+  //   },
+  //   {
+  //     title: "TRRC 2025 Round 1 Champion",
+  //     description: "Thailand Regional Rally Championship",
+  //     image: "/images/img19.jpg",
+  //   },
+  //   {
+  //     title: "XCR Sprint Cup Hokkaido 2025",
+  //     description: "Podium Finish",
+  //     image: "/images/img20.jpg",
+  //   },
+  //   {
+  //     title: "Asia Cross Country Rally (AXCR)",
+  //     description: "Multiple Podiums",
+  //     image: "/images/img22.jpg",
+  //   },
+  //   {
+  //     title: "Rally Hokkaido Japan",
+  //     description: "International Recognition",
+  //     image: "/images/img17.jpg",
+  //   },
+  // ];
 
   const partners = [
     {
@@ -165,7 +158,8 @@ export default function Home() {
         </div>
       </section>
       {/* Key Achievements Section */}
-      <section className="py-20">
+      {/* TODO: fetch API */}
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
@@ -185,7 +179,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Featured Projects Carousel */}
       <section className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,7 +197,7 @@ export default function Home() {
         </div>
       </section>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ProjectsCarousel projects={featuredProjects} />
+        <ProjectsCarousel projects={projects} />
       </div>
       {/* Ecosystem & Partners Section */}
       <section className="py-20">
