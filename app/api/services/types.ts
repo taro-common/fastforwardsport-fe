@@ -1,4 +1,4 @@
-import { Image } from "../our-galleries/types";
+import { GalleryItem, Image } from "../our-galleries/types";
 
 export type Service = {
   id: number;
@@ -19,6 +19,7 @@ export type Service = {
 export type Tag = {
   tag_th: string;
   tag_en: string;
+  our_galleries: GalleryItem[];
 };
 
 export const getColorByTag = (tag?: string) => {

@@ -143,13 +143,15 @@ export default function Gallery({
             </div>
 
             {/* Image Info */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-110">
-              <div className="bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-zinc-200">
-                <p className="text-sm font-semibold mb-1">
-                  {galleryImages[lightboxIndex].image.url}
-                </p>
+            {galleryImages[lightboxIndex].image.name && (
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-110">
+                <div className="bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-zinc-200">
+                  <p className="text-sm font-semibold mb-1">
+                    {galleryImages[lightboxIndex].image.name}
+                  </p>
+                </div>
               </div>
-            </div>
+            )}
           </div>,
           document.body,
         )}

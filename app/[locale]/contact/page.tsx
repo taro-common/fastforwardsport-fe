@@ -183,7 +183,7 @@ export default function ContactPage() {
                       {t("labels.phone")}
                     </h3>
                     {isLoadingContact ? (
-                      <p className="text-zinc-400">{t("loading")}</p>
+                      <p className="text-zinc-400">loading</p>
                     ) : phone ? (
                       phone.split(",").map((p) => (
                         <p key={p.trim()} className="text-zinc-600">

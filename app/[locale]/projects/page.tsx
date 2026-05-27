@@ -6,22 +6,16 @@ import ProjectsCarousel from "@/app/components/ProjectsCarousel";
 import { useEffect, useState } from "react";
 import { listProjects } from "@/app/api/projects/api";
 import type { Project } from "@/app/api/projects/types";
-
-type FilterKey =
-  | "ALL"
-  | "RALLY"
-  | "ENGINE"
-  | "RACING"
-  | "ACADEMY"
-  | "CHAMPIONSHIP"
-  | "SUPPORT";
+import { Tag } from "@/app/api/services/types";
+import { listImageTags } from "@/app/api/our-galleries/api";
 
 export default function ProjectsPage() {
   const t = useTranslations("projects");
   const locale = useLocale();
 
   const [projects, setProjects] = useState<Project[]>([]);
-  const [activeFilter, setActiveFilter] = useState<FilterKey>("ALL");
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [tags, setTags] = useState<Tag[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -35,10 +29,17 @@ export default function ProjectsPage() {
     };
 
     void fetchProjects();
+
+    const fetchTags = async () => {
+      const response = await listImageTags();
+      setTags(response || []);
+    };
+
+    fetchTags();
   }, [locale]);
 
   const filteredProjects =
-    activeFilter === "ALL"
+    activeFilter === "all"
       ? projects
       : projects.filter(
           (project) => project.tag?.tag_en?.toUpperCase() === activeFilter,
@@ -82,55 +83,31 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 overflow-x-auto py-4">
             <button
-              onClick={() => setActiveFilter("ALL")}
+              onClick={() => setActiveFilter("all")}
               className={`font-semibold pb-2 whitespace-nowrap ${
-                activeFilter === "ALL"
+                activeFilter === "all"
                   ? "text-accent-purple border-b-2 border-accent-purple"
                   : "text-zinc-600 hover:text-zinc-900"
               }`}
             >
               {t("filters.all")}
             </button>
-            <button
-              onClick={() => setActiveFilter("RALLY")}
-              className={`font-semibold pb-2 whitespace-nowrap ${
-                activeFilter === "RALLY"
-                  ? "text-accent-purple border-b-2 border-accent-purple"
-                  : "text-zinc-600 hover:text-zinc-900"
-              }`}
-            >
-              {t("filters.rally")}
-            </button>
-            <button
-              onClick={() => setActiveFilter("ENGINE")}
-              className={`font-semibold pb-2 whitespace-nowrap ${
-                activeFilter === "ENGINE"
-                  ? "text-accent-purple border-b-2 border-accent-purple"
-                  : "text-zinc-600 hover:text-zinc-900"
-              }`}
-            >
-              {t("filters.engine")}
-            </button>
-            <button
-              onClick={() => setActiveFilter("RACING")}
-              className={`font-semibold pb-2 whitespace-nowrap ${
-                activeFilter === "RACING"
-                  ? "text-accent-purple border-b-2 border-accent-purple"
-                  : "text-zinc-600 hover:text-zinc-900"
-              }`}
-            >
-              {t("filters.racing")}
-            </button>
-            <button
-              onClick={() => setActiveFilter("ACADEMY")}
-              className={`font-semibold pb-2 whitespace-nowrap ${
-                activeFilter === "ACADEMY"
-                  ? "text-accent-purple border-b-2 border-accent-purple"
-                  : "text-zinc-600 hover:text-zinc-900"
-              }`}
-            >
-              {t("filters.academy")}
-            </button>
+            {tags.map((tag, index) => {
+              const tagName = locale === "en" ? tag.tag_en : tag.tag_th;
+              return (
+                <button
+                  key={index}
+                  onClick={() => setActiveFilter(tag.tag_en)}
+                  className={`font-semibold pb-2 whitespace-nowrap ${
+                    activeFilter === tag.tag_en
+                      ? "text-accent-purple border-b-2 border-accent-purple"
+                      : "text-zinc-600 hover:text-zinc-900"
+                  }`}
+                >
+                  {tagName}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>

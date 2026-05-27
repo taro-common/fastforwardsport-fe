@@ -6,16 +6,18 @@ import Gallery from "@/app/components/Gallery";
 import { useEffect, useState } from "react";
 import { Contact } from "@/app/api/contact/types";
 import { getContactInfo } from "@/app/api/contact/api";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { GalleryItem } from "@/app/api/our-galleries/types";
-import { listGalleryImages } from "@/app/api/our-galleries/api";
-import { getColorByTag } from "@/app/api/services/types";
+import { listGalleryImages, listImageTags } from "@/app/api/our-galleries/api";
+import { getColorByTag, Tag } from "@/app/api/services/types";
 
 export default function FacilitiesPage() {
   const t = useTranslations("facilities");
+  const locale = useLocale();
 
   const [contactInfo, setContactInfo] = useState<Contact | null>(null);
   const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
+  const [tags, setTags] = useState<Tag[]>([]);
 
   useEffect(() => {
     const fetchContactInfo = async () => {
@@ -32,10 +34,24 @@ export default function FacilitiesPage() {
       }
     };
 
+    const fetchTags = async () => {
+      const response = await listImageTags();
+      setTags(response || []);
+    };
+
     loadGalleryImages();
 
     fetchContactInfo();
+
+    fetchTags();
   }, []);
+
+  const time =
+    locale === "en"
+      ? contactInfo?.business_hours_en
+      : contactInfo?.business_hours_th;
+
+  const other = locale === "en" ? "Other" : "อื่นๆ";
 
   return (
     <div className="">
@@ -76,25 +92,27 @@ export default function FacilitiesPage() {
               {t("workshop.description")}
             </p>
           </div>
-          {/* TODO: Implement */}
-          <p
-            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
-          >
-            WORKSHOP
-          </p>
-          <Gallery galleryImages={galleryImages} />
-          <p
-            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
-          >
-            WORKSHOP
-          </p>
-          <Gallery galleryImages={galleryImages} />
-          <p
-            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
-          >
-            WORKSHOP
-          </p>
-          <Gallery galleryImages={galleryImages} />
+          {tags.map((tag, index) => {
+            const tagName = locale === "en" ? tag.tag_en : tag.tag_th;
+            return (
+              <div key={index} className="">
+                <p
+                  className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
+                >
+                  {tagName}
+                </p>
+                <Gallery key={index} galleryImages={tag.our_galleries} />
+              </div>
+            );
+          })}
+          <div className="">
+            <p
+              className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
+            >
+              {other}
+            </p>
+            <Gallery galleryImages={galleryImages.filter((img) => !img.tag)} />
+          </div>
         </div>
       </section>
 
@@ -162,7 +180,7 @@ export default function FacilitiesPage() {
               <div className="text-zinc-900 font-semibold mb-1">
                 {t("contactInfo.hoursLabel")}
               </div>
-              <div className="text-zinc-600">{t("contactInfo.hoursValue")}</div>
+              <div className="text-zinc-600">{time}</div>
             </div>
           </div>
 

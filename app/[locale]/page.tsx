@@ -11,12 +11,15 @@ import { Project } from "../api/projects/types";
 import { listProjects } from "../api/projects/api";
 import { GalleryItem } from "../api/our-galleries/types";
 import { listGalleryImages } from "../api/our-galleries/api";
+import { Partner } from "../api/partners/types";
+import { listPartner } from "../api/partners/api";
 
 export default function Home() {
   const t = useTranslations("home");
   const locale = useLocale();
   const [projects, setProjects] = useState<Project[]>([]);
   const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
+  const [partner, setPartner] = useState<Partner | null>(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -41,6 +44,18 @@ export default function Home() {
     };
 
     loadGalleryImages();
+
+    const fetchPartner = async () => {
+      try {
+        const response = await listPartner();
+        setPartner(response || null);
+      } catch (error) {
+        console.error("Failed to load partner:", error);
+        setPartner(null);
+      }
+    };
+
+    fetchPartner();
   }, [locale]);
 
   // const achievements: Project[] = [
@@ -70,33 +85,6 @@ export default function Home() {
   //     image: "/images/img17.jpg",
   //   },
   // ];
-
-  const partners = [
-    {
-      name: "Toyota Gazoo Racing Thailand",
-      logo: "/partner/toyota.png",
-    },
-    {
-      name: "TCD Asia",
-      logo: "/partner/tcd.png",
-    },
-    {
-      name: "Powerbrake",
-      logo: "/partner/powerbrake.png",
-    },
-    {
-      name: "WÜRTH",
-      logo: "/partner/wurth.png",
-    },
-    {
-      name: "Sabelt",
-      logo: "/partner/sabelt.jpg",
-    },
-    {
-      name: "Empire Motor Group",
-      logo: "/partner/emc.jpg",
-    },
-  ];
 
   return (
     <div className="">
@@ -229,12 +217,12 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {partners.map((partner, index) => (
+            {partner?.images.map((image, index) => (
               <img
                 key={index}
-                src={partner.logo}
-                alt={partner.name}
-                className="bg-white border border-zinc-200 transition-all duration-300 flex items-center justify-center min-h-30 w-full"
+                src={image.url}
+                alt={`Partner ${index + 1}`}
+                className="bg-white border border-zinc-200 transition-all duration-300 w-full aspect-square object-cover"
               />
             ))}
           </div>
