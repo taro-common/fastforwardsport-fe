@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
 import { Project } from "@/app/api/projects/types";
@@ -12,7 +12,6 @@ export default function ProjectDetailPage() {
   const params = useParams<{ documentId: string }>();
   const documentId = params?.documentId;
   const locale = useLocale();
-  const t = useTranslations("projects");
 
   const [project, setProject] = useState<Project | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -103,6 +102,14 @@ export default function ProjectDetailPage() {
               size={20}
               className="inline-block mr-1 text-zinc-400"
             />
+            <p className="text-zinc-400">
+              {project.publishedAt
+                ? new Date(project.publishedAt).toLocaleDateString(
+                    locale === "th" ? "th-TH" : "en-GB",
+                    { year: "numeric", month: "long", day: "numeric" },
+                  )
+                : "-"}
+            </p>
           </div>
         </div>
       </div>

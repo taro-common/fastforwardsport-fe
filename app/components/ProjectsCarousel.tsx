@@ -4,6 +4,7 @@ import { useState } from "react";
 import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { Project } from "../api/projects/types";
 import { useLocale } from "use-intl";
+import Link from "next/link";
 
 export default function ProjectsCarousel({
   projects,
@@ -43,7 +44,11 @@ export default function ProjectsCarousel({
                   ? project.description_th
                   : project.description_en;
               return (
-                <div key={index} className="w-full shrink-0">
+                <Link
+                  href={`/${locale}/projects/${project.documentId}`}
+                  key={index}
+                  className="w-full shrink-0"
+                >
                   <div className="group relative overflow-hidden h-96 md:h-120 cursor-pointer">
                     <img
                       src={project.image?.[0]?.url || "/placeholder.png"}
@@ -63,7 +68,7 @@ export default function ProjectsCarousel({
                       </p>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

@@ -12,4 +12,5 @@ export type Project = {
   content_th: string;
   tag?: Tag;
   image?: Image[];
+  publishedAt: string;
 };

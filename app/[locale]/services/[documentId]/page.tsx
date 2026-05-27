@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
 import { Service } from "@/app/api/services/types";
@@ -12,7 +12,6 @@ export default function ServiceDetailPage() {
   const params = useParams<{ documentId: string }>();
   const documentId = params?.documentId;
   const locale = useLocale();
-  const t = useTranslations("services");
 
   const [service, setService] = useState<Service | null>(null);
   const [isLoading, setIsLoading] = useState(true);
