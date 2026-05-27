@@ -97,7 +97,7 @@ export default function FacilitiesPage() {
             return (
               <div key={index} className="">
                 <p
-                  className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
+                  className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag(tag.tag_en.toLocaleUpperCase())} w-fit mt-8 mb-4`}
                 >
                   {tagName}
                 </p>
