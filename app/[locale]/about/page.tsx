@@ -1,4 +1,5 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
 import IconItem from "@/app/components/IconItem";
 import {
   IconChartLine,
@@ -10,12 +11,20 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { MileStone } from "@/app/api/milestones/types";
+import { useLocale, useTranslations } from "use-intl";
+import { listMilestones } from "@/app/api/milestones/api";
 
 type AboutItem = { title: string; description: string; icon: React.ReactNode };
-type Milestone = { year: string; achievements: string[] };
+type ValueItem = { title: string; description: string };
 
-export default async function AboutPage() {
-  const t = await getTranslations("about");
+export default function AboutPage() {
+  const t = useTranslations("about");
+  const locale = useLocale();
+
+  const [milestones, setMilestones] = useState<MileStone[]>([]);
+
   const missionIcons = [
     <IconFlag key="flag" />,
     <IconSettings key="settings" />,
@@ -24,14 +33,31 @@ export default async function AboutPage() {
     <IconSeedling key="seedling" />,
     <IconHeartHandshake key="heart" />,
   ];
+
   const missionPillars = (
     t.raw("mission.items") as { title: string; description: string }[]
   ).map((item, i) => ({
     ...item,
-    icon: missionIcons[i],
+    icon: missionIcons[i] ?? <IconFlag />,
   })) as AboutItem[];
-  const milestones = t.raw("milestones") as Milestone[];
-  const values = t.raw("values") as AboutItem[];
+
+  const values = t.raw("values") as ValueItem[];
+
+  const getMilestoneImageUrl = (url?: string) => {
+    if (!url) return null;
+    if (url.startsWith("http")) return url;
+    const base = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
+    return `${base}${url}`;
+  };
+
+  useEffect(() => {
+    const fetchMileStones = async () => {
+      const response = await listMilestones();
+      setMilestones(response || []);
+    };
+
+    void fetchMileStones();
+  }, []);
 
   return (
     <div className="">
@@ -143,7 +169,7 @@ export default async function AboutPage() {
 
       {/* Track Record & Milestones Section */}
       {/* TODO: fetch API */}
-      <section className="py-20">
+      <section className="py-20" id="MILESTONES">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
@@ -157,28 +183,69 @@ export default async function AboutPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            {milestones.map((milestone, index) => (
-              <div key={index} className="mb-12 last:mb-0">
-                <div className="flex items-center mb-6">
-                  <div className="bg-accent-yellow text-black text-2xl font-bold px-6 py-3 -skew-x-15!">
-                    {milestone.year}
-                  </div>
-                  <div className="flex-1 h-1 bg-accent-yellow ml-4"></div>
-                </div>
-                <div className="ml-8 space-y-4">
-                  {milestone.achievements.map((achievement, achIndex) => (
-                    <div
-                      key={achIndex}
-                      className="flex items-center p-4 border border-zinc-200 bg-zinc-50 rounded-xl hover:border-accent-yellow transition-all duration-300 gap-4"
-                    >
-                      <IconShieldCheckFilled className="text-accent-yellow" />
-                      <p className="text-zinc-900 text-lg">{achievement}</p>
+          <div className="max-w-4xl mx-auto space-y-6">
+            {milestones.length > 0 ? (
+              milestones.map((milestone, index) => {
+                const title =
+                  locale === "th" ? milestone.title_th : milestone.title_en;
+                const description =
+                  locale === "th"
+                    ? milestone.description_th
+                    : milestone.description_en;
+                const imageUrl = getMilestoneImageUrl(milestone.image?.url);
+
+                return (
+                  <div
+                    key={`${milestone.year}-${index}`}
+                    className="group border border-zinc-200 bg-white rounded-2xl p-5 hover:border-accent-yellow transition-all duration-300"
+                  >
+                    <div className="flex items-center mb-4">
+                      <div className="bg-accent-yellow text-black text-2xl font-bold px-6 py-3 -skew-x-15!">
+                        {milestone.year}
+                      </div>
+                      <div className="flex-1 h-1 bg-accent-yellow ml-4"></div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+
+                    <div className="flex gap-4 items-start">
+                      <IconShieldCheckFilled className="text-accent-yellow shrink-0 mt-1" />
+
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-zinc-900 text-xl font-bold mb-2">
+                          {title}
+                        </h3>
+                        <p className="text-zinc-600 leading-relaxed">
+                          {description}
+                        </p>
+                      </div>
+
+                      <div className="hidden md:block overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 transition-all duration-500 ease-out w-0 opacity-0 group-hover:w-56 group-hover:opacity-100">
+                        {imageUrl ? (
+                          <img
+                            src={imageUrl}
+                            alt={title}
+                            className="h-32 w-56 object-cover"
+                          />
+                        ) : (
+                          <div className="h-32 w-56" />
+                        )}
+                      </div>
+                    </div>
+
+                    {imageUrl && (
+                      <div className="md:hidden mt-4 overflow-hidden rounded-xl border border-zinc-200">
+                        <img
+                          src={imageUrl}
+                          alt={title}
+                          className="h-40 w-full object-cover"
+                        />
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            ) : (
+              <p className="text-zinc-500">No milestones available</p>
+            )}
           </div>
         </div>
       </section>

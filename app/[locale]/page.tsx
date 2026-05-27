@@ -13,6 +13,9 @@ import { GalleryItem } from "../api/our-galleries/types";
 import { listGalleryImages } from "../api/our-galleries/api";
 import { Partner } from "../api/partners/types";
 import { listPartner } from "../api/partners/api";
+import { MileStone } from "../api/milestones/types";
+import { listMilestones } from "../api/milestones/api";
+import MileStoneItem from "../components/MileStoneItem";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -20,16 +23,12 @@ export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
   const [partner, setPartner] = useState<Partner | null>(null);
+  const [mileStones, setMileStones] = useState<MileStone[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
-      try {
-        const response = await listProjects();
-        setProjects(response || []);
-      } catch (error) {
-        console.error("Failed to load projects:", error);
-        setProjects([]);
-      }
+      const response = await listProjects();
+      setProjects(response || []);
     };
 
     fetchProjects();
@@ -46,45 +45,19 @@ export default function Home() {
     loadGalleryImages();
 
     const fetchPartner = async () => {
-      try {
-        const response = await listPartner();
-        setPartner(response || null);
-      } catch (error) {
-        console.error("Failed to load partner:", error);
-        setPartner(null);
-      }
+      const response = await listPartner();
+      setPartner(response || null);
     };
 
     fetchPartner();
-  }, [locale]);
 
-  // const achievements: Project[] = [
-  //   {
-  //     title: "Thailand Rally Championship 2024 & 2025 Champion",
-  //     description: "Overall & Royal Cup Winner",
-  //     image: "/images/img18.jpg",
-  //   },
-  //   {
-  //     title: "TRRC 2025 Round 1 Champion",
-  //     description: "Thailand Regional Rally Championship",
-  //     image: "/images/img19.jpg",
-  //   },
-  //   {
-  //     title: "XCR Sprint Cup Hokkaido 2025",
-  //     description: "Podium Finish",
-  //     image: "/images/img20.jpg",
-  //   },
-  //   {
-  //     title: "Asia Cross Country Rally (AXCR)",
-  //     description: "Multiple Podiums",
-  //     image: "/images/img22.jpg",
-  //   },
-  //   {
-  //     title: "Rally Hokkaido Japan",
-  //     description: "International Recognition",
-  //     image: "/images/img17.jpg",
-  //   },
-  // ];
+    const fetchMileStones = async () => {
+      const response = await listMilestones();
+      setMileStones(response || []);
+    };
+
+    fetchMileStones();
+  }, [locale]);
 
   return (
     <div className="">
@@ -159,9 +132,8 @@ export default function Home() {
           <BusinessUnitSection />
         </div>
       </section>
-      {/* Key Achievements Section */}
       {/* TODO: fetch API */}
-      {/* <section className="py-20">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
@@ -176,12 +148,12 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-auto">
-            {achievements.slice(0, 4).map((achievement, index) => (
-              <ProjectItem key={index} project={achievement} />
+            {mileStones.slice(0, 4).map((mileStone, index) => (
+              <MileStoneItem key={index} mileStone={mileStone} />
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
       {/* Featured Projects Carousel */}
       <section className="pt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
