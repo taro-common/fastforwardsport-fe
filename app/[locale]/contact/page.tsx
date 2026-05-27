@@ -3,15 +3,14 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
-import axios from "axios";
-import { Contact } from "@/app/api/contact/types";
-import { getContactInfo } from "@/app/api/contact/api";
+import { Contact, ContactFormData } from "@/app/api/contact/types";
+import { getContactInfo, submitContact } from "@/app/api/contact/api";
 import { IconBrandTiktok, IconMapPin } from "@tabler/icons-react";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
   const locale = useLocale();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     phone: "",
@@ -67,33 +66,19 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      await axios.post("/api/contact", {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        service: formData.service,
-        message: formData.message,
-      });
+    const response = await submitContact(formData);
 
-      setIsSubmitting(false);
+    if (response) {
       setSubmitted(true);
-
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-        setSubmitted(false);
-      }, 3000);
-    } catch (error) {
-      console.error("Failed to submit form:", error);
-      setIsSubmitting(false);
-      // Optionally show error message to user
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+      });
+    } else {
+      alert(t("form.submitError"));
     }
   };
 

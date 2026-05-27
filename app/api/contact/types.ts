@@ -15,3 +15,11 @@ export type Contact = {
   business_hours_th: string;
   business_hours_en: string;
 };
+
+export type ContactFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+};
