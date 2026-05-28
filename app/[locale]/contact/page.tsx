@@ -181,6 +181,29 @@ export default function ContactPage() {
 
                 <div className="flex items-start">
                   <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 shrink-0">
+                    <img
+                      width="30"
+                      height="30"
+                      src="https://img.icons8.com/ios/50/line-me.png"
+                      alt="line-me"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="  font-semibold mb-1">Line ID</h3>
+                    {isLoadingContact ? (
+                      <p className="text-zinc-400">loading</p>
+                    ) : contactInfo?.line_id ? (
+                      contactInfo.line_id.split(",").map((line) => (
+                        <p key={line.trim()} className="text-zinc-600">
+                          {line.trim()}
+                        </p>
+                      ))
+                    ) : null}
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-12 h-12 bg-accent-yellow rounded-lg flex items-center justify-center mr-4 shrink-0">
                     <svg
                       className="w-6 h-6 text-black"
                       fill="none"
@@ -322,6 +345,21 @@ export default function ContactPage() {
                     >
                       <span className="sr-only">TikTok</span>
                       <IconBrandTiktok className="w-5 h-5" />
+                    </a>
+                  )}
+                  {contactInfo?.line_url && (
+                    <a
+                      href={contactInfo.line_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 bg-zinc-100 rounded-lg flex items-center justify-center hover:bg-accent-yellow hover:text-black transition-colors duration-200"
+                    >
+                      <img
+                        width="20"
+                        height="20"
+                        src="https://img.icons8.com/ios/50/line-me.png"
+                        alt="line-me"
+                      />
                     </a>
                   )}
                 </div>
