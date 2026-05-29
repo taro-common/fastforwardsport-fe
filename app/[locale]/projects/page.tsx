@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import ProjectItem from "../../components/ProjectItem";
 import ProjectsCarousel from "@/app/components/ProjectsCarousel";
 import { useEffect, useState } from "react";
-import { listProjects } from "@/app/api/projects/api";
+import { listProjects, listProjectTags } from "@/app/api/projects/api";
 import type { Project } from "@/app/api/projects/types";
 import { Tag } from "@/app/api/services/types";
 import { listImageTags } from "@/app/api/our-galleries/api";
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
     void fetchProjects();
 
     const fetchTags = async () => {
-      const response = await listImageTags();
+      const response = await listProjectTags();
       setTags(response || []);
     };
 

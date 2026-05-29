@@ -1,6 +1,5 @@
 import { useLocale } from "next-intl";
 import Link from "next/link";
-import React from "react";
 import { MileStone } from "../api/milestones/types";
 
 export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
@@ -12,9 +11,9 @@ export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
   return (
     <Link
       href={`/${locale}/about#MILESTONES`}
-      className="block group overflow-hidden hover:border-accent-yellow transition-all duration-300"
+      className="block group overflow-hidden hover:border-accent-yellow transition-all duration-300 w-52 shrink-0"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-65 overflow-hidden">
         <img
           src={mileStone.image.url}
           alt={mileStone.image.url}
@@ -30,17 +29,17 @@ export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
       </div>
       <div className="py-4">
         <div className="flex flex-col justify-between items-start mb-4">
-          <h3 className="text-xl font-bold group-hover:text-accent-purple line-clamp-1">
+          <h3 className="text-xl font-bold group-hover:text-accent-purple line-clamp-2">
             {title}
           </h3>
         </div>
-        <p className="text-zinc-600 text-sm line-clamp-2">{description}</p>
-        {/* <p className="text-accent-purple text-sm font-semibold mt-4 flex items-center">
+        {/* <p className="text-zinc-600 text-sm line-clamp-2">{description}</p> */}
+        <p className="text-accent-purple text-sm font-semibold mt-4 flex items-center">
           Read More{" "}
           <span className="ml-2 group-hover:ml-3 transition-all duration-300">
             →
           </span>
-        </p> */}
+        </p>
       </div>
     </Link>
   );

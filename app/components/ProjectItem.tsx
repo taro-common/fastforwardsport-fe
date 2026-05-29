@@ -17,7 +17,7 @@ export default function ProjectItem({ project }: { project: Project }) {
       : (project.description_en ?? project.description_th);
   const imageUrl = project?.image?.[0]?.url;
   const imageName = project?.image?.[0]?.name || title;
-  const tag = project.tag?.tag_en || "PROJECT";
+  const tag = project.tag?.tag_en;
 
   return (
     <Link
@@ -30,13 +30,15 @@ export default function ProjectItem({ project }: { project: Project }) {
           alt={imageName}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute top-4 left-4">
-          <span
-            className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag(tag.toUpperCase())}`}
-          >
-            {tag}
-          </span>
-        </div>
+        {tag && (
+          <div className="absolute top-4 left-4">
+            <span
+              className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag(tag.toUpperCase())}`}
+            >
+              {tag}
+            </span>
+          </div>
+        )}
       </div>
       <div className="py-4">
         <div className="flex flex-col justify-between items-start mb-4">

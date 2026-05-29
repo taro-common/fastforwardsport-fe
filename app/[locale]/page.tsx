@@ -147,8 +147,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-auto">
-            {mileStones.slice(0, 4).map((mileStone, index) => (
+          <div className="flex gap-6 overflow-x-auto">
+            {mileStones.map((mileStone, index) => (
               <MileStoneItem key={index} mileStone={mileStone} />
             ))}
           </div>
