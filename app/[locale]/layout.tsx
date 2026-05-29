@@ -6,7 +6,6 @@ import { NextIntlClientProvider } from "next-intl";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import PageTransition from "../components/PageTransition";
-import "../globals.css";
 import { Bebas_Neue, Prompt } from "next/font/google";
 
 export const prompt = Prompt({
@@ -45,20 +44,16 @@ export default async function LocaleLayout({
 
   // Providing all messages to the client side
   const messages = await getMessages();
-  const localeFontClass =
-    locale === "th" ? prompt.className : bebasNeue.className;
 
   return (
-    <html lang={locale} className="h-full antialiased">
-      <body className={`min-h-full flex flex-col ${prompt.className}`}>
-        <NextIntlClientProvider messages={messages}>
-          <Navigation />
-          <main className="flex-1 pt-20">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <div className={`min-h-full flex flex-col `}>
+        <Navigation />
+        <main className="flex-1 pt-20">
+          <PageTransition>{children}</PageTransition>
+        </main>
+        <Footer />
+      </div>
+    </NextIntlClientProvider>
   );
 }

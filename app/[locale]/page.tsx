@@ -189,7 +189,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {partner?.images.map((image, index) => (
+            {partner?.images?.map((image, index) => (
               <img
                 key={index}
                 src={image.url}
