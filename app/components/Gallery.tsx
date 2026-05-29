@@ -9,12 +9,14 @@ import {
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { GalleryItem } from "../api/our-galleries/types";
+import { useLocale } from "next-intl";
 
 export default function Gallery({
   galleryImages,
 }: {
   galleryImages: GalleryItem[];
 }) {
+  const locale = useLocale();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number>(0);
 
@@ -70,6 +72,11 @@ export default function Gallery({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightboxImage, lightboxIndex]);
 
+  const title =
+    locale === "th"
+      ? galleryImages[lightboxIndex]?.title_th
+      : galleryImages[lightboxIndex]?.title_en;
+
   return (
     <>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:auto-rows-[180px]">
@@ -99,7 +106,7 @@ export default function Gallery({
         typeof window !== "undefined" &&
         createPortal(
           <div
-            className="fixed inset-0 z-100 bg-black/96 backdrop-blur-xs flex items-center justify-center p-4"
+            className="fixed inset-0 z-100 bg-black/96 backdrop-blur-xs flex flex-col items-center justify-center p-4"
             onClick={closeLightbox}
           >
             {/* Close Button */}
@@ -132,23 +139,22 @@ export default function Gallery({
               <IconChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Image */}
-            <div className="relative max-w-4xl max-h-[80vh] w-full mb-4 z-105">
+            {/* Image Container */}
+            <div className="flex flex-col items-center justify-center flex-1 w-full max-w-4xl z-105 overflow-hidden">
+              {/* Image */}
               <img
                 src={lightboxImage}
                 alt={galleryImages[lightboxIndex].image.url}
-                className="w-full h-full object-contain rounded-lg"
+                className="max-h-[70vh] max-w-full object-contain rounded-lg"
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
 
             {/* Image Info */}
-            {galleryImages[lightboxIndex].image.name && (
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-110">
+            {title && (
+              <div className="mt-6 text-center z-110">
                 <div className="bg-white/80 px-6 py-3 rounded-full backdrop-blur-sm border border-zinc-200">
-                  <p className="text-sm font-semibold mb-1">
-                    {galleryImages[lightboxIndex].image.name}
-                  </p>
+                  <p className="text-sm font-semibold">{title}</p>
                 </div>
               </div>
             )}
