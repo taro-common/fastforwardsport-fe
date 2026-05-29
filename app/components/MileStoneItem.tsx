@@ -1,6 +1,6 @@
 import { useLocale } from "next-intl";
-import Link from "next/link";
 import { MileStone } from "../api/milestones/types";
+import { Link } from "@/i18n/routing";
 
 export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
   const locale = useLocale();
@@ -10,7 +10,7 @@ export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
     locale === "en" ? mileStone.description_en : mileStone.description_th;
   return (
     <Link
-      href={`/${locale}/about#MILESTONES`}
+      href={`/milestones/${mileStone.documentId}`}
       className="block group overflow-hidden hover:border-accent-yellow transition-all duration-300 w-52 shrink-0"
     >
       <div className="relative h-65 overflow-hidden">

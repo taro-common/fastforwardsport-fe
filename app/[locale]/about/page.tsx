@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { MileStone } from "@/app/api/milestones/types";
 import { useLocale, useTranslations } from "use-intl";
 import { listMilestones } from "@/app/api/milestones/api";
+import { Link } from "@/i18n/routing";
 
 type AboutItem = { title: string; description: string; icon: React.ReactNode };
 type ValueItem = { title: string; description: string };
@@ -183,66 +184,92 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-10">
             {milestones.length > 0 ? (
-              milestones.map((milestone, index) => {
-                const title =
-                  locale === "th" ? milestone.title_th : milestone.title_en;
-                const description =
-                  locale === "th"
-                    ? milestone.description_th
-                    : milestone.description_en;
-                const imageUrl = getMilestoneImageUrl(milestone.image?.url);
-
-                return (
-                  <div
-                    key={`${milestone.year}-${index}`}
-                    className="group border border-zinc-200 bg-white rounded-2xl p-5 hover:border-accent-yellow transition-all duration-300"
-                  >
-                    <div className="flex items-center mb-4">
+              Object.entries(
+                milestones.reduce(
+                  (acc, milestone) => {
+                    const year = milestone.year;
+                    if (!acc[year]) acc[year] = [];
+                    acc[year].push(milestone);
+                    return acc;
+                  },
+                  {} as Record<string, MileStone[]>,
+                ),
+              )
+                .sort(([yearA], [yearB]) => yearB.localeCompare(yearA))
+                .map(([year, yearMilestones]) => (
+                  <div key={year}>
+                    {/* Year Header */}
+                    <div className="flex items-center mb-6">
                       <div className="bg-accent-yellow text-black text-2xl font-bold px-6 py-3 -skew-x-15!">
-                        {milestone.year}
+                        {year}
                       </div>
                       <div className="flex-1 h-1 bg-accent-yellow ml-4"></div>
                     </div>
 
-                    <div className="flex gap-4 items-start">
-                      <IconShieldCheckFilled className="text-accent-yellow shrink-0 mt-1" />
+                    {/* Milestones for this year */}
+                    <div className="ml-8 flex flex-col gap-4">
+                      {yearMilestones.map((milestone, idx) => {
+                        const title =
+                          locale === "th"
+                            ? milestone.title_th
+                            : milestone.title_en;
+                        const description =
+                          locale === "th"
+                            ? milestone.description_th
+                            : milestone.description_en;
+                        const imageUrl = getMilestoneImageUrl(
+                          milestone.image?.url,
+                        );
 
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-zinc-900 text-xl font-bold mb-2">
-                          {title}
-                        </h3>
-                        <p className="text-zinc-600 leading-relaxed">
-                          {description}
-                        </p>
-                      </div>
+                        return (
+                          <Link
+                            key={`${year}-${idx}`}
+                            href={`/milestones/${milestone.documentId}`}
+                          >
+                            <div className="group border border-zinc-200 bg-white rounded-2xl p-4 hover:border-accent-yellow transition-all duration-300">
+                              <div className="flex gap-4 items-start">
+                                <IconShieldCheckFilled className="text-accent-yellow shrink-0 mt-1" />
 
-                      <div className="hidden md:block overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 transition-all duration-500 ease-out w-0 opacity-0 group-hover:w-56 group-hover:opacity-100">
-                        {imageUrl ? (
-                          <img
-                            src={imageUrl}
-                            alt={title}
-                            className="h-32 w-56 object-cover"
-                          />
-                        ) : (
-                          <div className="h-32 w-56" />
-                        )}
-                      </div>
+                                <div className="flex-1 min-w-0">
+                                  <h3 className="text-zinc-900 text-lg font-bold mb-2">
+                                    {title}
+                                  </h3>
+                                  <p className="text-zinc-600 text-sm leading-relaxed">
+                                    {description}
+                                  </p>
+                                </div>
+
+                                <div className="hidden md:block overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 transition-all duration-500 ease-out w-0 opacity-0 group-hover:w-48 group-hover:opacity-100">
+                                  {imageUrl ? (
+                                    <img
+                                      src={imageUrl}
+                                      alt={title}
+                                      className="h-28 w-48 object-cover"
+                                    />
+                                  ) : (
+                                    <div className="h-28 w-48" />
+                                  )}
+                                </div>
+                              </div>
+
+                              {imageUrl && (
+                                <div className="md:hidden mt-3 overflow-hidden rounded-xl border border-zinc-200">
+                                  <img
+                                    src={imageUrl}
+                                    alt={title}
+                                    className="h-32 w-full object-cover"
+                                  />
+                                </div>
+                              )}
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
-
-                    {imageUrl && (
-                      <div className="md:hidden mt-4 overflow-hidden rounded-xl border border-zinc-200">
-                        <img
-                          src={imageUrl}
-                          alt={title}
-                          className="h-40 w-full object-cover"
-                        />
-                      </div>
-                    )}
                   </div>
-                );
-              })
+                ))
             ) : (
               <p className="text-zinc-500">No milestones available</p>
             )}
