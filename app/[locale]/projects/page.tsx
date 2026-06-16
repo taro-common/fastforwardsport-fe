@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { listProjects, listProjectTags } from "@/app/api/projects/api";
 import type { Project } from "@/app/api/projects/types";
 import { Tag } from "@/app/api/services/types";
-import { listImageTags } from "@/app/api/our-galleries/api";
 
 export default function ProjectsPage() {
   const t = useTranslations("projects");
@@ -90,7 +89,7 @@ export default function ProjectsPage() {
                   : "text-zinc-600 hover:text-zinc-900"
               }`}
             >
-              {t("filters.all")}
+              {locale === "th" ? "ทั้งหมด" : "ALL"}
             </button>
             {tags.map((tag, index) => {
               const tagName = locale === "en" ? tag.tag_en : tag.tag_th;
@@ -113,9 +112,11 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20">
+      <section className="pt-12 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-2xl font-bold   mb-6">All Projects</p>
+          <p className="text-2xl font-bold mb-6">
+            {locale === "th" ? "โครงการทั้งหมด" : "All Projects"}
+          </p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project) => (

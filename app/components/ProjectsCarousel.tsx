@@ -5,6 +5,7 @@ import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { Project } from "../api/projects/types";
 import { useLocale } from "use-intl";
 import Link from "next/link";
+import { getColorByTag } from "../api/services/types";
 
 export default function ProjectsCarousel({
   projects,
@@ -57,9 +58,14 @@ export default function ProjectsCarousel({
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
                     <div className="absolute bottom-6 left-6 right-6">
-                      <span className="inline-block bg-accent-yellow text-black text-xs font-bold px-3 py-1.5 rounded-full mb-3">
-                        {tag}
-                      </span>
+                      {tag && (
+                        <span
+                          className={`inline-block ${getColorByTag(tag)} text-black text-xs font-bold px-3 py-1.5 mb-3`}
+                        >
+                          {tag}
+                        </span>
+                      )}
+
                       <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                         {title}
                       </h3>

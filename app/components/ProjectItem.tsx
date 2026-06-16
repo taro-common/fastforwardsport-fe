@@ -48,7 +48,7 @@ export default function ProjectItem({ project }: { project: Project }) {
         </div>
         <p className="text-zinc-600 text-sm line-clamp-2">{description}</p>
         <p className="text-accent-purple text-sm font-semibold mt-4 flex items-center">
-          Read More{" "}
+          {locale === "th" ? "อ่านเพิ่มเติม" : "Read More"}{" "}
           <span className="ml-2 group-hover:ml-3 transition-all duration-300">
             →
           </span>

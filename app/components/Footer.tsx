@@ -108,20 +108,6 @@ export default function Footer() {
           <p className="text-zinc-500 text-sm">
             © {currentYear} Fast Forward Sport. {t("rights")}
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link
-              href="#"
-              className="text-zinc-500 hover:text-accent-yellow transition-colors"
-            >
-              {t("privacyPolicy")}
-            </Link>
-            <Link
-              href="#"
-              className="text-zinc-500 hover:text-accent-yellow transition-colors"
-            >
-              {t("termsOfService")}
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

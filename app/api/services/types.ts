@@ -22,12 +22,40 @@ export type Tag = {
   our_galleries: GalleryItem[];
 };
 
+const TAG_COLOR_MAP: Record<string, string> = {
+  RALLY: "bg-yellow-500",
+  ENGINE: "bg-purple-500",
+  RACING: "bg-lime-500",
+  CHAMPIONSHIP: "bg-purple-500",
+  ACADEMY: "bg-blue-500",
+  SUPPORT: "bg-green-500",
+  FASTS: "bg-pink-500",
+  DISTRIBUTOR: "bg-orange-500",
+  MOTORSPORT: "bg-red-500",
+};
+
+const TAG_COLORS_FALLBACK = [
+  "bg-orange-400",
+  "bg-pink-400",
+  "bg-teal-400",
+  "bg-red-400",
+  "bg-indigo-400",
+  "bg-cyan-400",
+  "bg-emerald-400",
+  "bg-violet-500",
+  "bg-fuchsia-400",
+  "bg-rose-400",
+  "bg-sky-400",
+  "bg-amber-400",
+];
+
 export const getColorByTag = (tag?: string) => {
-  if (tag === "RALLY") return "bg-accent-yellow";
-  if (tag === "ENGINE") return "bg-accent-purple";
-  if (tag === "RACING") return "bg-accent-lime";
-  if (tag === "CHAMPIONSHIP") return "bg-purple-500";
-  if (tag === "ACADEMY") return "bg-blue-500";
-  if (tag === "SUPPORT") return "bg-green-500";
-  return "bg-accent-yellow";
+  if (!tag) return "bg-accent-yellow";
+  const upper = tag.replace("-", "").toUpperCase();
+  if (TAG_COLOR_MAP[upper]) return TAG_COLOR_MAP[upper];
+  let hash = 0;
+  for (let i = 0; i < upper.length; i++) {
+    hash = (hash * 31 + upper.charCodeAt(i)) >>> 0;
+  }
+  return TAG_COLORS_FALLBACK[hash % TAG_COLORS_FALLBACK.length];
 };

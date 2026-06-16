@@ -194,7 +194,7 @@ export default function Home() {
                 key={index}
                 src={image.url}
                 alt={`Partner ${index + 1}`}
-                className="bg-white border border-zinc-200 transition-all duration-300 w-full aspect-square object-contain"
+                className="bg-white transition-all duration-300 w-full aspect-square object-contain"
               />
             ))}
           </div>

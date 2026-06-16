@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Service } from "@/app/api/services/types";
 import { listServices } from "@/app/api/services/api";
 import ServiceItem from "@/app/components/ServiceItem";
 
 export default function ServicesPage() {
   const t = useTranslations("services");
+  const locale = useLocale();
 
   const [services, setServices] = useState<Service[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -47,7 +48,9 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20 bg-zinc-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-2xl font-bold   mb-6">All Services</p>
+          <p className="text-2xl font-bold   mb-6">
+            {locale === "th" ? "บริการทั้งหมด" : "All Services"}
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {isLoading ? (
               <div className="col-span-full text-center py-12">

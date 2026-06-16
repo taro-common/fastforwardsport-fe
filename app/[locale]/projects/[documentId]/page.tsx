@@ -7,6 +7,7 @@ import { Link } from "@/i18n/routing";
 import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
 import { Project } from "@/app/api/projects/types";
 import { getProjectById } from "@/app/api/projects/api";
+import { getColorByTag } from "@/app/api/services/types";
 
 export default function ProjectDetailPage() {
   const params = useParams<{ documentId: string }>();
@@ -63,14 +64,6 @@ export default function ProjectDetailPage() {
     locale === "th" ? project.description_th : project.description_en;
   const content = locale === "th" ? project.content_th : project.content_en;
   const tagText = locale === "th" ? project.tag?.tag_th : project.tag?.tag_en;
-  const bgColorClass =
-    project.tag?.tag_en === "RALLY"
-      ? "accent-yellow"
-      : project.tag?.tag_en === "ENGINE"
-        ? "accent-purple"
-        : project.tag?.tag_en === "RACING"
-          ? "accent-lime"
-          : "accent-yellow";
 
   return (
     <section className="max-w-7xl mx-auto px-8 sm:px-16 lg:px-28">
@@ -81,7 +74,7 @@ export default function ProjectDetailPage() {
           className="pt-16 md:pt-20 pb-6 flex items-center gap-2 hover:text-accent-purple transition-colors cursor-pointer font-semibold"
         >
           <IconArrowLeft size={16} />
-          <p>All Projects</p>
+          <p>{locale === "th" ? "ผลงานทั้งหมด" : "All Projects"}</p>
         </Link>
         <img
           src={project?.image?.[0]?.url}
@@ -92,11 +85,14 @@ export default function ProjectDetailPage() {
 
       <div className="mt-8">
         <div className="flex gap-2 items-center">
-          <div
-            className={`px-4 py-2 bg-${bgColorClass} text-black text-xs font-bold inline-block`}
-          >
-            <p>{tagText}</p>
-          </div>
+          {tagText && (
+            <div
+              className={`px-4 py-2 ${getColorByTag(project.tag?.tag_en?.toUpperCase() || "")} text-black text-xs font-bold inline-block`}
+            >
+              <p>{tagText}</p>
+            </div>
+          )}
+
           <div className="flex gap-1 items-center">
             <IconCalendar
               size={20}

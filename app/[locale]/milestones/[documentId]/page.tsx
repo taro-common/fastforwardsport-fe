@@ -72,7 +72,7 @@ export default function MilestoneDetailPage() {
           className="pt-16 md:pt-20 pb-6 flex items-center gap-2 hover:text-accent-purple transition-colors cursor-pointer font-semibold"
         >
           <IconArrowLeft size={16} />
-          <p>About</p>
+          <p>{locale === "th" ? "กลับไปยังเกี่ยวกับเรา" : "Back to About"}</p>
         </Link>
         <img
           src={milestone?.image?.url}

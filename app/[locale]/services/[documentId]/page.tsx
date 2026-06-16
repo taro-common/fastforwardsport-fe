@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { IconArrowLeft, IconCalendar } from "@tabler/icons-react";
-import { Service } from "@/app/api/services/types";
+import { getColorByTag, Service } from "@/app/api/services/types";
 import { getServiceById } from "@/app/api/services/api";
 
 export default function ServiceDetailPage() {
@@ -64,15 +64,6 @@ export default function ServiceDetailPage() {
   const content = locale === "th" ? service.content_th : service.content_en;
   const tagText = locale === "th" ? service.tag?.tag_th : service.tag?.tag_en;
 
-  const bgColorClass =
-    service.title === "RALLY"
-      ? "accent-yellow"
-      : service.title === "ENGINE"
-        ? "accent-purple"
-        : service.title === "RACING"
-          ? "accent-lime"
-          : "accent-yellow";
-
   return (
     <section className="max-w-7xl mx-auto px-8 sm:px-16 lg:px-28">
       {/* Back Button */}
@@ -82,7 +73,7 @@ export default function ServiceDetailPage() {
           className="pt-16 md:pt-20 pb-6 flex items-center gap-2 hover:text-accent-purple transition-colors cursor-pointer font-semibold"
         >
           <IconArrowLeft size={16} />
-          <p>All Services</p>
+          <p>{locale === "th" ? "บริการทั้งหมด" : "All Services"}</p>
         </Link>
         <img
           src={service.image.url}
@@ -93,11 +84,14 @@ export default function ServiceDetailPage() {
 
       <div className="mt-8">
         <div className="flex gap-2 items-center">
-          <div
-            className={`px-4 py-2 bg-${bgColorClass} text-black text-xs font-bold inline-block`}
-          >
-            <p>{tagText}</p>
-          </div>
+          {tagText && (
+            <div
+              className={`px-4 py-2 ${getColorByTag(service.tag?.tag_en?.toUpperCase() || "")} text-black text-xs font-bold inline-block`}
+            >
+              <p>{tagText}</p>
+            </div>
+          )}
+
           <div className="flex gap-1 items-center">
             <IconCalendar
               size={20}

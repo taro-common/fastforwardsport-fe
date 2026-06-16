@@ -6,8 +6,7 @@ export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
   const locale = useLocale();
 
   const title = locale === "en" ? mileStone.title_en : mileStone.title_th;
-  const description =
-    locale === "en" ? mileStone.description_en : mileStone.description_th;
+
   return (
     <Link
       href={`/milestones/${mileStone.documentId}`}
@@ -35,7 +34,7 @@ export default function MileStoneItem({ mileStone }: { mileStone: MileStone }) {
         </div>
         {/* <p className="text-zinc-600 text-sm line-clamp-2">{description}</p> */}
         <p className="text-accent-purple text-sm font-semibold mt-4 flex items-center">
-          Read More{" "}
+          {locale === "th" ? "อ่านเพิ่มเติม" : "Read More"}{" "}
           <span className="ml-2 group-hover:ml-3 transition-all duration-300">
             →
           </span>

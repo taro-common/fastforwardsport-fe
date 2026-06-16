@@ -138,7 +138,7 @@ export default function ContactPage() {
                       {t("labels.email")}
                     </h3>
                     {isLoadingContact ? (
-                      <p className="text-zinc-400">{t("loading")}</p>
+                      <p className="text-zinc-400">loading...</p>
                     ) : email ? (
                       email.split(",").map((e) => (
                         <p key={e.trim()} className="text-zinc-600">
@@ -168,7 +168,7 @@ export default function ContactPage() {
                       {t("labels.phone")}
                     </h3>
                     {isLoadingContact ? (
-                      <p className="text-zinc-400">loading</p>
+                      <p className="text-zinc-400">loading...</p>
                     ) : phone ? (
                       phone.split(",").map((p) => (
                         <p key={p.trim()} className="text-zinc-600">
@@ -191,7 +191,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="  font-semibold mb-1">Line ID</h3>
                     {isLoadingContact ? (
-                      <p className="text-zinc-400">loading</p>
+                      <p className="text-zinc-400">loading...</p>
                     ) : contactInfo?.line_id ? (
                       contactInfo.line_id.split(",").map((line) => (
                         <p key={line.trim()} className="text-zinc-600">
@@ -222,7 +222,7 @@ export default function ContactPage() {
                       {t("labels.address")}
                     </h3>
                     {isLoadingContact ? (
-                      <p className="text-zinc-400">{t("loading")}</p>
+                      <p className="text-zinc-400">loading...</p>
                     ) : address ? (
                       address.split("\n").map((line) => (
                         <p key={line} className="text-zinc-600">
@@ -252,7 +252,7 @@ export default function ContactPage() {
                       {t("labels.businessHours")}
                     </h3>
                     {isLoadingContact ? (
-                      <p className="text-zinc-400">{t("loading")}</p>
+                      <p className="text-zinc-400">loading...</p>
                     ) : businessHours ? (
                       businessHours.split("\n").map((line) => (
                         <p key={line} className="text-zinc-600">
