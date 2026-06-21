@@ -11,7 +11,7 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MileStone } from "@/app/api/milestones/types";
 import { useLocale, useTranslations } from "use-intl";
 import { listMilestones } from "@/app/api/milestones/api";
@@ -25,6 +25,10 @@ export default function AboutPage() {
   const locale = useLocale();
 
   const [milestones, setMilestones] = useState<MileStone[]>([]);
+
+  const [hoveredImg, setHoveredImg] = useState<string | null>(null);
+  const [hoveredTop, setHoveredTop] = useState<number>(0);
+  const milestonesContainerRef = useRef<HTMLDivElement>(null);
 
   const missionIcons = [
     <IconFlag key="flag" />,
@@ -169,24 +173,42 @@ export default function AboutPage() {
       </section>
 
       {/* Track Record & Milestones Section */}
-      {/* TODO: fetch API */}
-      <section className="py-20" id="MILESTONES">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
-              {t("milestonesSection.title")}{" "}
-              <span className="text-accent-purple  ">
-                {t("milestonesSection.highlight")}
-              </span>
-            </h2>
-            <p className="text-xl text-zinc-600 max-w-2xl">
-              {t("milestonesSection.description")}
-            </p>
-          </div>
+      {milestones.length > 0 && (
+        <section
+          className="py-20 overflow-visible"
+          id="MILESTONES"
+          onMouseLeave={() => setHoveredImg(null)}
+        >
+          <div
+            ref={milestonesContainerRef}
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-visible"
+          >
+            {hoveredImg && (
+              <div
+                className="absolute right-[5vw] z-50 -translate-y-1/2"
+                style={{ top: hoveredTop }}
+              >
+                <img
+                  src={hoveredImg}
+                  alt="Milestone Preview"
+                  className="hidden lg:block w-[35vw] max-w-[480px] aspect-square object-cover rounded-lg shadow-sm shadow-accent-yellow"
+                />
+              </div>
+            )}
+            <div className="mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4 font-display">
+                {t("milestonesSection.title")}{" "}
+                <span className="text-accent-purple  ">
+                  {t("milestonesSection.highlight")}
+                </span>
+              </h2>
+              <p className="text-xl text-zinc-600 max-w-2xl">
+                {t("milestonesSection.description")}
+              </p>
+            </div>
 
-          <div className="max-w-4xl mx-auto space-y-10">
-            {milestones.length > 0 ? (
-              Object.entries(
+            <div className="max-w-4xl space-y-10 xl:ml-20 ">
+              {Object.entries(
                 milestones.reduce(
                   (acc, milestone) => {
                     const year = milestone.year;
@@ -215,10 +237,7 @@ export default function AboutPage() {
                           locale === "th"
                             ? milestone.title_th
                             : milestone.title_en;
-                        const description =
-                          locale === "th"
-                            ? milestone.description_th
-                            : milestone.description_en;
+
                         const imageUrl = getMilestoneImageUrl(
                           milestone.image?.url,
                         );
@@ -227,55 +246,42 @@ export default function AboutPage() {
                           <Link
                             key={`${year}-${idx}`}
                             href={`/milestones/${milestone.documentId}`}
+                            onMouseEnter={(e) => {
+                              setHoveredImg(imageUrl);
+                              const container = milestonesContainerRef.current;
+                              if (container) {
+                                const elRect = (
+                                  e.currentTarget as HTMLElement
+                                ).getBoundingClientRect();
+                                const containerRect =
+                                  container.getBoundingClientRect();
+                                setHoveredTop(
+                                  elRect.top -
+                                    containerRect.top +
+                                    elRect.height / 2,
+                                );
+                              }
+                            }}
                           >
-                            <div className="group border border-zinc-200 bg-white rounded-2xl p-4 hover:border-accent-yellow transition-all duration-300">
-                              <div className="flex gap-4 items-start">
+                            <div className="w-full lg:w-2/3 group border border-zinc-200 bg-white rounded-2xl p-4 hover:border-accent-yellow transition-all duration-300">
+                              <div className="flex gap-4 items-center">
                                 <IconShieldCheckFilled className="text-accent-yellow shrink-0 mt-1" />
 
-                                <div className="flex-1 min-w-0">
-                                  <h3 className="text-zinc-900 text-lg font-bold mb-2">
-                                    {title}
-                                  </h3>
-                                  <p className="text-zinc-600 text-sm leading-relaxed">
-                                    {description}
-                                  </p>
-                                </div>
-
-                                <div className="hidden md:block overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 transition-all duration-500 ease-out w-0 opacity-0 group-hover:w-48 group-hover:opacity-100">
-                                  {imageUrl ? (
-                                    <img
-                                      src={imageUrl}
-                                      alt={title}
-                                      className="h-28 w-48 object-cover"
-                                    />
-                                  ) : (
-                                    <div className="h-28 w-48" />
-                                  )}
-                                </div>
+                                <h3 className="text-zinc-900 text-lg font-bold truncate">
+                                  {title}
+                                </h3>
                               </div>
-
-                              {imageUrl && (
-                                <div className="md:hidden mt-3 overflow-hidden rounded-xl border border-zinc-200">
-                                  <img
-                                    src={imageUrl}
-                                    alt={title}
-                                    className="h-32 w-full object-cover"
-                                  />
-                                </div>
-                              )}
                             </div>
                           </Link>
                         );
                       })}
                     </div>
                   </div>
-                ))
-            ) : (
-              <p className="text-zinc-500">No milestones available</p>
-            )}
+                ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Our Values Section */}
       <section className="relative py-20 bg-zinc-50">

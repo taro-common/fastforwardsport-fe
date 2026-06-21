@@ -147,10 +147,34 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex gap-6 overflow-x-auto">
-            {mileStones.map((mileStone, index) => (
-              <MileStoneItem key={index} mileStone={mileStone} />
-            ))}
+          <div className="flex gap-8 overflow-x-auto pb-4">
+            {Object.entries(
+              mileStones?.reduce(
+                (acc, milestone) => {
+                  const year = milestone.year;
+                  if (!acc[year]) acc[year] = [];
+                  acc[year].push(milestone);
+                  return acc;
+                },
+                {} as Record<string, MileStone[]>,
+              ),
+            )
+              .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+              .map(([year, yearMilestones]) => (
+                <div key={year} className="shrink-0">
+                  {/* <h3 className="text-2xl font-bold text-accent-purple mb-4">
+                    {year}
+                  </h3> */}
+                  <div className="flex gap-4">
+                    {yearMilestones.map((milestone) => (
+                      <MileStoneItem
+                        key={milestone.documentId}
+                        mileStone={milestone}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </section>
