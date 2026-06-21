@@ -191,7 +191,7 @@ export default function AboutPage() {
                 <img
                   src={hoveredImg}
                   alt="Milestone Preview"
-                  className="hidden lg:block w-[35vw] max-w-[480px] aspect-square object-cover rounded-lg shadow-sm shadow-accent-yellow"
+                  className="hidden lg:block w-[36vw] max-w-[480px] aspect-4/3 object-cover rounded-lg shadow-sm shadow-accent-yellow"
                 />
               </div>
             )}

@@ -92,7 +92,7 @@ export default function FacilitiesPage() {
               {t("workshop.description")}
             </p>
           </div>
-          {tags.map((tag, index) => {
+          {/* {tags.map((tag, index) => {
             const tagName = locale === "en" ? tag.tag_en : tag.tag_th;
             return (
               <div key={index} className="">
@@ -104,15 +104,47 @@ export default function FacilitiesPage() {
                 <Gallery key={index} galleryImages={tag.our_galleries} />
               </div>
             );
-          })}
-          <div className="">
+          })} */}
+          {/* <div className="">
             <p
               className={`text-black text-xs font-bold px-3 py-1.5 ${getColorByTag("WORKSHOP")} w-fit mt-8 mb-4`}
             >
               {other}
             </p>
             <Gallery galleryImages={galleryImages.filter((img) => !img.tag)} />
-          </div>
+          </div> */}
+          {galleryImages.length > 0 && (
+            <div className="">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                {galleryImages.map((image, index) => {
+                  const tagName =
+                    locale === "en" ? image.tag?.tag_en : image.tag?.tag_th;
+                  const title =
+                    locale === "en" ? image.title_en : image.title_th;
+                  return (
+                    <div key={index} className="relative">
+                      {tagName && (
+                        <p
+                          className={`absolute top-4 left-4 text-black text-xs font-bold px-3 py-1.5 ${getColorByTag(image.tag?.tag_en.toLocaleUpperCase() || "OTHER")} w-fit`}
+                        >
+                          {tagName}
+                        </p>
+                      )}
+
+                      <img
+                        src={image.image.url}
+                        alt={image.image.name}
+                        className="w-full h-auto object-cover rounded-t-md border-t border-x border-zinc-200"
+                      />
+                      <div className="p-5 text-zinc-900 font-semibold text-lg bg-zinc-100 rounded-b-md border border-zinc-200 truncate">
+                        {title}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
